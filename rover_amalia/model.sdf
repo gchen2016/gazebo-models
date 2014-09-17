@@ -1,6 +1,22 @@
 <?xml version="1.0"?>
 <sdf version="1.5">
   <model name='rover_amalia'>
+    <plugin name="skid_steer_drive" filename="libgazebo_ros_skid_steer_drive.so">
+      <robotNamespace>rover_amalia</robotNamespace>
+      <broadcastTF>1</broadcastTF>
+      <leftFrontJoint>shaft_f_l</leftFrontJoint>
+      <rightFrontJoint>shaft_f_r</rightFrontJoint>
+      <leftRearJoint>shaft_p_l</leftRearJoint>
+      <rightRearJoint>shaft_p_r</rightRearJoint>
+      <wheelSeparation>0.400</wheelSeparation>
+      <wheelDiameter>0.18</wheelDiameter>
+      <torque>5.0</torque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <updateRate>100.0</updateRate>
+    </plugin>
     <static>0</static>
     <link name='chassis'>
       <pose>0 0 0 0 0 0</pose>
@@ -256,8 +272,8 @@
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
-          <lower>-1e+16</lower>
-          <upper>1e+16</upper>
+          <lower>-1e-16</lower>
+          <upper>1e-16</upper>
         </limit>
         <dynamics />
         <use_parent_model_frame>1</use_parent_model_frame>
@@ -403,8 +419,8 @@
       <axis>
         <xyz>-0.001593 -0.999997 -0.001593</xyz>
         <limit>
-          <lower>-1e+16</lower>
-          <upper>1e+16</upper>
+          <lower>-1e-16</lower>
+          <upper>1e-16</upper>
         </limit>
         <dynamics />
         <use_parent_model_frame>1</use_parent_model_frame>
