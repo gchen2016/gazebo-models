@@ -1,7 +1,7 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <sdf version="1.5">
-  <model name='rover_amalia'>
-    <plugin name="skid_steer_drive" filename="libgazebo_ros_skid_steer_drive.so">
+  <model name="rover_amalia">
+    <plugin filename="libgazebo_ros_skid_steer_drive.so" name="skid_steer_drive">
       <robotNamespace>rover_amalia</robotNamespace>
       <broadcastTF>1</broadcastTF>
       <leftFrontJoint>shaft_f_l</leftFrontJoint>
@@ -18,7 +18,7 @@
       <updateRate>100.0</updateRate>
     </plugin>
     <static>0</static>
-    <link name='chassis'>
+    <link name="chassis">
       <pose>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0.0216667 0 -0.0215556 0 -0 0</pose>
@@ -32,7 +32,7 @@
           <izz>900.455</izz>
         </inertia>
       </inertial>
-      <collision name='chassis_collision'>
+      <collision name="chassis_collision">
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <box>
@@ -42,15 +42,15 @@
         <max_contacts>10</max_contacts>
         <surface>
           <contact>
-            <ode />
+            <ode/>
           </contact>
-          <bounce />
+          <bounce/>
           <friction>
-            <ode />
+            <ode/>
           </friction>
         </surface>
       </collision>
-      <collision name='chassis_collision_base'>
+      <collision name="chassis_collision_base">
         <pose>0.195 0 0.073 0 -0 0</pose>
         <geometry>
           <box>
@@ -60,15 +60,15 @@
         <max_contacts>10</max_contacts>
         <surface>
           <contact>
-            <ode />
+            <ode/>
           </contact>
-          <bounce />
+          <bounce/>
           <friction>
-            <ode />
+            <ode/>
           </friction>
         </surface>
       </collision>
-      <collision name='chassis_collision_leg_f_l'>
+      <collision name="chassis_collision_leg_f_l">
         <pose>0.177943 0.19 -0.0987583 0 -0.5 0</pose>
         <geometry>
           <cylinder>
@@ -79,15 +79,15 @@
         <max_contacts>10</max_contacts>
         <surface>
           <contact>
-            <ode />
+            <ode/>
           </contact>
-          <bounce />
+          <bounce/>
           <friction>
-            <ode />
+            <ode/>
           </friction>
         </surface>
       </collision>
-      <collision name='chassis_collision_leg_f_r'>
+      <collision name="chassis_collision_leg_f_r">
         <pose>0.177943 -0.19 -0.0987583 0 -0.5 0</pose>
         <geometry>
           <cylinder>
@@ -98,15 +98,15 @@
         <max_contacts>10</max_contacts>
         <surface>
           <contact>
-            <ode />
+            <ode/>
           </contact>
-          <bounce />
+          <bounce/>
           <friction>
-            <ode />
+            <ode/>
           </friction>
         </surface>
       </collision>
-      <collision name='chassis_collision_leg_p_l'>
+      <collision name="chassis_collision_leg_p_l">
         <pose>-0.177943 0.19 -0.0987583 0 0.5 0</pose>
         <geometry>
           <cylinder>
@@ -117,15 +117,15 @@
         <max_contacts>10</max_contacts>
         <surface>
           <contact>
-            <ode />
+            <ode/>
           </contact>
-          <bounce />
+          <bounce/>
           <friction>
-            <ode />
+            <ode/>
           </friction>
         </surface>
       </collision>
-      <collision name='chassis_collision_leg_p_r'>
+      <collision name="chassis_collision_leg_p_r">
         <pose>-0.177943 -0.19 -0.0987583 0 0.5 0</pose>
         <geometry>
           <cylinder>
@@ -136,15 +136,15 @@
         <max_contacts>10</max_contacts>
         <surface>
           <contact>
-            <ode />
+            <ode/>
           </contact>
-          <bounce />
+          <bounce/>
           <friction>
-            <ode />
+            <ode/>
           </friction>
         </surface>
       </collision>
-      <visual name='chassis_visual'>
+      <visual name="chassis_visual">
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <box>
@@ -152,7 +152,7 @@
           </box>
         </geometry>
       </visual>
-      <visual name='chassis_visual_Range_Front'>
+      <visual name="chassis_visual_Range_Front">
         <pose>0.246 0 -0.05 0 -0 0</pose>
         <geometry>
           <box>
@@ -160,7 +160,7 @@
           </box>
         </geometry>
       </visual>
-      <visual name='chassis_visual_Range_Front_Down'>
+      <visual name="chassis_visual_Range_Front_Down">
         <pose>0.246 0 -0.05 0 1.57 0</pose>
         <geometry>
           <box>
@@ -168,7 +168,7 @@
           </box>
         </geometry>
       </visual>
-      <visual name='chassis_visual_Range_Post'>
+      <visual name="chassis_visual_Range_Post">
         <pose>-0.246 0 -0.05 3.14159 0.00159265 3.14159</pose>
         <geometry>
           <box>
@@ -176,7 +176,7 @@
           </box>
         </geometry>
       </visual>
-      <visual name='chassis_visual_Range_Post_Down'>
+      <visual name="chassis_visual_Range_Post_Down">
         <pose>-0.246 0 -0.05 0 1.57 0</pose>
         <geometry>
           <box>
@@ -184,7 +184,7 @@
           </box>
         </geometry>
       </visual>
-      <visual name='chassis_visual_base'>
+      <visual name="chassis_visual_base">
         <pose>0.195 0 0.073 0 -0 0</pose>
         <geometry>
           <box>
@@ -192,7 +192,7 @@
           </box>
         </geometry>
       </visual>
-      <visual name='chassis_visual_leg_f_l'>
+      <visual name="chassis_visual_leg_f_l">
         <pose>0.177943 0.19 -0.0987583 0 -0.5 0</pose>
         <geometry>
           <cylinder>
@@ -201,7 +201,7 @@
           </cylinder>
         </geometry>
       </visual>
-      <visual name='chassis_visual_leg_f_r'>
+      <visual name="chassis_visual_leg_f_r">
         <pose>0.177943 -0.19 -0.0987583 0 -0.5 0</pose>
         <geometry>
           <cylinder>
@@ -210,7 +210,7 @@
           </cylinder>
         </geometry>
       </visual>
-      <visual name='chassis_visual_leg_p_l'>
+      <visual name="chassis_visual_leg_p_l">
         <pose>-0.177943 0.19 -0.0987583 0 0.5 0</pose>
         <geometry>
           <cylinder>
@@ -219,7 +219,7 @@
           </cylinder>
         </geometry>
       </visual>
-      <visual name='chassis_visual_leg_p_r'>
+      <visual name="chassis_visual_leg_p_r">
         <pose>-0.177943 -0.19 -0.0987583 0 0.5 0</pose>
         <geometry>
           <cylinder>
@@ -236,7 +236,7 @@
       <kinematic>0</kinematic>
       <gravity>1</gravity>
     </link>
-    <link name='testa'>
+    <link name="testa">
       <pose>0.2175 -0.012 0.096 0 -0 3.14</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
@@ -250,7 +250,7 @@
           <izz>100</izz>
         </inertia>
       </inertial>
-      <visual name='testa_visual'>
+      <visual name="testa_visual">
         <pose>0.023 0 0.033 0 -0 0</pose>
         <geometry>
           <box>
@@ -266,7 +266,7 @@
       <kinematic>0</kinematic>
       <gravity>1</gravity>
     </link>
-    <joint name='pan' type='revolute'>
+    <joint name="pan" type="revolute">
       <child>testa</child>
       <parent>chassis</parent>
       <axis>
@@ -275,11 +275,11 @@
           <lower>-1e-16</lower>
           <upper>1e-16</upper>
         </limit>
-        <dynamics />
+        <dynamics/>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
-    <link name='braccio'>
+    <link name="braccio">
       <pose>0.2175 -0.012 0.14 3.14 -0 3.14</pose>
       <inertial>
         <pose>0 0 -0.02 0 -0 0</pose>
@@ -293,7 +293,7 @@
           <izz>200</izz>
         </inertia>
       </inertial>
-      <collision name='braccio_collision'>
+      <collision name="braccio_collision">
         <pose>0 0 -0.014 0 -0 0</pose>
         <geometry>
           <box>
@@ -303,15 +303,15 @@
         <max_contacts>10</max_contacts>
         <surface>
           <contact>
-            <ode />
+            <ode/>
           </contact>
-          <bounce />
+          <bounce/>
           <friction>
-            <ode />
+            <ode/>
           </friction>
         </surface>
       </collision>
-      <visual name='braccio_visual'>
+      <visual name="braccio_visual">
         <pose>0 0 -0.014 0 -0 0</pose>
         <geometry>
           <box>
@@ -319,7 +319,7 @@
           </box>
         </geometry>
       </visual>
-      <visual name='braccio_visual_camera'>
+      <visual name="braccio_visual_camera">
         <pose>1.59519e-05 3.18404e-05 -0.06 1.57159 0.00159265 -1.57159</pose>
         <geometry>
           <box>
@@ -341,7 +341,7 @@
             <far>100</far>
           </clip>
         </camera>
-        <plugin name="depth_camera_plugin" filename="libgazebo_ros_depth_camera.so">
+        <plugin filename="libgazebo_ros_depth_camera.so" name="depth_camera_plugin">
           <alwaysOn>1</alwaysOn>
           <updateRate>10.0</updateRate>
           <imageTopicName>image_raw</imageTopicName>
@@ -389,7 +389,7 @@
             <far>100</far>
           </clip>
         </camera>
-        <plugin name="stereo_camera_controller" filename="libgazebo_ros_multicamera.so">
+        <plugin filename="libgazebo_ros_multicamera.so" name="stereo_camera_controller">
           <alwaysOn>true</alwaysOn>
           <updateRate>0.0</updateRate>
           <cameraName>camera</cameraName>
@@ -413,7 +413,7 @@
       <kinematic>0</kinematic>
       <gravity>1</gravity>
     </link>
-    <joint name='tilt' type='revolute'>
+    <joint name="tilt" type="revolute">
       <child>braccio</child>
       <parent>testa</parent>
       <axis>
@@ -422,11 +422,11 @@
           <lower>-1e-16</lower>
           <upper>1e-16</upper>
         </limit>
-        <dynamics />
+        <dynamics/>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
-    <link name='wheel_f_l'>
+    <link name="wheel_f_l">
       <pose>0.225885 0.217 -0.186517 0 -0.5 0</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
@@ -440,7 +440,7 @@
           <izz>100</izz>
         </inertia>
       </inertial>
-      <collision name='wheel_f_l_collision'>
+      <collision name="wheel_f_l_collision">
         <pose>0 0.035 0 1.57 -0 0</pose>
         <geometry>
           <cylinder>
@@ -451,15 +451,15 @@
         <max_contacts>10</max_contacts>
         <surface>
           <contact>
-            <ode />
+            <ode/>
           </contact>
-          <bounce />
+          <bounce/>
           <friction>
-            <ode />
+            <ode/>
           </friction>
         </surface>
       </collision>
-      <visual name='wheel_f_l_visual'>
+      <visual name="wheel_f_l_visual">
         <pose>0 0.035 0 1.57 -0 0</pose>
         <geometry>
           <cylinder>
@@ -476,7 +476,7 @@
       <kinematic>0</kinematic>
       <gravity>1</gravity>
     </link>
-    <joint name='shaft_f_l' type='revolute'>
+    <joint name="shaft_f_l" type="revolute">
       <child>wheel_f_l</child>
       <parent>chassis</parent>
       <axis>
@@ -485,11 +485,11 @@
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
         </limit>
-        <dynamics />
+        <dynamics/>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
-    <link name='wheel_f_r'>
+    <link name="wheel_f_r">
       <pose>0.225885 -0.217 -0.186517 0 -0.5 0</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
@@ -503,7 +503,7 @@
           <izz>100</izz>
         </inertia>
       </inertial>
-      <collision name='wheel_f_r_collision'>
+      <collision name="wheel_f_r_collision">
         <pose>0 -0.035 0 1.57 -0 0</pose>
         <geometry>
           <cylinder>
@@ -514,15 +514,15 @@
         <max_contacts>10</max_contacts>
         <surface>
           <contact>
-            <ode />
+            <ode/>
           </contact>
-          <bounce />
+          <bounce/>
           <friction>
-            <ode />
+            <ode/>
           </friction>
         </surface>
       </collision>
-      <visual name='wheel_f_r_visual'>
+      <visual name="wheel_f_r_visual">
         <pose>0 -0.035 0 1.57 -0 0</pose>
         <geometry>
           <cylinder>
@@ -539,7 +539,7 @@
       <kinematic>0</kinematic>
       <gravity>1</gravity>
     </link>
-    <joint name='shaft_f_r' type='revolute'>
+    <joint name="shaft_f_r" type="revolute">
       <child>wheel_f_r</child>
       <parent>chassis</parent>
       <axis>
@@ -548,11 +548,11 @@
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
         </limit>
-        <dynamics />
+        <dynamics/>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
-    <link name='wheel_p_l'>
+    <link name="wheel_p_l">
       <pose>-0.225885 0.217 -0.186517 0 0.5 0</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
@@ -566,7 +566,7 @@
           <izz>100</izz>
         </inertia>
       </inertial>
-      <collision name='wheel_p_l_collision'>
+      <collision name="wheel_p_l_collision">
         <pose>0 0.035 0 1.57 -0 0</pose>
         <geometry>
           <cylinder>
@@ -577,15 +577,15 @@
         <max_contacts>10</max_contacts>
         <surface>
           <contact>
-            <ode />
+            <ode/>
           </contact>
-          <bounce />
+          <bounce/>
           <friction>
-            <ode />
+            <ode/>
           </friction>
         </surface>
       </collision>
-      <visual name='wheel_p_l_visual'>
+      <visual name="wheel_p_l_visual">
         <pose>0 0.035 0 1.57 -0 0</pose>
         <geometry>
           <cylinder>
@@ -602,7 +602,7 @@
       <kinematic>0</kinematic>
       <gravity>1</gravity>
     </link>
-    <joint name='shaft_p_l' type='revolute'>
+    <joint name="shaft_p_l" type="revolute">
       <child>wheel_p_l</child>
       <parent>chassis</parent>
       <axis>
@@ -611,11 +611,11 @@
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
         </limit>
-        <dynamics />
+        <dynamics/>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
-    <link name='wheel_p_r'>
+    <link name="wheel_p_r">
       <pose>-0.225885 -0.217 -0.186517 0 0.5 0</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
@@ -629,7 +629,7 @@
           <izz>100</izz>
         </inertia>
       </inertial>
-      <collision name='wheel_p_r_collision'>
+      <collision name="wheel_p_r_collision">
         <pose>0 -0.035 0 1.57 -0 0</pose>
         <geometry>
           <cylinder>
@@ -640,15 +640,15 @@
         <max_contacts>10</max_contacts>
         <surface>
           <contact>
-            <ode />
+            <ode/>
           </contact>
-          <bounce />
+          <bounce/>
           <friction>
-            <ode />
+            <ode/>
           </friction>
         </surface>
       </collision>
-      <visual name='wheel_p_r_visual'>
+      <visual name="wheel_p_r_visual">
         <pose>0 -0.035 0 1.57 -0 0</pose>
         <geometry>
           <cylinder>
@@ -665,7 +665,7 @@
       <kinematic>0</kinematic>
       <gravity>1</gravity>
     </link>
-    <joint name='shaft_p_r' type='revolute'>
+    <joint name="shaft_p_r" type="revolute">
       <child>wheel_p_r</child>
       <parent>chassis</parent>
       <axis>
@@ -674,10 +674,11 @@
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
         </limit>
-        <dynamics />
+        <dynamics/>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <pose>0 0 0 0 0 0</pose>
   </model>
 </sdf>
+
