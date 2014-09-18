@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <sdf version="1.5" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:include filename="./leg.xacro" />
+  <xacro:include filename="./rover_amalia_leg.xacro" />
   <model name="rover_amalia">
     <xacro:leg prefix="f_r" reflect_xz="1" reflect_yz="1" bar_length="0.2" bar_radius="0.008" wheel_radius="0.08" wheel_length="0.07"/>
     <pose>0 0 0 0 0 0</pose>
