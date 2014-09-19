@@ -112,16 +112,16 @@
           </box>
         </geometry>
       </visual>
-      <!--<visual name="braccio_visual_camera">-->
-      <!--<pose>1.59519e-05 3.18404e-05 -0.06 1.57159 0.00159265 -1.57159</pose>-->
-      <!--<geometry>-->
-      <!--<box>-->
-      <!--<size>0.2 0.04 0.04</size>-->
-      <!--</box>-->
-      <!--</geometry>-->
-      <!--</visual>-->
+      <visual name="rover_amalia_turret_camera_set_visual">
+        <pose>0 0 0.03 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.02 0.08 0.02</size>
+          </box>
+        </geometry>
+      </visual>
       <sensor name="depth_camera" type="depth">
-        <pose>0.0 0.0 0.0 0.0 3.14 0.0</pose>
+        <pose>0 0 0 0 3.1415926 0</pose>
         <camera>
           <horizontal_fov>1.578</horizontal_fov>
           <image>
