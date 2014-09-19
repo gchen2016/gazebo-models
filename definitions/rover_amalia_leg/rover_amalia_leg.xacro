@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <robot name="rover_amalia_leg" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:macro name="leg" params="prefix reflect_xz reflect_yz bar_length bar_radius wheel_radius wheel_length">
+  <xacro:macro name="rover_amalia_leg" params="prefix reflect_xz reflect_yz bar_length bar_radius wheel_radius wheel_length">
     <link name="leg_bar_${prefix}">
     <collision name="leg_bar_${prefix}_bar_collision">
       <pose>${0.177943*reflect_yz} ${(-0.19)*reflect_xz} -0.0987583 0 ${(-0.5)*reflect_yz} 0</pose>
@@ -32,7 +32,7 @@
     </visual>
   </link>
   <link name="leg_wheel_${prefix}">
-    <pose>${0.225885*reflect_yz} ${(-0.217)*reflect_xz} -0.186517 0 ${(-0.5)*reflect_yz} 0</pose>
+    <pose>${0.225885*reflect_yz} ${(-0.205)*reflect_xz} -0.186517 0 ${(-0.5)*reflect_yz} 0</pose>
     <inertial>
       <pose>0 0 0 0 -0 0</pose>
       <mass>1</mass>

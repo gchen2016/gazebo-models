@@ -4,7 +4,7 @@
 <!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                                 | -->
 <!-- =================================================================================== -->
 <sdf version="1.5">
-  <model name="rover_amalia">
+  <model name="rover_amalia_leg">
     <link name="leg_bar_f_r">
       <collision name="leg_bar_f_r_bar_collision">
         <pose>0.177943 -0.19 -0.0987583 0 -0.5 0</pose>
@@ -36,7 +36,7 @@
       </visual>
     </link>
     <link name="leg_wheel_f_r">
-      <pose>0.225885 -0.217 -0.186517 0 -0.5 0</pose>
+      <pose>0.225885 -0.205 -0.186517 0 -0.5 0</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
         <mass>1</mass>

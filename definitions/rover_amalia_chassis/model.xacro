@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<sdf version="1.5" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="./rover_amalia_chassis.xacro" />
+  <model name="rover_amalia_chassis">
+    <xacro:rover_amalia_chassis Ox="0" Oy="0" Oz="0"/>
+    <pose>0 0 0 0 0 0</pose>
+  </model>
+</sdf>
+

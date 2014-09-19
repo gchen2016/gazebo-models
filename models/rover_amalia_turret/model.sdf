@@ -4,9 +4,9 @@
 <!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                                 | -->
 <!-- =================================================================================== -->
 <sdf version="1.5">
-  <model name="rover_amalia">
+  <model name="rover_amalia_turret">
     <link name="rover_amalia_turret_bar">
-      <pose>1 1 1 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>1</mass>
@@ -42,7 +42,7 @@
       <gravity>1</gravity>
     </link>
     <link name="rover_amalia_turret_pan_base">
-      <pose>1 1 1.21 0 0 0</pose>
+      <pose>0 0 0.21 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>1</mass>
@@ -72,7 +72,7 @@
       <gravity>1</gravity>
     </link>
     <link name="rover_amalia_turret_tilt_base">
-      <pose>1 0.99 1.24 0 0 0</pose>
+      <pose>0 -0.01 0.24 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>2</mass>
@@ -87,7 +87,7 @@
       </inertial>
       <collision name="rover_amalia_turret_tilt_base_collision">
         <pose>0 0 0 0 0 0</pose>
-        <pose>1 0.99 1.24 0 0 0</pose>
+        <pose>0 -0.01 0.24 0 0 0</pose>
         <geometry>
           <box>
             <size>0.06 0.02 0.04</size>
@@ -222,7 +222,6 @@
       <child>rover_amalia_turret_tilt_base</child>
       <parent>rover_amalia_turret_pan_base</parent>
       <axis>
-        <!--<xyz>-0.001593 -0.999997 -0.001593</xyz>-->
         <xyz>0 1 0</xyz>
         <limit>
           <lower>-1e-16</lower>

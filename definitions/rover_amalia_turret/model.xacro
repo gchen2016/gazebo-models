@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
 <sdf version="1.5" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="./rover_amalia_turret.xacro" />
-  <model name="rover_amalia">
-    <xacro:turret Ox="1" Oy="1" Oz="1" bar_height="0.2"/>
+  <model name="rover_amalia_turret">
+    <xacro:rover_amalia_turret Ox="0" Oy="0" Oz="0" bar_height="0.2"/>
     <pose>0 0 0 0 0 0</pose>
   </model>
 </sdf>

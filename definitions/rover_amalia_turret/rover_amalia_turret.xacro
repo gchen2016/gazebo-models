@@ -23,7 +23,7 @@
     <size>0.06 0.02 ${rover_amalia_turret_pan_tilt_height}</size>
   </xacro:property>
 
-  <xacro:macro name="turret" params="Ox Oy Oz bar_height">
+  <xacro:macro name="rover_amalia_turret" params="Ox Oy Oz bar_height">
     <link name="rover_amalia_turret_bar">
       <xacro:insert_block name="rover_amalia_turret_bar_pose"/>
       <inertial>
