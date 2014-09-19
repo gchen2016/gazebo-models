@@ -2,24 +2,23 @@
 <robot name="rover_amalia_chassis" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:property name="pi" value="3.1415926"/>
 
-  <xacro:property name="rover_amalia_chassis_turret_base_pose">
-     <pose>0.195 0 0.073 0 -0 0</pose>
-  </xacro:property>
   <xacro:property name="rover_amalia_chassis_turret_base_size">
      <size>0.089 0.064 0.046</size>
   </xacro:property>
   <xacro:property name="rover_amalia_chassis_body_size">
-     <size>0.492 0.334 0.1</size>
+     <!--<size>0.492 0.334 0.1</size>-->
+     <size>${body_size_x} ${body_size_y} ${body_size_z}</size>
   </xacro:property>
 
   <xacro:property name="rover_amalia_chassis_rangefinder_size_y" value="0.01"/>
   <xacro:property name="rover_amalia_chassis_rangefinder_size">
     <size>${rover_amalia_chassis_rangefinder_size_y} 0.03 ${rover_amalia_chassis_rangefinder_size_y}</size>
   </xacro:property>
+  <xacro:property name="rover_amalia_chassis_turret_base_z" value="0.073"/>
 
-  <xacro:macro name="rover_amalia_chassis" params="Ox Oy Oz">
+  <xacro:macro name="rover_amalia_chassis" params="Ox Oy Oz body_size_x body_size_y body_size_z turret_base_x turret_base_y">
     <link name="rover_amalia_chassis">
-      <pose>0 0 0 0 0 0</pose>
+      <pose>${Ox} ${Oy} ${Oz} 0 0 0</pose>
       <inertial>
         <pose>0.0216667 0 -0.0215556 0 -0 0</pose>
         <mass>9</mass>
@@ -32,17 +31,25 @@
           <izz>900.455</izz>
         </inertia>
       </inertial>
-      <collision name="rover_amalia_chassis_collision">
+      <visual name="rover_amalia_chassis_body_visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.492 0.334 0.1</size>
+            <xacro:insert_block name="rover_amalia_chassis_body_size"/>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="rover_amalia_chassis_body_collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <xacro:insert_block name="rover_amalia_chassis_body_size"/>
           </box>
         </geometry>
         <max_contacts>10</max_contacts>
       </collision>
       <collision name="rover_amalia_chassis_turret_base_collision">
-        <xacro:insert_block name="rover_amalia_chassis_turret_base_pose"/>
+        <pose>${turret_base_x} ${turret_base_y} ${rover_amalia_chassis_turret_base_z} 0 0 0</pose>
         <geometry>
           <box>
             <xacro:insert_block name="rover_amalia_chassis_turret_base_size"/>
@@ -51,18 +58,10 @@
         <max_contacts>10</max_contacts>
       </collision>
       <visual name="rover_amalia_chassis_turret_base_visual">
-        <xacro:insert_block name="rover_amalia_chassis_turret_base_pose"/>
+        <pose>${turret_base_x} ${turret_base_y} ${rover_amalia_chassis_turret_base_z} 0 0 0</pose>
         <geometry>
           <box>
             <xacro:insert_block name="rover_amalia_chassis_turret_base_size"/>
-          </box>
-        </geometry>
-      </visual>
-      <visual name="rover_amalia_chassis_body_visual">
-        <pose>0 0 0 0 0 0</pose>
-        <geometry>
-          <box>
-            <xacro:insert_block name="rover_amalia_chassis_body_size"/>
           </box>
         </geometry>
       </visual>

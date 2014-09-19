@@ -1,119 +1,78 @@
 <?xml version="1.0" ?>
-<sdf version="1.5">
+<sdf version="1.5" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="../rover_amalia_leg/rover_amalia_leg.xacro"/>
+  <xacro:include filename="../rover_amalia_chassis/rover_amalia_chassis.xacro"/>
+  <xacro:include filename="../rover_amalia_turret/rover_amalia_turret.xacro"/>
+
+  <xacro:property name="leg_bar_length" value="0.2"/>
+  <xacro:property name="leg_bar_radius" value="0.008"/>
+  <xacro:property name="wheel_radius" value="0.08"/>
+  <xacro:property name="wheel_length" value="0.07"/>
+  <xacro:property name="turret_base_x" value="0.195"/>
+  <xacro:property name="chassis_size_x" value="0.492"/>
+  <xacro:property name="chassis_size_y" value="0.334"/>
+  <xacro:property name="chassis_size_z" value="0.1"/>
+  <xacro:property name="chassis_height" value="${leg_bar_length+wheel_radius}"/>
+  <xacro:property name="leg_x" value="${chassis_size_x*3/8}"/>
+  <xacro:property name="leg_y" value="${chassis_size_y/2 + leg_bar_radius}"/>
+
+  <xacro:macro name="rover_amalia_joint_chassis_leg" params="prefix reflect_xz reflect_yz">
+    <joint name="rover_amalia_joint_chassis_leg_${prefix}" type="revolute">
+      <child>rover_amalia_leg_bar_${prefix}</child>
+      <parent>rover_amalia_chassis</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e-16</lower>
+          <upper>1e-16</upper>
+        </limit>
+        <dynamics/>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+  </xacro:macro>
+
   <model name="rover_amalia">
     <pose>0 0 0 0 0 0</pose>
     <static>0</static>
-    <link name="chassis">
-      <pose>0 0 0 0 0 0</pose>
-      <inertial>
-        <pose>0.0216667 0 -0.0215556 0 -0 0</pose>
-        <mass>9</mass>
-        <inertia>
-          <ixx>900.12</ixx>
-          <ixy>-3.46945e-18</ixy>
-          <ixz>-0.0139533</ixz>
-          <iyy>900.352</iyy>
-          <iyz>0</iyz>
-          <izz>900.455</izz>
-        </inertia>
-      </inertial>
-      <collision name="chassis_collision">
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <box>
-            <size>0.492 0.334 0.1</size>
-          </box>
-        </geometry>
-        <max_contacts>10</max_contacts>
-        <surface>
-          <contact>
-            <ode/>
-          </contact>
-          <bounce/>
-          <friction>
-            <ode/>
-          </friction>
-        </surface>
-      </collision>
-      <collision name="chassis_collision_base">
-        <pose>0.195 0 0.073 0 -0 0</pose>
-        <geometry>
-          <box>
-            <size>0.089 0.064 0.046</size>
-          </box>
-        </geometry>
-        <max_contacts>10</max_contacts>
-        <surface>
-          <contact>
-            <ode/>
-          </contact>
-          <bounce/>
-          <friction>
-            <ode/>
-          </friction>
-        </surface>
-      </collision>
-      <visual name="chassis_visual">
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <box>
-            <size>0.492 0.334 0.1</size>
-          </box>
-        </geometry>
-      </visual>
-      <visual name="chassis_visual_Range_Front">
-        <pose>0.246 0 -0.05 0 -0 0</pose>
-        <geometry>
-          <box>
-            <size>0.01 0.03 0.01</size>
-          </box>
-        </geometry>
-      </visual>
-      <visual name="chassis_visual_Range_Front_Down">
-        <pose>0.246 0 -0.05 0 1.57 0</pose>
-        <geometry>
-          <box>
-            <size>0.01 0.03 0.01</size>
-          </box>
-        </geometry>
-      </visual>
-      <visual name="chassis_visual_Range_Post">
-        <pose>-0.246 0 -0.05 3.14159 0.00159265 3.14159</pose>
-        <geometry>
-          <box>
-            <size>0.01 0.03 0.01</size>
-          </box>
-        </geometry>
-      </visual>
-      <visual name="chassis_visual_Range_Post_Down">
-        <pose>-0.246 0 -0.05 0 1.57 0</pose>
-        <geometry>
-          <box>
-            <size>0.01 0.03 0.01</size>
-          </box>
-        </geometry>
-      </visual>
-      <visual name="chassis_visual_base">
-        <pose>0.195 0 0.073 0 -0 0</pose>
-        <geometry>
-          <box>
-            <size>0.089 0.064 0.046</size>
-          </box>
-        </geometry>
-      </visual>
-      <self_collide>0</self_collide>
-      <kinematic>0</kinematic>
-      <gravity>1</gravity>
-    </link>
+
+    <!--main components-->
+    <xacro:rover_amalia_turret Ox="${turret_base_x}" Oy="0" Oz="${chassis_height+0.1}" bar_height="0.2"/>
+    <xacro:rover_amalia_chassis Ox="0" Oy="0" Oz="${chassis_height}" body_size_x="${chassis_size_x}" body_size_y="${chassis_size_y}" body_size_z="${chassis_size_z}" turret_base_x="${turret_base_x}" turret_base_y="0"/>
+    <xacro:rover_amalia_leg Ox="${leg_x}" Oy="${leg_y}" Oz="0" prefix="f_r" reflect_xz="1" reflect_yz="1" bar_length="${leg_bar_length}" bar_radius="${leg_bar_radius}" wheel_radius="${wheel_radius}" wheel_length="${wheel_length}"/>
+    <xacro:rover_amalia_leg Ox="${leg_x}" Oy="${leg_y}" Oz="0" prefix="f_l" reflect_xz="-1" reflect_yz="1" bar_length="${leg_bar_length}" bar_radius="${leg_bar_radius}" wheel_radius="${wheel_radius}" wheel_length="${wheel_length}"/>
+    <xacro:rover_amalia_leg Ox="${leg_x}" Oy="${leg_y}" Oz="0" prefix="b_r" reflect_xz="1" reflect_yz="-1" bar_length="${leg_bar_length}" bar_radius="${leg_bar_radius}" wheel_radius="${wheel_radius}" wheel_length="${wheel_length}"/>
+    <xacro:rover_amalia_leg Ox="${leg_x}" Oy="${leg_y}" Oz="0" prefix="b_l" reflect_xz="-1" reflect_yz="-1" bar_length="${leg_bar_length}" bar_radius="${leg_bar_radius}" wheel_radius="${wheel_radius}" wheel_length="${wheel_length}"/>
+    
+    <!--additional joints-->
+    <xacro:rover_amalia_joint_chassis_leg prefix="f_r" reflect_xz="1" reflect_yz="1"/>
+    <xacro:rover_amalia_joint_chassis_leg prefix="f_l" reflect_xz="-1" reflect_yz="1"/>
+    <xacro:rover_amalia_joint_chassis_leg prefix="b_r" reflect_xz="1" reflect_yz="-1"/>
+    <xacro:rover_amalia_joint_chassis_leg prefix="b_l" reflect_xz="-1" reflect_yz="-1"/>
+    <joint name="rover_amalia_joint_turret_base_turret" type="revolute">
+      <child>rover_amalia_turret_bar</child>
+      <parent>rover_amalia_chassis</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e-16</lower>
+          <upper>1e-16</upper>
+        </limit>
+        <dynamics/>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+
+    <!--additional plugins-->
     <plugin filename="libgazebo_ros_skid_steer_drive.so" name="skid_steer_drive">
       <robotNamespace>rover_amalia</robotNamespace>
       <broadcastTF>1</broadcastTF>
-      <leftFrontJoint>shaft_f_l</leftFrontJoint>
-      <rightFrontJoint>shaft_f_r</rightFrontJoint>
-      <leftRearJoint>shaft_p_l</leftRearJoint>
-      <rightRearJoint>shaft_p_r</rightRearJoint>
+      <rightFrontJoint>rover_amalia_leg_shaft_f_r</rightFrontJoint>
+      <leftFrontJoint>rover_amalia_leg_shaft_f_l</leftFrontJoint>
+      <rightRearJoint>rover_amalia_leg_shaft_b_r</rightRearJoint>
+      <leftRearJoint>rover_amalia_leg_shaft_b_l</leftRearJoint>
       <wheelSeparation>0.400</wheelSeparation>
-      <wheelDiameter>0.18</wheelDiameter>
+      <wheelDiameter>${wheel_radius*2}</wheelDiameter>
       <torque>5.0</torque>
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>

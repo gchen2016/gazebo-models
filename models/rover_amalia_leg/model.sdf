@@ -5,9 +5,10 @@
 <!-- =================================================================================== -->
 <sdf version="1.5">
   <model name="rover_amalia_leg">
-    <link name="leg_bar_f_r">
+    <pose>0 0 0 0 0 0</pose>
+    <link name="rover_amalia_leg_bar_f_r">
+      <pose>0.0 0.0 0.18 0 0 0</pose>
       <collision name="leg_bar_f_r_bar_collision">
-        <pose>0.177943 -0.19 -0.0987583 0 -0.5 0</pose>
         <geometry>
           <cylinder>
             <length>0.2</length>
@@ -25,8 +26,8 @@
           </friction>
         </surface>
       </collision>
-      <visual name="leg_bar_f_r_bar_visual">
-        <pose>0.177943 -0.19 -0.0987583 0 -0.5 0</pose>
+      <visual name="rover_amalia_leg_bar_f_r_bar_visual">
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.2</length>
@@ -35,10 +36,10 @@
         </geometry>
       </visual>
     </link>
-    <link name="leg_wheel_f_r">
-      <pose>0.225885 -0.205 -0.186517 0 -0.5 0</pose>
+    <link name="rover_amalia_leg_wheel_f_r">
+      <pose>0.0 0.044 0.08 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <mass>1</mass>
         <inertia>
           <ixx>100</ixx>
@@ -49,8 +50,8 @@
           <izz>100</izz>
         </inertia>
       </inertial>
-      <collision name="leg_wheel_f_r_collision">
-        <pose>0 -0.035 0 1.57 -0 0</pose>
+      <collision name="rover_amalia_leg_wheel_f_r_collision">
+        <pose>0 0 0 1.5707963 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.07</length>
@@ -58,18 +59,9 @@
           </cylinder>
         </geometry>
         <max_contacts>10</max_contacts>
-        <surface>
-          <contact>
-            <ode/>
-          </contact>
-          <bounce/>
-          <friction>
-            <ode/>
-          </friction>
-        </surface>
       </collision>
-      <visual name="leg_wheel_f_r_visual">
-        <pose>0 -0.035 0 1.57 -0 0</pose>
+      <visual name="rover_amalia_leg_wheel_f_r_visual">
+        <pose>0 0 0 1.5707963 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.07</length>
@@ -77,32 +69,27 @@
           </cylinder>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
       <gravity>1</gravity>
     </link>
-    <joint name="leg_shaft_f_r" type="revolute">
-      <child>leg_wheel_f_r</child>
-      <parent>leg_bar_f_r</parent>
+    <joint name="rover_amalia_leg_shaft_f_r" type="revolute">
+      <child>rover_amalia_leg_wheel_f_r</child>
+      <parent>rover_amalia_leg_bar_f_r</parent>
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
         </limit>
-        <dynamics/>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
-    <pose>0 0 0 0 0 0</pose>
   </model>
 </sdf>
 
-<pose>0 0 0 0 0 0</pose>
+    </axis>
+    </joint>
   </model>
 </sdf>
 
