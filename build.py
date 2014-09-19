@@ -30,10 +30,12 @@ def null_or_empty(s):
     return s == None or s == ""
 
 def clean_xacro_output(f):
-    with open(f, 'r+') as sdf:
+    lines = []
+    with open(f, 'r') as sdf:
         lines = sdf.readlines()
         lines[5] = lines[5].replace(' xmlns:xacro="http://www.ros.org/wiki/xacro"', '')
-        sdf.seek(0)
+    os.remove(f)
+    with open(f, 'w') as sdf:
         sdf.writelines(lines)
 
 class Build():
