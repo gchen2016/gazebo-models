@@ -71,9 +71,9 @@
       <leftFrontJoint>rover_amalia_leg_shaft_f_l</leftFrontJoint>
       <rightRearJoint>rover_amalia_leg_shaft_b_r</rightRearJoint>
       <leftRearJoint>rover_amalia_leg_shaft_b_l</leftRearJoint>
-      <wheelSeparation>0.400</wheelSeparation>
+      <wheelSeparation>${chassis_size_x}</wheelSeparation>
       <wheelDiameter>${wheel_radius*2}</wheelDiameter>
-      <torque>5.0</torque>
+      <torque>50.0</torque>
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>

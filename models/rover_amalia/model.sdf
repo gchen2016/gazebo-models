@@ -237,7 +237,8 @@
       <pose>0 0 0.28 0 0 0</pose>
       <inertial>
         <pose>0.0216667 0 -0.0215556 0 -0 0</pose>
-        <mass>9</mass>
+        <!--temporary set the mass to 1000, change when all the inertial will be ok-->
+        <mass>100</mass>
         <inertia>
           <ixx>900.12</ixx>
           <ixy>-3.46945e-18</ixy>
@@ -707,9 +708,9 @@
       <leftFrontJoint>rover_amalia_leg_shaft_f_l</leftFrontJoint>
       <rightRearJoint>rover_amalia_leg_shaft_b_r</rightRearJoint>
       <leftRearJoint>rover_amalia_leg_shaft_b_l</leftRearJoint>
-      <wheelSeparation>0.400</wheelSeparation>
+      <wheelSeparation>0.492</wheelSeparation>
       <wheelDiameter>0.16</wheelDiameter>
-      <torque>5.0</torque>
+      <torque>50.0</torque>
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
