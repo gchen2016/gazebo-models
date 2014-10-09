@@ -9,7 +9,7 @@
     <static>0</static>
     <!--main components-->
     <link name="rover_amalia_turret_bar">
-      <pose>0.195 0 0.38 0 0 0</pose>
+      <pose>0.195 0 0.45 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>1</mass>
@@ -45,7 +45,7 @@
       <gravity>1</gravity>
     </link>
     <link name="rover_amalia_turret_pan_base">
-      <pose>0.195 0 0.59 0 0 0</pose>
+      <pose>0.195 0 0.66 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>1</mass>
@@ -59,11 +59,11 @@
         </inertia>
       </inertial>
       <visual name="rover_amalia_turret_pan_base_visual">
-        <pose>0 0 0 0 0 0</pose>
+        <pose>-0.016 -0.02 0.015 0 0 0</pose>
         <geometry>
-          <box>
-            <size>0.04 0.06 0.02 </size>
-          </box>
+          <mesh>
+            <uri>model://rover_amalia_turret/meshes/pantilt_pan.dae</uri>
+          </mesh>
         </geometry>
       </visual>
       <velocity_decay>
@@ -75,7 +75,7 @@
       <gravity>1</gravity>
     </link>
     <link name="rover_amalia_turret_tilt_base">
-      <pose>0.195 -0.01 0.62 0 0 0</pose>
+      <pose>0.195 -0.01 0.69 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>2</mass>
@@ -90,7 +90,7 @@
       </inertial>
       <collision name="rover_amalia_turret_tilt_base_collision">
         <pose>0 0 0 0 0 0</pose>
-        <pose>0.195 -0.01 0.62 0 0 0</pose>
+        <pose>0.195 -0.01 0.69 0 0 0</pose>
         <geometry>
           <box>
             <size>0.06 0.02 0.04</size>
@@ -110,17 +110,17 @@
       <visual name="rover_amalia_turret_tilt_base_visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
-          <box>
-            <size>0.06 0.02 0.04</size>
-          </box>
+          <mesh>
+            <uri>model://rover_amalia_turret/meshes/pantilt_tilt.dae</uri>
+          </mesh>
         </geometry>
       </visual>
       <visual name="rover_amalia_turret_camera_set_visual">
-        <pose>0 0 0.03 0 0 0</pose>
+        <pose>0 0 0.052 0 0 0</pose>
         <geometry>
-          <box>
-            <size>0.02 0.08 0.02</size>
-          </box>
+          <mesh>
+            <uri>model://rover_amalia_turret/meshes/pantilt_payload.dae</uri>
+          </mesh>
         </geometry>
       </visual>
       <sensor name="depth_camera" type="depth">
@@ -234,7 +234,7 @@
       </axis>
     </joint>
     <link name="rover_amalia_chassis">
-      <pose>0 0 0.28 0 0 0</pose>
+      <pose>0 0 0.35 0 0 0</pose>
       <inertial>
         <pose>0.0216667 0 -0.0215556 0 -0 0</pose>
         <!--temporary set the mass to 1000, change when all the inertial will be ok-->
@@ -251,22 +251,22 @@
       <visual name="rover_amalia_chassis_body_visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
-          <box>
-            <size>0.492 0.334 0.1</size>
-          </box>
+          <mesh>
+            <uri>model://rover_amalia_chassis/meshes/chassis.dae</uri>
+          </mesh>
         </geometry>
       </visual>
       <collision name="rover_amalia_chassis_body_collision">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.492 0.334 0.1</size>
+            <size>0.492 0.334 0.215</size>
           </box>
         </geometry>
         <max_contacts>10</max_contacts>
       </collision>
       <collision name="rover_amalia_chassis_turret_base_collision">
-        <pose>0.195 0 0.073 0 0 0</pose>
+        <pose>0.195 0.05 0.073 0 0 0</pose>
         <geometry>
           <box>
             <size>0.089 0.064 0.046</size>
@@ -275,7 +275,7 @@
         <max_contacts>10</max_contacts>
       </collision>
       <visual name="rover_amalia_chassis_turret_base_visual">
-        <pose>0.195 0 0.073 0 0 0</pose>
+        <pose>0.195 0.05 0.073 0 0 0</pose>
         <geometry>
           <box>
             <size>0.089 0.064 0.046</size>
@@ -319,11 +319,11 @@
       <gravity>1</gravity>
     </link>
     <link name="rover_amalia_leg_bar_f_r">
-      <pose>0.1845 0.175 0.18 0 0 0</pose>
+      <pose>0.13284 0.175 0.19 0 0 0</pose>
       <collision name="leg_bar_f_r_bar_collision">
         <geometry>
           <cylinder>
-            <length>0.2</length>
+            <length>0.22</length>
             <radius>0.008</radius>
           </cylinder>
         </geometry>
@@ -342,14 +342,14 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <cylinder>
-            <length>0.2</length>
+            <length>0.22</length>
             <radius>0.008</radius>
           </cylinder>
         </geometry>
       </visual>
     </link>
     <link name="rover_amalia_leg_wheel_f_r">
-      <pose>0.1845 0.219 0.08 0 0 0</pose>
+      <pose>0.13284 0.219 0.08 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>1</mass>
@@ -373,12 +373,11 @@
         <max_contacts>10</max_contacts>
       </collision>
       <visual name="rover_amalia_leg_wheel_f_r_visual">
-        <pose>0 0 0 1.5707963 0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
-          <cylinder>
-            <length>0.07</length>
-            <radius>0.08</radius>
-          </cylinder>
+          <mesh>
+            <uri>model://rover_amalia_leg/meshes/wheel.dae</uri>
+          </mesh>
         </geometry>
       </visual>
       <self_collide>0</self_collide>
@@ -398,11 +397,11 @@
       </axis>
     </joint>
     <link name="rover_amalia_leg_bar_f_l">
-      <pose>0.1845 -0.175 0.18 0 0 0</pose>
+      <pose>0.13284 -0.175 0.19 0 0 0</pose>
       <collision name="leg_bar_f_l_bar_collision">
         <geometry>
           <cylinder>
-            <length>0.2</length>
+            <length>0.22</length>
             <radius>0.008</radius>
           </cylinder>
         </geometry>
@@ -421,14 +420,14 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <cylinder>
-            <length>0.2</length>
+            <length>0.22</length>
             <radius>0.008</radius>
           </cylinder>
         </geometry>
       </visual>
     </link>
     <link name="rover_amalia_leg_wheel_f_l">
-      <pose>0.1845 -0.219 0.08 0 0 0</pose>
+      <pose>0.13284 -0.219 0.08 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>1</mass>
@@ -452,12 +451,11 @@
         <max_contacts>10</max_contacts>
       </collision>
       <visual name="rover_amalia_leg_wheel_f_l_visual">
-        <pose>0 0 0 1.5707963 0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
-          <cylinder>
-            <length>0.07</length>
-            <radius>0.08</radius>
-          </cylinder>
+          <mesh>
+            <uri>model://rover_amalia_leg/meshes/wheel.dae</uri>
+          </mesh>
         </geometry>
       </visual>
       <self_collide>0</self_collide>
@@ -477,11 +475,11 @@
       </axis>
     </joint>
     <link name="rover_amalia_leg_bar_b_r">
-      <pose>-0.1845 0.175 0.18 0 0 0</pose>
+      <pose>-0.13284 0.175 0.19 0 0 0</pose>
       <collision name="leg_bar_b_r_bar_collision">
         <geometry>
           <cylinder>
-            <length>0.2</length>
+            <length>0.22</length>
             <radius>0.008</radius>
           </cylinder>
         </geometry>
@@ -500,14 +498,14 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <cylinder>
-            <length>0.2</length>
+            <length>0.22</length>
             <radius>0.008</radius>
           </cylinder>
         </geometry>
       </visual>
     </link>
     <link name="rover_amalia_leg_wheel_b_r">
-      <pose>-0.1845 0.219 0.08 0 0 0</pose>
+      <pose>-0.13284 0.219 0.08 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>1</mass>
@@ -531,12 +529,11 @@
         <max_contacts>10</max_contacts>
       </collision>
       <visual name="rover_amalia_leg_wheel_b_r_visual">
-        <pose>0 0 0 1.5707963 0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
-          <cylinder>
-            <length>0.07</length>
-            <radius>0.08</radius>
-          </cylinder>
+          <mesh>
+            <uri>model://rover_amalia_leg/meshes/wheel.dae</uri>
+          </mesh>
         </geometry>
       </visual>
       <self_collide>0</self_collide>
@@ -556,11 +553,11 @@
       </axis>
     </joint>
     <link name="rover_amalia_leg_bar_b_l">
-      <pose>-0.1845 -0.175 0.18 0 0 0</pose>
+      <pose>-0.13284 -0.175 0.19 0 0 0</pose>
       <collision name="leg_bar_b_l_bar_collision">
         <geometry>
           <cylinder>
-            <length>0.2</length>
+            <length>0.22</length>
             <radius>0.008</radius>
           </cylinder>
         </geometry>
@@ -579,14 +576,14 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <cylinder>
-            <length>0.2</length>
+            <length>0.22</length>
             <radius>0.008</radius>
           </cylinder>
         </geometry>
       </visual>
     </link>
     <link name="rover_amalia_leg_wheel_b_l">
-      <pose>-0.1845 -0.219 0.08 0 0 0</pose>
+      <pose>-0.13284 -0.219 0.08 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>1</mass>
@@ -610,12 +607,11 @@
         <max_contacts>10</max_contacts>
       </collision>
       <visual name="rover_amalia_leg_wheel_b_l_visual">
-        <pose>0 0 0 1.5707963 0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
-          <cylinder>
-            <length>0.07</length>
-            <radius>0.08</radius>
-          </cylinder>
+          <mesh>
+            <uri>model://rover_amalia_leg/meshes/wheel.dae</uri>
+          </mesh>
         </geometry>
       </visual>
       <self_collide>0</self_collide>

@@ -4,7 +4,7 @@
 
   <xacro:property name="rover_amalia_leg_bar_z" value="${wheel_radius+bar_length/2}" />
 
-  <xacro:macro name="rover_amalia_leg" params="Ox Oy Oz prefix reflect_xz reflect_yz bar_length bar_radius wheel_radius wheel_length">
+  <xacro:macro name="rover_amalia_leg" params="Ox Oy Oz prefix reflect_xz reflect_yz bar_length bar_radius wheel_radius wheel_length model_root">
     <link name="rover_amalia_leg_bar_${prefix}">
       <pose>${Ox*reflect_yz} ${Oy*reflect_xz} ${Oz+rover_amalia_leg_bar_z} 0 0 0</pose>
     <collision name="leg_bar_${prefix}_bar_collision">
@@ -60,12 +60,11 @@
       <max_contacts>10</max_contacts>
     </collision>
     <visual name="rover_amalia_leg_wheel_${prefix}_visual">
-      <pose>0 0 0 ${pi/2} 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <geometry>
-        <cylinder>
-          <length>${wheel_length}</length>
-          <radius>${wheel_radius}</radius>
-        </cylinder>
+        <mesh>
+          <uri>model://${model_root}/meshes/wheel.dae</uri>
+        </mesh>
       </geometry>
     </visual>
     <self_collide>0</self_collide>

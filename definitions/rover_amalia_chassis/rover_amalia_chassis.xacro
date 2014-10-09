@@ -35,9 +35,9 @@
       <visual name="rover_amalia_chassis_body_visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
-          <box>
-            <xacro:insert_block name="rover_amalia_chassis_body_size"/>
-          </box>
+          <mesh>
+            <uri>model://rover_amalia_chassis/meshes/chassis.dae</uri>
+          </mesh>
         </geometry>
       </visual>
       <collision name="rover_amalia_chassis_body_collision">

@@ -23,22 +23,22 @@
       <visual name="rover_amalia_chassis_body_visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
-          <box>
-            <size>0.492 0.334 0.1</size>
-          </box>
+          <mesh>
+            <uri>model://rover_amalia_chassis/meshes/chassis.dae</uri>
+          </mesh>
         </geometry>
       </visual>
       <collision name="rover_amalia_chassis_body_collision">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.492 0.334 0.1</size>
+            <size>0.492 0.334 0.215</size>
           </box>
         </geometry>
         <max_contacts>10</max_contacts>
       </collision>
       <collision name="rover_amalia_chassis_turret_base_collision">
-        <pose>0.195 0 0.073 0 0 0</pose>
+        <pose>0.195 0.05 0.073 0 0 0</pose>
         <geometry>
           <box>
             <size>0.089 0.064 0.046</size>
@@ -47,7 +47,7 @@
         <max_contacts>10</max_contacts>
       </collision>
       <visual name="rover_amalia_chassis_turret_base_visual">
-        <pose>0.195 0 0.073 0 0 0</pose>
+        <pose>0.195 0.05 0.073 0 0 0</pose>
         <geometry>
           <box>
             <size>0.089 0.064 0.046</size>

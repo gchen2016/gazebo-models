@@ -56,11 +56,11 @@
         </inertia>
       </inertial>
       <visual name="rover_amalia_turret_pan_base_visual">
-        <pose>0 0 0 0 0 0</pose>
+        <pose>-0.016 -0.02 0.015 0 0 0</pose>
         <geometry>
-          <box>
-            <size>0.04 0.06 0.02 </size>
-          </box>
+          <mesh>
+            <uri>model://rover_amalia_turret/meshes/pantilt_pan.dae</uri>
+          </mesh>
         </geometry>
       </visual>
       <velocity_decay>
@@ -107,17 +107,17 @@
       <visual name="rover_amalia_turret_tilt_base_visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
-          <box>
-            <size>0.06 0.02 0.04</size>
-          </box>
+          <mesh>
+            <uri>model://rover_amalia_turret/meshes/pantilt_tilt.dae</uri>
+          </mesh>
         </geometry>
       </visual>
       <visual name="rover_amalia_turret_camera_set_visual">
-        <pose>0 0 0.03 0 0 0</pose>
+        <pose>0 0 0.052 0 0 0</pose>
         <geometry>
-          <box>
-            <size>0.02 0.08 0.02</size>
-          </box>
+          <mesh>
+            <uri>model://rover_amalia_turret/meshes/pantilt_payload.dae</uri>
+          </mesh>
         </geometry>
       </visual>
       <sensor name="depth_camera" type="depth">
