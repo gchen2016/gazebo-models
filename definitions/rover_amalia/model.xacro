@@ -6,14 +6,16 @@
 
   <xacro:property name="leg_bar_length" value="0.22"/>
   <xacro:property name="leg_bar_radius" value="0.008"/>
-  <xacro:property name="wheel_radius" value="0.08"/>
+  <xacro:property name="wheel_radius" value="0.09"/>
   <xacro:property name="wheel_length" value="0.07"/>
   <xacro:property name="turret_base_x" value="0.195"/>
   <xacro:property name="chassis_size_x" value="0.492"/>
   <xacro:property name="chassis_size_y" value="0.334"/>
   <xacro:property name="chassis_size_z" value="0.215"/>
-  <xacro:property name="chassis_height" value="${leg_bar_length+wheel_radius+0.05}"/>
-  <xacro:property name="leg_x" value="${chassis_size_x*0.27}"/>
+  <xacro:property name="chassis_height" value="${leg_bar_length+wheel_radius+0.02}"/>
+  <xacro:property name="leg_bar_angle" value="${pi/4}"/>
+  <!--use sin function when available-->
+  <xacro:property name="leg_x" value="${chassis_size_x*0.43}"/>
   <xacro:property name="leg_y" value="${chassis_size_y/2 + leg_bar_radius}"/>
 
   <xacro:macro name="rover_amalia_joint_chassis_leg" params="prefix reflect_xz reflect_yz">
@@ -23,8 +25,8 @@
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
-          <lower>-1e-16</lower>
-          <upper>1e-16</upper>
+          <lower>${-reflect_yz*leg_bar_angle - 1e-4}</lower>
+          <upper>${-reflect_yz*leg_bar_angle + 1e-4}</upper>
         </limit>
         <dynamics/>
         <use_parent_model_frame>1</use_parent_model_frame>

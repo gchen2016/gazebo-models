@@ -40,7 +40,7 @@
       <pose>0.0 0.044 0.08 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>1</mass>
+        <mass>5</mass>
         <inertia>
           <ixx>100</ixx>
           <ixy>0</ixy>

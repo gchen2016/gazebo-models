@@ -9,8 +9,7 @@
       <pose>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0.0216667 0 -0.0215556 0 -0 0</pose>
-        <!--temporary set the mass to 1000, change when all the inertial will be ok-->
-        <mass>100</mass>
+        <mass>30</mass>
         <inertia>
           <ixx>900.12</ixx>
           <ixy>-3.46945e-18</ixy>

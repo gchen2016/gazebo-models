@@ -39,7 +39,7 @@
     <pose>${Ox*reflect_yz} ${(Oy+wheel_length/2+bar_radius+0.001)*reflect_xz} ${wheel_radius} 0 0 0</pose>
     <inertial>
       <pose>0 0 0 0 0 0</pose>
-      <mass>1</mass>
+      <mass>5</mass>
       <inertia>
         <ixx>100</ixx>
         <ixy>0</ixy>
