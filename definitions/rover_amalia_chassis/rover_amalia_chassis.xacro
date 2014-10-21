@@ -22,14 +22,14 @@
       <inertial>
         <pose>0.0216667 0 -0.0215556 0 -0 0</pose>
         <mass>30</mass>
-        <inertia>
-          <ixx>900.12</ixx>
-          <ixy>-3.46945e-18</ixy>
-          <ixz>-0.0139533</ixz>
-          <iyy>900.352</iyy>
-          <iyz>0</iyz>
-          <izz>900.455</izz>
-        </inertia>
+        <!--<inertia>-->
+          <!--<ixx>900.12</ixx>-->
+          <!--<ixy>-3.46945e-18</ixy>-->
+          <!--<ixz>-0.0139533</ixz>-->
+          <!--<iyy>900.352</iyy>-->
+          <!--<iyz>0</iyz>-->
+          <!--<izz>900.455</izz>-->
+        <!--</inertia>-->
       </inertial>
       <visual name="rover_amalia_chassis_body_visual">
         <pose>0 0 0 0 0 0</pose>

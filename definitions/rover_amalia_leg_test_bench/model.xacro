@@ -1,0 +1,107 @@
+<?xml version="1.0" ?>
+<sdf version="1.5" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="../rover_amalia_leg/rover_amalia_leg.xacro" />
+  <model name="rover_amalia_leg_test_bench">
+    <pose>0 0 0 0 0 0</pose>
+
+    <link name="test_bench_base_1">
+      <pose>-0.5 0 0.5 0 0 0</pose>
+      <self_collide>true</self_collide>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>100</mass>
+      </inertial>
+      <visual name="test_bench_base_1_v">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+             <size>0.5 0.5 1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="test_bench_base_1_c">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+             <size>0.5 0.5 1</size>
+          </box>
+        </geometry>
+        <max_contacts>10</max_contacts>
+      </collision>
+    </link>
+    <link name="test_bench_base_2">
+      <pose>0.5 0 0.5 0 0 0</pose>
+      <self_collide>true</self_collide>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>100</mass>
+      </inertial>
+      <self_collide>true</self_collide>
+      <visual name="test_bench_base_2_v">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+             <size>0.5 0.5 1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="test_bench_base_2_c">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+             <size>0.5 0.5 1</size>
+          </box>
+        </geometry>
+        <max_contacts>10</max_contacts>
+      </collision>
+    </link>
+    <link name="test_bench">
+      <pose>0 0 1.20 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>100</mass>
+      </inertial>
+      <visual name="test_bench_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+             <size>1 0.5 0.3</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="rover_amalia_chassis_body_collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>1 0.5 0.3</size>
+          </box>
+        </geometry>
+        <max_contacts>10</max_contacts>
+      </collision>
+    </link>
+    <xacro:rover_amalia_leg Ox="0" Oy="0.26" Oz="1" prefix="f_l" reflect_xz="-1" reflect_yz="-1" bar_length="0.2" bar_radius="0.008" wheel_radius="0.08" wheel_length="0.07" model_root="rover_amalia_leg"/>
+
+    <joint name="test_bench_leg" type="revolute">
+      <parent>test_bench</parent>
+      <child>rover_amalia_leg_bar_f_l</child>
+      <pose>0 0 0.1 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+      <physics>
+        <ode>
+          <provide_feedback>1</provide_feedback>
+        </ode>
+      </physics>
+    </joint>
+
+    <plugin filename="libgazebo_ros_dynamixel_motor.so" name="dynamixel_motor">
+      <joint>test_bench_leg</joint>
+      <default_pos>1</default_pos>
+      <default_torque_limit>100</default_torque_limit>
+    </plugin>
+
+  </model>
+</sdf>
+

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.72.0 commit date:2014-10-03, commit time:13:58, hash:95182d1</authoring_tool>
+    </contributor>
+    <created>2014-10-09T14:59:19</created>
+    <modified>2014-10-09T14:59:19</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_cameras>
+    <camera id="Camera-camera" name="Camera">
+      <optics>
+        <technique_common>
+          <perspective>
+            <xfov sid="xfov">49.13434</xfov>
+            <aspect_ratio>1.777778</aspect_ratio>
+            <znear sid="znear">0.1</znear>
+            <zfar sid="zfar">100</zfar>
+          </perspective>
+        </technique_common>
+      </optics>
+      <extra>
+        <technique profile="blender">
+          <YF_dofdist>0</YF_dofdist>
+          <shiftx>0</shiftx>
+          <shifty>0</shifty>
+        </technique>
+      </extra>
+    </camera>
+  </library_cameras>
+  <library_lights>
+    <light id="Lamp-light" name="Lamp">
+      <technique_common>
+        <point>
+          <color sid="color">1 1 1</color>
+          <constant_attenuation>1</constant_attenuation>
+          <linear_attenuation>0</linear_attenuation>
+          <quadratic_attenuation>0.00111109</quadratic_attenuation>
+        </point>
+      </technique_common>
+      <extra>
+        <technique profile="blender">
+          <adapt_thresh>0.000999987</adapt_thresh>
+          <area_shape>1</area_shape>
+          <area_size>0.1</area_size>
+          <area_sizey>0.1</area_sizey>
+          <area_sizez>1</area_sizez>
+          <atm_distance_factor>1</atm_distance_factor>
+          <atm_extinction_factor>1</atm_extinction_factor>
+          <atm_turbidity>2</atm_turbidity>
+          <att1>0</att1>
+          <att2>1</att2>
+          <backscattered_light>1</backscattered_light>
+          <bias>1</bias>
+          <blue>1</blue>
+          <buffers>1</buffers>
+          <bufflag>0</bufflag>
+          <bufsize>2880</bufsize>
+          <buftype>2</buftype>
+          <clipend>30.002</clipend>
+          <clipsta>1.000799</clipsta>
+          <compressthresh>0.04999995</compressthresh>
+          <dist sid="blender_dist">29.99998</dist>
+          <energy sid="blender_energy">1</energy>
+          <falloff_type>2</falloff_type>
+          <filtertype>0</filtertype>
+          <flag>0</flag>
+          <gamma sid="blender_gamma">1</gamma>
+          <green>1</green>
+          <halo_intensity sid="blnder_halo_intensity">1</halo_intensity>
+          <horizon_brightness>1</horizon_brightness>
+          <mode>8192</mode>
+          <ray_samp>1</ray_samp>
+          <ray_samp_method>1</ray_samp_method>
+          <ray_samp_type>0</ray_samp_type>
+          <ray_sampy>1</ray_sampy>
+          <ray_sampz>1</ray_sampz>
+          <red>1</red>
+          <samp>3</samp>
+          <shadhalostep>0</shadhalostep>
+          <shadow_b sid="blender_shadow_b">0</shadow_b>
+          <shadow_g sid="blender_shadow_g">0</shadow_g>
+          <shadow_r sid="blender_shadow_r">0</shadow_r>
+          <sky_colorspace>0</sky_colorspace>
+          <sky_exposure>1</sky_exposure>
+          <skyblendfac>1</skyblendfac>
+          <skyblendtype>1</skyblendtype>
+          <soft>3</soft>
+          <spotblend>0.15</spotblend>
+          <spotsize>75</spotsize>
+          <spread>1</spread>
+          <sun_brightness>1</sun_brightness>
+          <sun_effect_type>0</sun_effect_type>
+          <sun_intensity>1</sun_intensity>
+          <sun_size>1</sun_size>
+          <type>0</type>
+        </technique>
+      </extra>
+    </light>
+  </library_lights>
+  <library_images/>
+  <library_geometries>
+    <geometry id="Pantilt_Tilt_Low-mesh" name="Pantilt Tilt Low">
+      <mesh>
+        <source id="Pantilt_Tilt_Low-mesh-positions">
+          <float_array id="Pantilt_Tilt_Low-mesh-positions-array" count="102">-0.009594798 -0.02716648 -0.009594798 -0.00999999 -0.01846647 0.03311598 -0.009569168 -0.01846647 -0.009569168 -0.009569168 0.03341346 -0.009569168 -0.009594798 0.02471345 -0.009594798 -0.00999999 0.02471351 0.03311598 -0.00999999 -0.02716648 0.03911596 -0.00999999 0.03341346 0.03911596 -0.004357814 -0.01846647 3.89486e-4 0.009594798 -0.01846647 -0.009594798 -3.89488e-4 -0.01846647 -0.004357814 0.004357814 -0.01846647 -3.89489e-4 3.89487e-4 -0.01846647 0.004357814 0.00999999 -0.01846647 0.03311598 0.009569168 -0.02716648 -0.009569168 0.00999999 -0.02716642 0.03911596 -3.89487e-4 -0.02716648 0.004357814 0.004357814 -0.02716648 3.89487e-4 0.00999999 0.02471351 0.03311598 -0.004357814 -0.02716648 -3.89487e-4 3.89487e-4 -0.02716648 -0.004357814 0.00999999 0.03341346 0.03911596 0.009594798 0.03341346 -0.009594798 0.009569168 0.02471351 -0.009569168 -0.003782391 0.03341346 -0.001736104 1.7161e-4 0.03341346 -0.004256069 3.86579e-4 0.03341346 0.004144072 -0.003396511 0.03341346 0.00240463 0.004501461 0.03341346 1.90411e-4 0.003782391 0.02471351 -0.001736104 -7.49676e-4 0.02471345 -0.004310309 -9.25666e-4 0.02471351 0.003979027 0.003130555 0.02471351 0.002887427 -0.004310309 0.02471345 7.49663e-4</float_array>
+          <technique_common>
+            <accessor source="#Pantilt_Tilt_Low-mesh-positions-array" count="34" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Pantilt_Tilt_Low-mesh-normals">
+          <float_array id="Pantilt_Tilt_Low-mesh-normals-array" count="216">-0.9999446 0.002977788 -0.01009243 -0.9999506 0.002975702 -0.00948596 -0.999949 -0.005736291 -0.00831747 -0.9999422 0.006102383 -0.008848607 -1 0 0 -1 0 0 -2.92264e-7 1 -2.21134e-7 -1.51276e-7 1 -2.88406e-7 -2.18185e-7 1 -2.08362e-7 0 1 -1.749e-7 5.53722e-7 1 0 0 1 -1.66777e-7 0 -1 1.52212e-7 1.74784e-7 -1 2.09093e-7 9.45875e-7 -1 4.94974e-7 0 -1.72547e-7 -1 0 -1.72547e-7 -1 -1.44521e-7 -1 1.20807e-7 0 -1 0 0 -1 1.53667e-7 0 -1 1.70804e-7 0 -1 1.3713e-7 0 1.84481e-7 1 0 1.84481e-7 1 0.001338601 -0.00295192 -0.9999948 -0.001338303 0.002952575 -0.9999948 0.9999446 -0.00297755 -0.01009249 0.9999507 -0.002976238 -0.0094859 0.9999489 0.005736291 -0.00831753 0.9999423 -0.006102383 -0.008848667 1 0 0 1 0 0 0.001338362 -0.002952337 -0.9999948 -0.001338481 0.002952098 -0.9999948 -0.7659853 -0.0573306 -0.6402967 -0.6402966 0.05733019 -0.7659853 0.6402966 -0.05733048 -0.7659853 0.7659852 0.05733042 -0.6402968 0.7659853 -0.05733025 0.6402966 0.6402966 0.05733066 0.7659853 -0.6402966 -0.05733036 0.7659853 -0.7659853 0.05733048 0.6402967 4.5683e-7 1 -2.23983e-6 0 1 0 -3.89701e-7 1 -6.87844e-7 1.26681e-6 1 3.76241e-7 -3.05898e-7 1 -5.39928e-7 -1.86265e-7 1 -2.27884e-7 1.92615e-6 1 6.21872e-7 7.69301e-7 -1 0 8.96729e-7 -1 0 5.83534e-7 -1 -2.71768e-7 1.33388e-6 -1 -2.44463e-7 2.9651e-7 -1 2.08651e-7 1.86265e-7 -1 2.63431e-7 2.15823e-7 -1 2.49871e-7 -1.78962e-6 1 -3.21908e-7 -2.9468e-6 1 2.74635e-7 0 1 -3.81114e-7 0 1 -1.85776e-7 1.65613e-7 -1 0 2.14343e-6 -1 1.10789e-6 0.9919443 -0.08660459 -0.0924468 0.6888532 0.06498712 -0.721982 0.4173182 -0.0457223 -0.9076094 -0.2594363 0.05742532 -0.9640514 -0.6883536 -0.1136262 -0.7164205 -0.9839728 0.1120463 -0.1387201 -0.7132077 -0.09484457 0.6945065 -0.4933454 0.04682427 0.8685722 0.5364056 -0.06205332 0.8416759 0.8124757 0.1140564 0.5717294</float_array>
+          <technique_common>
+            <accessor source="#Pantilt_Tilt_Low-mesh-normals-array" count="72" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Pantilt_Tilt_Low-mesh-vertices">
+          <input semantic="POSITION" source="#Pantilt_Tilt_Low-mesh-positions"/>
+        </vertices>
+        <polylist count="72">
+          <input semantic="VERTEX" source="#Pantilt_Tilt_Low-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Pantilt_Tilt_Low-mesh-normals" offset="1"/>
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>0 0 1 0 2 0 3 1 4 1 5 1 0 2 6 2 1 2 7 3 3 3 5 3 6 4 5 4 1 4 6 5 7 5 5 5 1 6 8 6 2 6 9 7 10 7 11 7 1 8 12 8 8 8 13 9 9 9 11 9 1 10 11 10 12 10 1 11 13 11 11 11 6 12 14 12 15 12 6 13 16 13 17 13 6 14 17 14 14 14 13 15 1 15 5 15 5 16 18 16 13 16 19 17 16 17 6 17 14 18 17 18 20 18 19 19 6 19 0 19 14 20 20 20 0 20 20 21 19 21 0 21 7 22 6 22 15 22 15 23 21 23 7 23 22 24 23 24 4 24 4 25 3 25 22 25 22 26 18 26 23 26 14 27 9 27 13 27 22 28 21 28 18 28 15 29 14 29 13 29 21 30 13 30 18 30 21 31 15 31 13 31 9 32 14 32 0 32 0 33 2 33 9 33 11 34 17 34 12 34 12 35 17 35 16 35 12 36 16 36 8 36 8 37 16 37 19 37 8 38 19 38 10 38 10 39 19 39 20 39 10 40 20 40 11 40 11 41 20 41 17 41 3 42 24 42 25 42 26 43 27 43 7 43 22 44 3 44 25 44 28 45 26 45 7 45 28 46 22 46 25 46 7 47 21 47 22 47 28 48 7 48 22 48 23 49 29 49 30 49 31 50 32 50 18 50 4 51 23 51 30 51 33 52 31 52 18 52 33 53 4 53 30 53 18 54 5 54 4 54 33 55 18 55 4 55 3 56 7 56 27 56 27 57 24 57 3 57 2 58 8 58 10 58 10 59 9 59 2 59 23 60 18 60 32 60 32 61 29 61 23 61 33 62 24 62 27 62 33 63 27 63 31 63 31 64 27 64 26 64 31 65 26 65 32 65 32 66 26 66 28 66 32 67 28 67 29 67 29 68 28 68 25 68 29 69 25 69 30 69 30 70 25 70 24 70 30 71 24 71 33 71</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="Camera" name="Camera" type="NODE">
+        <matrix sid="transform">0.6858805 -0.3173701 0.6548619 7.481132 0.7276338 0.3124686 -0.6106656 -6.50764 -0.01081678 0.8953432 0.4452454 5.343665 0 0 0 1</matrix>
+        <instance_camera url="#Camera-camera"/>
+      </node>
+      <node id="Lamp" name="Lamp" type="NODE">
+        <matrix sid="transform">-0.2908646 -0.7711008 0.5663932 4.076245 0.9551712 -0.1998834 0.2183912 1.005454 -0.05518906 0.6045247 0.7946723 5.903862 0 0 0 1</matrix>
+        <instance_light url="#Lamp-light"/>
+      </node>
+      <node id="Pantilt_Tilt_Low" name="Pantilt_Tilt_Low" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#Pantilt_Tilt_Low-mesh"/>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>
