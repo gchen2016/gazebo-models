@@ -7,81 +7,93 @@
   <xacro:macro name="rover_amalia_leg" params="Ox Oy Oz prefix reflect_xz reflect_yz bar_length bar_radius wheel_radius wheel_length model_root">
     <link name="rover_amalia_leg_bar_${prefix}">
       <pose>${Ox*reflect_yz} ${Oy*reflect_xz} ${Oz+rover_amalia_leg_bar_z} 0 0 0</pose>
-    <collision name="leg_bar_${prefix}_bar_collision">
-      <geometry>
-        <cylinder>
-          <length>${bar_length}</length>
-          <radius>${bar_radius}</radius>
-        </cylinder>
-      </geometry>
-      <max_contacts>10</max_contacts>
-      <surface>
-        <contact>
-          <ode/>
-        </contact>
-        <bounce/>
-        <friction>
-          <ode/>
-        </friction>
-      </surface>
-    </collision>
-    <visual name="rover_amalia_leg_bar_${prefix}_bar_visual">
-      <pose>0 0 0 0 0 0</pose>
-      <geometry>
-        <cylinder>
-          <length>${bar_length}</length>
-          <radius>${bar_radius}</radius>
-        </cylinder>
-      </geometry>
-    </visual>
-  </link>
-  <link name="rover_amalia_leg_wheel_${prefix}">
-    <pose>${Ox*reflect_yz} ${(Oy+wheel_length/2+bar_radius+0.001)*reflect_xz} ${Oz + wheel_radius} 0 0 0</pose>
-    <inertial>
-      <pose>0 0 0 0 0 0</pose>
-      <mass>5</mass>
-      <inertia>
-        <ixx>100</ixx>
-        <ixy>0</ixy>
-        <ixz>0</ixz>
-        <iyy>100</iyy>
-        <iyz>0</iyz>
-        <izz>100</izz>
-      </inertia>
-    </inertial>
-    <collision name="rover_amalia_leg_wheel_${prefix}_collision">
-      <pose>0 0 0 ${pi/2} 0 0</pose>
-      <geometry>
-        <cylinder>
-          <length>${wheel_length}</length>
-          <radius>${wheel_radius}</radius>
-        </cylinder>
-      </geometry>
-      <max_contacts>10</max_contacts>
-    </collision>
-    <visual name="rover_amalia_leg_wheel_${prefix}_visual">
-      <pose>0 0 0 0 0 0</pose>
-      <geometry>
-        <mesh>
-          <uri>model://${model_root}/meshes/wheel.dae</uri>
-        </mesh>
-      </geometry>
-    </visual>
-    <self_collide>0</self_collide>
-    <kinematic>0</kinematic>
-    <gravity>1</gravity>
-  </link>
-  <joint name="rover_amalia_leg_shaft_${prefix}" type="revolute">
-    <child>rover_amalia_leg_wheel_${prefix}</child>
-    <parent>rover_amalia_leg_bar_${prefix}</parent>
-    <axis>
-      <xyz>0 1 0</xyz>
-      <limit>
-        <lower>-1e+16</lower>
-        <upper>1e+16</upper>
-      </limit>
-      <use_parent_model_frame>1</use_parent_model_frame>
-    </axis>
-  </joint>
+      <inertial>
+	<pose>0 0 0 0 0 0</pose>
+	<mass>0.31</mass>
+	<inertia>
+          <ixx>0.00279048</ixx>
+          <ixy>0</ixy>
+          <ixz>-0.00003956</ixz>
+          <iyy>0.00275062</iyy>
+          <iyz>0</iyz>
+          <izz>0.00008316</izz>
+	</inertia>
+      </inertial>
+      <collision name="leg_bar_${prefix}_bar_collision">
+	<geometry>
+          <cylinder>
+            <length>${bar_length}</length>
+            <radius>${bar_radius}</radius>
+          </cylinder>
+	</geometry>
+	<max_contacts>10</max_contacts>
+	<surface>
+          <contact>
+            <ode/>
+          </contact>
+          <bounce/>
+          <friction>
+            <ode/>
+          </friction>
+	</surface>
+      </collision>
+      <visual name="rover_amalia_leg_bar_${prefix}_bar_visual">
+	<pose>0 0 0 0 0 0</pose>
+	<geometry>
+          <cylinder>
+            <length>${bar_length}</length>
+            <radius>${bar_radius}</radius>
+          </cylinder>
+	</geometry>
+      </visual>
+    </link>
+    <link name="rover_amalia_leg_wheel_${prefix}">
+      <pose>${Ox*reflect_yz} ${(Oy+wheel_length/2+bar_radius+0.001)*reflect_xz} ${Oz + wheel_radius} 0 0 0</pose>
+      <inertial>
+	<pose>0 0 0 0 0 0</pose>
+	<mass>1.1</mass>
+	<inertia>
+	  <ixx>0.00353418</ixx>
+	  <iyy>0.00222499</iyy>
+	  <izz>0.00222713</izz>
+	  <ixy>0</ixy>
+	  <izx>0</izx>
+	  <iyz>0</iyz>
+	</inertia>
+      </inertial>
+      <collision name="rover_amalia_leg_wheel_${prefix}_collision">
+	<pose>0 0 0 ${pi/2} 0 0</pose>
+	<geometry>
+          <cylinder>
+            <length>${wheel_length}</length>
+            <radius>${wheel_radius}</radius>
+          </cylinder>
+	</geometry>
+	<max_contacts>10</max_contacts>
+      </collision>
+      <visual name="rover_amalia_leg_wheel_${prefix}_visual">
+	<pose>0 0 0 0 0 0</pose>
+	<geometry>
+          <mesh>
+            <uri>model://${model_root}/meshes/wheel.dae</uri>
+          </mesh>
+	</geometry>
+      </visual>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+    </link>
+    <joint name="rover_amalia_leg_shaft_${prefix}" type="revolute">
+      <child>rover_amalia_leg_wheel_${prefix}</child>
+      <parent>rover_amalia_leg_bar_${prefix}</parent>
+      <axis>
+	<xyz>0 1 0</xyz>
+	<limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+	</limit>
+	<use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
   </xacro:macro>
 </robot> 
