@@ -57,7 +57,7 @@
 	  <iyy>0.00222499</iyy>
 	  <izz>0.00222713</izz>
 	  <ixy>0</ixy>
-	  <izx>0</izx>
+	  <ixz>0</ixz>
 	  <iyz>0</iyz>
 	</inertia>
       </inertial>
