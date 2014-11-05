@@ -13,11 +13,21 @@ Options:
 """
 import os
 
-from docopt import docopt
-from plumbum import local
+try:
+    from docopt import docopt
+    from plumbum import local
+    import logging
+    import coloredlogs
+except ImportError, err:
+    module_name = err.args[0].split()[-1]
+    print("Some of the needed modules were missing (at least `%s')." % module_name)
+    print("Please check that all dependencies are correctly installed.")
+    print("To do so, it is suggested to use the command:")
+    print("     $ sudo pip install docopt plumbum logging colored logs")
+    exit()
+
+
 import shutil
-import logging
-import coloredlogs
 import re
 logger = logging.getLogger(__name__)
 coloredlogs.install(level=logging.INFO)
