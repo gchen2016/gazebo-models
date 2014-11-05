@@ -80,11 +80,13 @@ class Build():
             except Exception as e:
                 fails.append((name, e))
             shutil.copyfile(indir+"/model.config", outdir+"/model.config")
-            mesh_dir_name = indir + "/meshes"
-            out_mesh_dir = outdir + "/meshes"
-            if os.path.exists(mesh_dir_name):
-                clean_output_dir(out_mesh_dir)
-                shutil.copytree(mesh_dir_name, out_mesh_dir)
+            dirs_to_copy_names = ["/meshes", "/textures"]
+            for dir_name in dirs_to_copy_names:
+                mesh_dir_name = indir + dir_name
+                out_mesh_dir = outdir + dir_name
+                if os.path.exists(mesh_dir_name):
+                    clean_output_dir(out_mesh_dir)
+                    shutil.copytree(mesh_dir_name, out_mesh_dir)
         if len(fails) > 0:
             logger.error("{} models failed:\n".format( str(len(fails))) )
             for fail in fails:
