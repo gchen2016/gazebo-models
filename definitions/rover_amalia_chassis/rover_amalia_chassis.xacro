@@ -64,6 +64,7 @@
           </box>
         </geometry>
       </visual>
+
       <visual name="rover_amalia_chassis_front_up_rangefinder_visual">
         <pose>0.246 0 -0.05 0 -0 0</pose>
         <geometry>
@@ -72,6 +73,7 @@
           </box>
         </geometry>
       </visual>
+
       <visual name="rover_amalia_chassis_front_down_rangefinder_visual">
         <pose>${0.246-rover_amalia_chassis_rangefinder_size_y} 0 ${-0.05-rover_amalia_chassis_rangefinder_size_y} 0 1.57 0</pose>
         <geometry>
@@ -80,6 +82,36 @@
           </box>
         </geometry>
       </visual>
+      <sensor name="range_front_down_ray" type="ray"> 
+          <pose>0.25 0 -0.09 0 ${pi/2} 0</pose>
+          <ray>
+              <scan>
+                  <horizontal>
+                      <!-- could be just 1, but with 10 it is visualized in the gui-->
+                      <samples>20</samples>
+                      <resolution>1.0</resolution>
+                      <min_angle>-0.02</min_angle>
+                      <max_angle>0.02</max_angle>
+                  </horizontal>
+              </scan>
+              <range>
+                  <min>0.15</min>
+                  <max>3</max>
+              </range>
+          </ray>
+          <!-- test plugin -->
+          <plugin name="plugin_1" filename="libgazebo_ros_range_finder.so">
+              <gaussianNoise>0.005</gaussianNoise>
+              <alwaysOn>true</alwaysOn>
+              <updateRate>20</updateRate>
+              <topicName>/ADC/range_front_down</topicName>
+              <frameName>base_link</frameName>
+          </plugin>
+          <always_on>true</always_on>
+          <update_rate>2.0</update_rate>
+          <visualize>true</visualize>
+      </sensor>
+
       <visual name="rover_amalia_chassis_rear_up_rangefinder_visual">
         <pose>-0.246 0 -0.05 3.14159 0.00159265 3.14159</pose>
         <geometry>
@@ -88,6 +120,7 @@
           </box>
         </geometry>
       </visual>
+
       <visual name="rover_amalia_chassis_rear_down_rangefinder_visual">
         <pose>${-0.246+rover_amalia_chassis_rangefinder_size_y} 0 ${-0.05-rover_amalia_chassis_rangefinder_size_y} 0 1.57 0</pose>
         <geometry>
@@ -96,6 +129,36 @@
           </box>
         </geometry>
       </visual>
+      <sensor name="range_rear_down_ray" type="ray"> 
+          <pose>${-0.248+rover_amalia_chassis_rangefinder_size_y} 0 ${-0.05-rover_amalia_chassis_rangefinder_size_y} 0 1.57 0</pose>
+          <ray>
+              <scan>
+                  <horizontal>
+                      <!-- could be just 1, but with 10 it is visualized in the gui-->
+                      <samples>20</samples>
+                      <resolution>1.0</resolution>
+                      <min_angle>-0.02</min_angle>
+                      <max_angle>0.02</max_angle>
+                  </horizontal>
+              </scan>
+              <range>
+                  <min>0.15</min>
+                  <max>3</max>
+              </range>
+          </ray>
+          <!-- test plugin -->
+          <plugin name="plugin_1" filename="libgazebo_ros_range_finder.so">
+              <gaussianNoise>0.005</gaussianNoise>
+              <alwaysOn>true</alwaysOn>
+              <updateRate>20</updateRate>
+              <topicName>/ADC/range_rear_down</topicName>
+              <frameName>base_link</frameName>
+          </plugin>
+          <always_on>true</always_on>
+          <update_rate>2.0</update_rate>
+          <visualize>true</visualize>
+      </sensor>
+
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
       <gravity>1</gravity>

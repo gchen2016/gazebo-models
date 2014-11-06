@@ -83,6 +83,18 @@
     </link>
     <link name="rover_amalia_leg_bar_f_l">
       <pose>-0.0 -0.26 1.18 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.31</mass>
+        <inertia>
+          <ixx>0.00279048</ixx>
+          <ixy>0</ixy>
+          <ixz>-0.00003956</ixz>
+          <iyy>0.00275062</iyy>
+          <iyz>0</iyz>
+          <izz>0.00008316</izz>
+        </inertia>
+      </inertial>
       <collision name="leg_bar_f_l_bar_collision">
         <geometry>
           <cylinder>
@@ -115,14 +127,14 @@
       <pose>-0.0 -0.304 1.08 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>5</mass>
+        <mass>1.1</mass>
         <inertia>
-          <ixx>100</ixx>
+          <ixx>0.00353418</ixx>
+          <iyy>0.00222499</iyy>
+          <izz>0.00222713</izz>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>100</iyy>
           <iyz>0</iyz>
-          <izz>100</izz>
         </inertia>
       </inertial>
       <collision name="rover_amalia_leg_wheel_f_l_collision">

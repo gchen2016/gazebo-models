@@ -245,15 +245,15 @@
       <pose>0 0 0.364 0 0 0</pose>
       <inertial>
         <pose>0.0216667 0 -0.0215556 0 -0 0</pose>
-        <mass>30</mass>
-        <!--<inertia>-->
-        <!--<ixx>900.12</ixx>-->
-        <!--<ixy>-3.46945e-18</ixy>-->
-        <!--<ixz>-0.0139533</ixz>-->
-        <!--<iyy>900.352</iyy>-->
-        <!--<iyz>0</iyz>-->
-        <!--<izz>900.455</izz>-->
-        <!--</inertia>-->
+        <mass>15.6</mass>
+        <inertia>
+          <ixx>0.6385976</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.521</iyy>
+          <iyz>0</iyz>
+          <izz>0.318954</izz>
+        </inertia>
       </inertial>
       <visual name="rover_amalia_chassis_body_visual">
         <pose>0 0 0 0 0 0</pose>
@@ -305,6 +305,35 @@
           </box>
         </geometry>
       </visual>
+      <sensor name="range_front_down_ray" type="ray">
+        <pose>0.25 0 -0.09 0 1.5707963 0</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <!-- could be just 1, but with 10 it is visualized in the gui-->
+              <samples>20</samples>
+              <resolution>1.0</resolution>
+              <min_angle>-0.02</min_angle>
+              <max_angle>0.02</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.15</min>
+            <max>3</max>
+          </range>
+        </ray>
+        <!-- test plugin -->
+        <plugin filename="libgazebo_ros_range_finder.so" name="plugin_1">
+          <gaussianNoise>0.005</gaussianNoise>
+          <alwaysOn>true</alwaysOn>
+          <updateRate>20</updateRate>
+          <topicName>/ADC/range_front_down</topicName>
+          <frameName>base_link</frameName>
+        </plugin>
+        <always_on>true</always_on>
+        <update_rate>2.0</update_rate>
+        <visualize>true</visualize>
+      </sensor>
       <visual name="rover_amalia_chassis_rear_up_rangefinder_visual">
         <pose>-0.246 0 -0.05 3.14159 0.00159265 3.14159</pose>
         <geometry>
@@ -321,12 +350,53 @@
           </box>
         </geometry>
       </visual>
+      <sensor name="range_rear_down_ray" type="ray">
+        <pose>-0.238 0 -0.06 0 1.57 0</pose>
+        <ray>
+          <scan>
+            <horizontal>
+              <!-- could be just 1, but with 10 it is visualized in the gui-->
+              <samples>20</samples>
+              <resolution>1.0</resolution>
+              <min_angle>-0.02</min_angle>
+              <max_angle>0.02</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.15</min>
+            <max>3</max>
+          </range>
+        </ray>
+        <!-- test plugin -->
+        <plugin filename="libgazebo_ros_range_finder.so" name="plugin_1">
+          <gaussianNoise>0.005</gaussianNoise>
+          <alwaysOn>true</alwaysOn>
+          <updateRate>20</updateRate>
+          <topicName>/ADC/range_rear_down</topicName>
+          <frameName>base_link</frameName>
+        </plugin>
+        <always_on>true</always_on>
+        <update_rate>2.0</update_rate>
+        <visualize>true</visualize>
+      </sensor>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
       <gravity>1</gravity>
     </link>
     <link name="rover_amalia_leg_bar_f_r">
       <pose>0.13776 0.175 0.2 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.31</mass>
+        <inertia>
+          <ixx>0.00279048</ixx>
+          <ixy>0</ixy>
+          <ixz>-0.00003956</ixz>
+          <iyy>0.00275062</iyy>
+          <iyz>0</iyz>
+          <izz>0.00008316</izz>
+        </inertia>
+      </inertial>
       <collision name="leg_bar_f_r_bar_collision">
         <geometry>
           <cylinder>
@@ -359,14 +429,14 @@
       <pose>0.13776 0.219 0.09 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>5</mass>
+        <mass>1.1</mass>
         <inertia>
-          <ixx>100</ixx>
+          <ixx>0.00353418</ixx>
+          <iyy>0.00222499</iyy>
+          <izz>0.00222713</izz>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>100</iyy>
           <iyz>0</iyz>
-          <izz>100</izz>
         </inertia>
       </inertial>
       <collision name="rover_amalia_leg_wheel_f_r_collision">
@@ -405,6 +475,18 @@
     </joint>
     <link name="rover_amalia_leg_bar_f_l">
       <pose>0.13776 -0.175 0.2 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.31</mass>
+        <inertia>
+          <ixx>0.00279048</ixx>
+          <ixy>0</ixy>
+          <ixz>-0.00003956</ixz>
+          <iyy>0.00275062</iyy>
+          <iyz>0</iyz>
+          <izz>0.00008316</izz>
+        </inertia>
+      </inertial>
       <collision name="leg_bar_f_l_bar_collision">
         <geometry>
           <cylinder>
@@ -437,14 +519,14 @@
       <pose>0.13776 -0.219 0.09 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>5</mass>
+        <mass>1.1</mass>
         <inertia>
-          <ixx>100</ixx>
+          <ixx>0.00353418</ixx>
+          <iyy>0.00222499</iyy>
+          <izz>0.00222713</izz>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>100</iyy>
           <iyz>0</iyz>
-          <izz>100</izz>
         </inertia>
       </inertial>
       <collision name="rover_amalia_leg_wheel_f_l_collision">
@@ -483,6 +565,18 @@
     </joint>
     <link name="rover_amalia_leg_bar_b_r">
       <pose>-0.13776 0.175 0.2 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.31</mass>
+        <inertia>
+          <ixx>0.00279048</ixx>
+          <ixy>0</ixy>
+          <ixz>-0.00003956</ixz>
+          <iyy>0.00275062</iyy>
+          <iyz>0</iyz>
+          <izz>0.00008316</izz>
+        </inertia>
+      </inertial>
       <collision name="leg_bar_b_r_bar_collision">
         <geometry>
           <cylinder>
@@ -515,14 +609,14 @@
       <pose>-0.13776 0.219 0.09 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>5</mass>
+        <mass>1.1</mass>
         <inertia>
-          <ixx>100</ixx>
+          <ixx>0.00353418</ixx>
+          <iyy>0.00222499</iyy>
+          <izz>0.00222713</izz>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>100</iyy>
           <iyz>0</iyz>
-          <izz>100</izz>
         </inertia>
       </inertial>
       <collision name="rover_amalia_leg_wheel_b_r_collision">
@@ -561,6 +655,18 @@
     </joint>
     <link name="rover_amalia_leg_bar_b_l">
       <pose>-0.13776 -0.175 0.2 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.31</mass>
+        <inertia>
+          <ixx>0.00279048</ixx>
+          <ixy>0</ixy>
+          <ixz>-0.00003956</ixz>
+          <iyy>0.00275062</iyy>
+          <iyz>0</iyz>
+          <izz>0.00008316</izz>
+        </inertia>
+      </inertial>
       <collision name="leg_bar_b_l_bar_collision">
         <geometry>
           <cylinder>
@@ -593,14 +699,14 @@
       <pose>-0.13776 -0.219 0.09 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>5</mass>
+        <mass>1.1</mass>
         <inertia>
-          <ixx>100</ixx>
+          <ixx>0.00353418</ixx>
+          <iyy>0.00222499</iyy>
+          <izz>0.00222713</izz>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>100</iyy>
           <iyz>0</iyz>
-          <izz>100</izz>
         </inertia>
       </inertial>
       <collision name="rover_amalia_leg_wheel_b_l_collision">
@@ -651,6 +757,7 @@
         <ode>
           <provide_feedback>1</provide_feedback>
         </ode>
+        <provide_feedback>1</provide_feedback>
       </physics>
     </joint>
     <plugin filename="libgazebo_ros_dynamixel_motor.so" name="dynamixel_motor">
@@ -658,6 +765,7 @@
       <base_topic_name>motore_1_controller</base_topic_name>
       <default_pos>0.0</default_pos>
       <default_torque_limit>100000</default_torque_limit>
+      <reduction_value>6.3</reduction_value>
     </plugin>
     <joint name="rover_amalia_joint_chassis_leg_f_l" type="revolute">
       <pose>0 0 0.11 0 0 0</pose>
@@ -672,6 +780,7 @@
         <ode>
           <provide_feedback>1</provide_feedback>
         </ode>
+        <provide_feedback>1</provide_feedback>
       </physics>
     </joint>
     <plugin filename="libgazebo_ros_dynamixel_motor.so" name="dynamixel_motor">
@@ -679,6 +788,7 @@
       <base_topic_name>motore_2_controller</base_topic_name>
       <default_pos>0.0</default_pos>
       <default_torque_limit>100000</default_torque_limit>
+      <reduction_value>6.3</reduction_value>
     </plugin>
     <joint name="rover_amalia_joint_chassis_leg_b_r" type="revolute">
       <pose>0 0 0.11 0 0 0</pose>
@@ -693,6 +803,7 @@
         <ode>
           <provide_feedback>1</provide_feedback>
         </ode>
+        <provide_feedback>1</provide_feedback>
       </physics>
     </joint>
     <plugin filename="libgazebo_ros_dynamixel_motor.so" name="dynamixel_motor">
@@ -700,6 +811,7 @@
       <base_topic_name>motore_3_controller</base_topic_name>
       <default_pos>0.0</default_pos>
       <default_torque_limit>100000</default_torque_limit>
+      <reduction_value>6.3</reduction_value>
     </plugin>
     <joint name="rover_amalia_joint_chassis_leg_b_l" type="revolute">
       <pose>0 0 0.11 0 0 0</pose>
@@ -714,6 +826,7 @@
         <ode>
           <provide_feedback>1</provide_feedback>
         </ode>
+        <provide_feedback>1</provide_feedback>
       </physics>
     </joint>
     <plugin filename="libgazebo_ros_dynamixel_motor.so" name="dynamixel_motor">
@@ -721,6 +834,7 @@
       <base_topic_name>motore_4_controller</base_topic_name>
       <default_pos>0.0</default_pos>
       <default_torque_limit>100000</default_torque_limit>
+      <reduction_value>6.3</reduction_value>
     </plugin>
     <joint name="rover_amalia_joint_turret_base_turret" type="revolute">
       <child>rover_amalia_turret_bar</child>

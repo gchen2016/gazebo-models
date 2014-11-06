@@ -32,6 +32,7 @@
         <ode>
           <provide_feedback>1</provide_feedback>
         </ode>
+        <provide_feedback>1</provide_feedback>
       </physics>
     </joint>
     <plugin filename="libgazebo_ros_dynamixel_motor.so" name="dynamixel_motor">
@@ -39,6 +40,7 @@
       <base_topic_name>motore_${index}_controller</base_topic_name>
       <default_pos>0.0</default_pos>
       <default_torque_limit>100000</default_torque_limit>
+      <reduction_value>6.3</reduction_value>
     </plugin>
   </xacro:macro>
 
