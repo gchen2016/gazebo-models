@@ -19,7 +19,7 @@
   <xacro:property name="rover_amalia_turret_tilt_base_pose">
     <pose>${Ox} ${Oy-0.01} ${Oz+bar_height+rover_amalia_turret_pan_base_height+rover_amalia_turret_pan_tilt_height/2} 0 0 0</pose>
   </xacro:property>
-  <xacro:property name="rover_amalia_turret_tilt_base_size">
+  <xacrop:roperty name="rover_amalia_turret_tilt_base_size">
     <size>0.06 0.02 ${rover_amalia_turret_pan_tilt_height}</size>
   </xacro:property>
 
@@ -30,14 +30,14 @@
       <xacro:insert_block name="rover_amalia_turret_bar_pose"/>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>1</mass>
+        <mass>0.5</mass>
         <inertia>
-          <ixx>100</ixx>
+          <ixx>0.001</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>100</iyy>
+          <iyy>0.001</iyy>
           <iyz>0</iyz>
-          <izz>100</izz>
+          <izz>0.001</izz>
         </inertia>
       </inertial>
       <collision name="rover_amalia_turret_bar_collision">
@@ -68,12 +68,12 @@
         <pose>0 0 0 0 0 0</pose>
         <mass>1</mass>
         <inertia>
-          <ixx>100</ixx>
+          <ixx>0.001</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>100</iyy>
+          <iyy>0.00100</iyy>
           <iyz>0</iyz>
-          <izz>100</izz>
+          <izz>0.00100</izz>
         </inertia>
       </inertial>
       <visual name="rover_amalia_turret_pan_base_visual">
@@ -98,12 +98,12 @@
         <pose>0 0 0 0 0 0</pose>
         <mass>2</mass>
         <inertia>
-          <ixx>200.001</ixx>
+          <ixx>0.00200001</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>200.001</iyy>
+          <iyy>0.00200001</iyy>
           <iyz>0</iyz>
-          <izz>200</izz>
+          <izz>0.00200</izz>
         </inertia>
       </inertial>
       <collision name="rover_amalia_turret_tilt_base_collision">
@@ -144,21 +144,21 @@
       <sensor name="depth_camera" type="depth">
         <pose>0 0 0 0 0 0</pose>
         <camera>
-          <horizontal_fov>1.578</horizontal_fov>
+          <horizontal_fov>0.767944</horizontal_fov>
           <image>
-            <width>640</width>
-            <height>480</height>
+            <width>176</width>
+            <height>144</height>
             <format>R8G8B8</format>
           </image>
           <clip>
-            <near>0.4</near>
-            <far>100</far>
+            <near>0.8</near>
+            <far>9</far>
           </clip>
         </camera>
         <plugin filename="libgazebo_ros_depth_camera.so" name="depth_camera_plugin">
           <alwaysOn>1</alwaysOn>
           <robotNamespace>${rover_amalia_turret_robot_namespace}</robotNamespace>
-          <updateRate>10.0</updateRate>
+          <updateRate>25.0</updateRate>
           <imageTopicName>image_raw</imageTopicName>
           <depthImageTopicName>depth_raw</depthImageTopicName>
           <depthImageCameraInfoTopicName>camera_info</depthImageCameraInfoTopicName>
@@ -174,18 +174,18 @@
           <distortionT2>0.0</distortionT2>
         </plugin>
         <always_on>true</always_on>
-        <update_rate>10.0</update_rate>
+        <update_rate>25.0</update_rate>
       </sensor>
       <sensor name="camera" type="multicamera">
         <always_on>1</always_on>
-        <update_rate>30</update_rate>
+        <update_rate>60</update_rate>
         <visualize>true</visualize>
         <camera name="left">
           <pose>0 0 0 0 0 0</pose>
           <horizontal_fov>1.047</horizontal_fov>
           <image>
-            <width>320</width>
-            <height>240</height>
+            <width>1280</width>
+            <height>1024</height>
           </image>
           <clip>
             <near>0.4</near>
@@ -196,8 +196,8 @@
           <pose>0 0 0 0 0 0</pose>
           <horizontal_fov>1.047</horizontal_fov>
           <image>
-            <width>320</width>
-            <height>240</height>
+            <width>1280</width>
+            <height>1024</height>
           </image>
           <clip>
             <near>0.4</near>
@@ -206,7 +206,7 @@
         </camera>
         <plugin filename="libgazebo_ros_multicamera.so" name="stereo_camera_controller">
           <alwaysOn>true</alwaysOn>
-          <updateRate>0.0</updateRate>
+          <updateRate>60.0</updateRate>
           <cameraName>camera</cameraName>
           <imageTopicName>image_raw</imageTopicName>
           <cameraInfoTopicName>camera_info</cameraInfoTopicName>
