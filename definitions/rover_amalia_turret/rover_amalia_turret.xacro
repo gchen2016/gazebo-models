@@ -19,7 +19,7 @@
   <xacro:property name="rover_amalia_turret_tilt_base_pose">
     <pose>${Ox} ${Oy-0.01} ${Oz+bar_height+rover_amalia_turret_pan_base_height+rover_amalia_turret_pan_tilt_height/2} 0 0 0</pose>
   </xacro:property>
-  <xacro:property name="rover_amalia_turret_tilt_base_size">
+  <xacrop:roperty name="rover_amalia_turret_tilt_base_size">
     <size>0.06 0.02 ${rover_amalia_turret_pan_tilt_height}</size>
   </xacro:property>
 
@@ -30,14 +30,14 @@
       <xacro:insert_block name="rover_amalia_turret_bar_pose"/>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>1</mass>
+        <mass>0.5</mass>
         <inertia>
-          <ixx>100</ixx>
+          <ixx>0.001</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>100</iyy>
+          <iyy>0.001</iyy>
           <iyz>0</iyz>
-          <izz>100</izz>
+          <izz>0.001</izz>
         </inertia>
       </inertial>
       <collision name="rover_amalia_turret_bar_collision">
@@ -68,12 +68,12 @@
         <pose>0 0 0 0 0 0</pose>
         <mass>1</mass>
         <inertia>
-          <ixx>100</ixx>
+          <ixx>0.001</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>100</iyy>
+          <iyy>0.00100</iyy>
           <iyz>0</iyz>
-          <izz>100</izz>
+          <izz>0.00100</izz>
         </inertia>
       </inertial>
       <visual name="rover_amalia_turret_pan_base_visual">
@@ -98,12 +98,12 @@
         <pose>0 0 0 0 0 0</pose>
         <mass>2</mass>
         <inertia>
-          <ixx>200.001</ixx>
+          <ixx>0.00200001</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>200.001</iyy>
+          <iyy>0.00200001</iyy>
           <iyz>0</iyz>
-          <izz>200</izz>
+          <izz>0.00200</izz>
         </inertia>
       </inertial>
       <collision name="rover_amalia_turret_tilt_base_collision">
