@@ -25,7 +25,11 @@
       <parent>rover_amalia_chassis</parent>
       <axis>
         <xyz>0 1 0</xyz>
-        <dynamics/>
+        <!--<dynamics>-->
+          <!--<damping>0.0001</damping>-->
+          <!--<spring_stiffness>1</spring_stiffness>-->
+          <!--<spring_reference>0</spring_reference>-->
+        <!--</dynamics>-->
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
       <physics>
@@ -38,9 +42,12 @@
     <plugin filename="libgazebo_ros_dynamixel_motor.so" name="dynamixel_motor">
       <joint>rover_amalia_joint_chassis_leg_${prefix}</joint>
       <base_topic_name>motore_${index}_controller</base_topic_name>
-      <default_pos>0.0</default_pos>
+      <default_pos>${-2*reflect_yz}</default_pos>
       <default_torque_limit>100000</default_torque_limit>
       <reduction_value>6.3</reduction_value>
+    </plugin>
+    <plugin filename="libgazebo_ros_joint_state_publisher.so" name="arm_${prefix}">
+      <jointName>rover_amalia_joint_chassis_leg_${prefix}</jointName>
     </plugin>
   </xacro:macro>
 

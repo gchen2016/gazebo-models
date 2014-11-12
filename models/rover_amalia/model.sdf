@@ -241,6 +241,12 @@
       <jointSet1Joint1>rover_amalia_turret_pan</jointSet1Joint1>
       <jointSet1Joint2>rover_amalia_turret_tilt</jointSet1Joint2>
     </plugin>
+    <plugin filename="libgazebo_ros_joint_state_publisher.so" name="pan">
+      <jointName>rover_amalia_turret_pan</jointName>
+    </plugin>
+    <plugin filename="libgazebo_ros_joint_state_publisher.so" name="tilt">
+      <jointName>rover_amalia_turret_tilt</jointName>
+    </plugin>
     <link name="rover_amalia_chassis">
       <pose>0 0 0.364 0 0 0</pose>
       <inertial>
@@ -473,6 +479,9 @@
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
+    <plugin filename="libgazebo_ros_joint_state_publisher.so" name="wheel_f_r">
+      <jointName>rover_amalia_leg_shaft_f_r</jointName>
+    </plugin>
     <link name="rover_amalia_leg_bar_f_l">
       <pose>0.13776 -0.175 0.2 0 0 0</pose>
       <inertial>
@@ -563,6 +572,9 @@
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
+    <plugin filename="libgazebo_ros_joint_state_publisher.so" name="wheel_f_l">
+      <jointName>rover_amalia_leg_shaft_f_l</jointName>
+    </plugin>
     <link name="rover_amalia_leg_bar_b_r">
       <pose>-0.13776 0.175 0.2 0 0 0</pose>
       <inertial>
@@ -653,6 +665,9 @@
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
+    <plugin filename="libgazebo_ros_joint_state_publisher.so" name="wheel_b_r">
+      <jointName>rover_amalia_leg_shaft_b_r</jointName>
+    </plugin>
     <link name="rover_amalia_leg_bar_b_l">
       <pose>-0.13776 -0.175 0.2 0 0 0</pose>
       <inertial>
@@ -743,6 +758,9 @@
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
+    <plugin filename="libgazebo_ros_joint_state_publisher.so" name="wheel_b_l">
+      <jointName>rover_amalia_leg_shaft_b_l</jointName>
+    </plugin>
     <!--additional joints-->
     <joint name="rover_amalia_joint_chassis_leg_f_r" type="revolute">
       <pose>0 0 0.11 0 0 0</pose>
@@ -750,7 +768,11 @@
       <parent>rover_amalia_chassis</parent>
       <axis>
         <xyz>0 1 0</xyz>
-        <dynamics/>
+        <!--<dynamics>-->
+        <!--<damping>0.0001</damping>-->
+        <!--<spring_stiffness>1</spring_stiffness>-->
+        <!--<spring_reference>0</spring_reference>-->
+        <!--</dynamics>-->
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
       <physics>
@@ -763,9 +785,12 @@
     <plugin filename="libgazebo_ros_dynamixel_motor.so" name="dynamixel_motor">
       <joint>rover_amalia_joint_chassis_leg_f_r</joint>
       <base_topic_name>motore_1_controller</base_topic_name>
-      <default_pos>0.0</default_pos>
+      <default_pos>-2.0</default_pos>
       <default_torque_limit>100000</default_torque_limit>
       <reduction_value>6.3</reduction_value>
+    </plugin>
+    <plugin filename="libgazebo_ros_joint_state_publisher.so" name="arm_f_r">
+      <jointName>rover_amalia_joint_chassis_leg_f_r</jointName>
     </plugin>
     <joint name="rover_amalia_joint_chassis_leg_f_l" type="revolute">
       <pose>0 0 0.11 0 0 0</pose>
@@ -773,7 +798,11 @@
       <parent>rover_amalia_chassis</parent>
       <axis>
         <xyz>0 1 0</xyz>
-        <dynamics/>
+        <!--<dynamics>-->
+        <!--<damping>0.0001</damping>-->
+        <!--<spring_stiffness>1</spring_stiffness>-->
+        <!--<spring_reference>0</spring_reference>-->
+        <!--</dynamics>-->
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
       <physics>
@@ -786,9 +815,12 @@
     <plugin filename="libgazebo_ros_dynamixel_motor.so" name="dynamixel_motor">
       <joint>rover_amalia_joint_chassis_leg_f_l</joint>
       <base_topic_name>motore_2_controller</base_topic_name>
-      <default_pos>0.0</default_pos>
+      <default_pos>-2.0</default_pos>
       <default_torque_limit>100000</default_torque_limit>
       <reduction_value>6.3</reduction_value>
+    </plugin>
+    <plugin filename="libgazebo_ros_joint_state_publisher.so" name="arm_f_l">
+      <jointName>rover_amalia_joint_chassis_leg_f_l</jointName>
     </plugin>
     <joint name="rover_amalia_joint_chassis_leg_b_r" type="revolute">
       <pose>0 0 0.11 0 0 0</pose>
@@ -796,7 +828,11 @@
       <parent>rover_amalia_chassis</parent>
       <axis>
         <xyz>0 1 0</xyz>
-        <dynamics/>
+        <!--<dynamics>-->
+        <!--<damping>0.0001</damping>-->
+        <!--<spring_stiffness>1</spring_stiffness>-->
+        <!--<spring_reference>0</spring_reference>-->
+        <!--</dynamics>-->
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
       <physics>
@@ -809,9 +845,12 @@
     <plugin filename="libgazebo_ros_dynamixel_motor.so" name="dynamixel_motor">
       <joint>rover_amalia_joint_chassis_leg_b_r</joint>
       <base_topic_name>motore_3_controller</base_topic_name>
-      <default_pos>0.0</default_pos>
+      <default_pos>2.0</default_pos>
       <default_torque_limit>100000</default_torque_limit>
       <reduction_value>6.3</reduction_value>
+    </plugin>
+    <plugin filename="libgazebo_ros_joint_state_publisher.so" name="arm_b_r">
+      <jointName>rover_amalia_joint_chassis_leg_b_r</jointName>
     </plugin>
     <joint name="rover_amalia_joint_chassis_leg_b_l" type="revolute">
       <pose>0 0 0.11 0 0 0</pose>
@@ -819,7 +858,11 @@
       <parent>rover_amalia_chassis</parent>
       <axis>
         <xyz>0 1 0</xyz>
-        <dynamics/>
+        <!--<dynamics>-->
+        <!--<damping>0.0001</damping>-->
+        <!--<spring_stiffness>1</spring_stiffness>-->
+        <!--<spring_reference>0</spring_reference>-->
+        <!--</dynamics>-->
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
       <physics>
@@ -832,9 +875,12 @@
     <plugin filename="libgazebo_ros_dynamixel_motor.so" name="dynamixel_motor">
       <joint>rover_amalia_joint_chassis_leg_b_l</joint>
       <base_topic_name>motore_4_controller</base_topic_name>
-      <default_pos>0.0</default_pos>
+      <default_pos>2.0</default_pos>
       <default_torque_limit>100000</default_torque_limit>
       <reduction_value>6.3</reduction_value>
+    </plugin>
+    <plugin filename="libgazebo_ros_joint_state_publisher.so" name="arm_b_l">
+      <jointName>rover_amalia_joint_chassis_leg_b_l</jointName>
     </plugin>
     <joint name="rover_amalia_joint_turret_base_turret" type="revolute">
       <child>rover_amalia_turret_bar</child>
