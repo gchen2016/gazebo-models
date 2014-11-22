@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<robot name="ramp1" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:property name="pi" value="3.1415926" />
+
+  <xacro:macro name="ramp1" params="sx sy sz">
+    <link name="ramp1_link">
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>100</mass>
+      </inertial>
+      <collision name="ramp1_collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ramp1/meshes/ramp1.dae</uri>
+            <scale>${sx} ${sy} ${sz}</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="ramp1_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ramp1/meshes/ramp1.dae</uri>
+            <scale>${sx} ${sy} ${sz}</scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+    </link>
+  </xacro:macro>
+</robot> 

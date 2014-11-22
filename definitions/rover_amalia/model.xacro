@@ -48,6 +48,7 @@
     </plugin>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="arm_${prefix}">
       <jointName>rover_amalia_joint_chassis_leg_${prefix}</jointName>
+      <updateRate>30</updateRate>
     </plugin>
   </xacro:macro>
 

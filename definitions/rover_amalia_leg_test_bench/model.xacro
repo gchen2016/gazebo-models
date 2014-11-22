@@ -93,6 +93,7 @@
         <ode>
           <provide_feedback>1</provide_feedback>
         </ode>
+        <provide_feedback>1</provide_feedback>
       </physics>
     </joint>
 

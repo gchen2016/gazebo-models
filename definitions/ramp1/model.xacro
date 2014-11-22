@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<sdf version="1.5" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="./ramp1.xacro" />
+  <model name="ramp1">
+    <xacro:ramp1 sx="0.5" sy="0.5" sz="0.4"/>
+    <pose>0 0 0 0 0 0</pose>
+  </model>
+</sdf>
+

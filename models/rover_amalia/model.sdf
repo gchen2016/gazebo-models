@@ -11,18 +11,18 @@
     <!--main components-->
     <link name="rover_amalia_turret_bar">
       <pose>0.195 0 0.464 0 0 0</pose>
-      <inertial>
-        <pose>0 0 0 0 0 0</pose>
-        <mass>0.5</mass>
-        <inertia>
-          <ixx>0.001</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.001</iyy>
-          <iyz>0</iyz>
-          <izz>0.001</izz>
-        </inertia>
-      </inertial>
+      <!--<inertial>-->
+      <!--<pose>0 0 0 0 0 0</pose>-->
+      <!--<mass>0.78</mass>-->
+      <!--<inertia>-->
+      <!--<ixx>0.00000027555</ixx>-->
+      <!--<ixy>0</ixy>-->
+      <!--<ixz>0</ixz>-->
+      <!--<iyy>0.00000027555</iyy>-->
+      <!--<iyz>0</iyz>-->
+      <!--<izz>0.00000027755</izz>-->
+      <!--</inertia>-->
+      <!--</inertial>-->
       <collision name="rover_amalia_turret_bar_collision">
         <pose>0 0 0.1 0 0 0</pose>
         <geometry>
@@ -45,21 +45,36 @@
       <kinematic>0</kinematic>
       <gravity>1</gravity>
     </link>
-    <link name="rover_amalia_turret_pan_base">
+    <link name="rover_amalia_turret_tilt_base">
       <pose>0.195 0 0.674 0 0 0</pose>
-      <inertial>
-        <pose>0 0 0 0 0 0</pose>
-        <mass>1</mass>
-        <inertia>
-          <ixx>0.001</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.00100</iyy>
-          <iyz>0</iyz>
-          <izz>0.00100</izz>
-        </inertia>
-      </inertial>
-      <visual name="rover_amalia_turret_pan_base_visual">
+      <!--correct inertial for pan base, use later-->
+      <!--<inertial>-->
+      <!--<pose>-0.00699 0.17952 0.02755 0 0 0</pose>-->
+      <!--<mass>0.22386</mass>-->
+      <!--<inertia>-->
+      <!--<ixx>0.00010575745</ixx>-->
+      <!--<ixy>0.00002524815</ixy>-->
+      <!--<ixz>0</ixz>-->
+      <!--<iyy>0.00100</iyy>-->
+      <!--<iyz>0</iyz>-->
+      <!--<izz>0.00021796864</izz>-->
+      <!--</inertia>-->
+      <!--</inertial>-->
+      <!--this are ok, leave them:-->
+      <!--<inertial>-->
+      <!--<pose>0.012 -0.21853 0.02754  0 0 0</pose>-->
+      <!--<pose>0 0 0 0 0 0</pose>-->
+      <!--<mass>0.02786</mass>-->
+      <!--<inertia>-->
+      <!--<ixx>0.00002247622</ixx>-->
+      <!--<ixy>0.</ixy>-->
+      <!--<ixz>0</ixz>-->
+      <!--<iyy>0.00001850151</iyy>-->
+      <!--<iyz>0</iyz>-->
+      <!--<izz>0.00000707185</izz>-->
+      <!--</inertia>-->
+      <!--</inertial>-->
+      <visual name="rover_amalia_turret_tilt_base_visual">
         <pose>-0.016 -0.02 0.015 0 0 0</pose>
         <geometry>
           <mesh>
@@ -67,6 +82,15 @@
           </mesh>
         </geometry>
       </visual>
+      <collision name="rover_amalia_turret_tilt_base_collision">
+        <pose>-0.02 0 0.01 0 0 0</pose>
+        <pose>0.195 -0.01 0.704 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.09 0.03 0.05 </size>
+          </box>
+        </geometry>
+      </collision>
       <velocity_decay>
         <linear>0</linear>
         <angular>0</angular>
@@ -75,26 +99,14 @@
       <kinematic>0</kinematic>
       <gravity>1</gravity>
     </link>
-    <link name="rover_amalia_turret_tilt_base">
+    <link name="rover_amalia_turret_tilt_hinge">
       <pose>0.195 -0.01 0.704 0 0 0</pose>
-      <inertial>
-        <pose>0 0 0 0 0 0</pose>
-        <mass>2</mass>
-        <inertia>
-          <ixx>0.00200001</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.00200001</iyy>
-          <iyz>0</iyz>
-          <izz>0.00200</izz>
-        </inertia>
-      </inertial>
-      <collision name="rover_amalia_turret_tilt_base_collision">
+      <collision name="rover_amalia_turret_tilt_hinge_collision">
         <pose>0 0 0 0 0 0</pose>
         <pose>0.195 -0.01 0.704 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.06 0.02 0.04</size>
+            <size>0.03 0.07 0.04</size>
           </box>
         </geometry>
         <max_contacts>10</max_contacts>
@@ -108,7 +120,7 @@
           </friction>
         </surface>
       </collision>
-      <visual name="rover_amalia_turret_tilt_base_visual">
+      <visual name="rover_amalia_turret_tilt_hinge_visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
@@ -190,11 +202,11 @@
         <plugin filename="libgazebo_ros_multicamera.so" name="stereo_camera_controller">
           <alwaysOn>true</alwaysOn>
           <updateRate>60.0</updateRate>
-          <cameraName>camera</cameraName>
+          <cameraName>stereo</cameraName>
           <imageTopicName>image_raw</imageTopicName>
           <cameraInfoTopicName>camera_info</cameraInfoTopicName>
           <frameName>left_camera_optical_frame</frameName>
-          <!--<rightFrameName>right_camera_optical_frame</rightFrameName>-->
+          <rightFrameName>right_camera_optical_frame</rightFrameName>
           <hackBaseline>0.07</hackBaseline>
           <distortionK1>0.0</distortionK1>
           <distortionK2>0.0</distortionK2>
@@ -212,7 +224,7 @@
       <gravity>1</gravity>
     </link>
     <joint name="rover_amalia_turret_pan" type="revolute">
-      <child>rover_amalia_turret_pan_base</child>
+      <child>rover_amalia_turret_tilt_base</child>
       <parent>rover_amalia_turret_bar</parent>
       <axis>
         <xyz>0 0 -1</xyz>
@@ -220,20 +232,30 @@
           <lower>-3.1415926</lower>
           <upper>3.1415926</upper>
         </limit>
-        <dynamics/>
       </axis>
+      <physics>
+        <ode>
+          <cfm>0.0001</cfm>
+          <erp>0.2</erp>
+        </ode>
+      </physics>
     </joint>
     <joint name="rover_amalia_turret_tilt" type="revolute">
-      <child>rover_amalia_turret_tilt_base</child>
-      <parent>rover_amalia_turret_pan_base</parent>
+      <child>rover_amalia_turret_tilt_hinge</child>
+      <parent>rover_amalia_turret_tilt_base</parent>
       <axis>
         <xyz>0 -1 0</xyz>
         <limit>
           <lower>-2.35619445</lower>
           <upper>2.35619445</upper>
         </limit>
-        <dynamics/>
       </axis>
+      <physics>
+        <ode>
+          <cfm>0</cfm>
+          <erp>0.2</erp>
+        </ode>
+      </physics>
     </joint>
     <plugin filename="libgazebo_ros_joint_commander.so" name="joint_commander">
       <robotNamespace>rover_amalia</robotNamespace>
@@ -243,9 +265,11 @@
     </plugin>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="pan">
       <jointName>rover_amalia_turret_pan</jointName>
+      <updateRate>30</updateRate>
     </plugin>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="tilt">
       <jointName>rover_amalia_turret_tilt</jointName>
+      <updateRate>30</updateRate>
     </plugin>
     <link name="rover_amalia_chassis">
       <pose>0 0 0.364 0 0 0</pose>
@@ -481,6 +505,7 @@
     </joint>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="wheel_f_r">
       <jointName>rover_amalia_leg_shaft_f_r</jointName>
+      <updateRate>30</updateRate>
     </plugin>
     <link name="rover_amalia_leg_bar_f_l">
       <pose>0.13776 -0.175 0.2 0 0 0</pose>
@@ -574,6 +599,7 @@
     </joint>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="wheel_f_l">
       <jointName>rover_amalia_leg_shaft_f_l</jointName>
+      <updateRate>30</updateRate>
     </plugin>
     <link name="rover_amalia_leg_bar_b_r">
       <pose>-0.13776 0.175 0.2 0 0 0</pose>
@@ -667,6 +693,7 @@
     </joint>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="wheel_b_r">
       <jointName>rover_amalia_leg_shaft_b_r</jointName>
+      <updateRate>30</updateRate>
     </plugin>
     <link name="rover_amalia_leg_bar_b_l">
       <pose>-0.13776 -0.175 0.2 0 0 0</pose>
@@ -760,6 +787,7 @@
     </joint>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="wheel_b_l">
       <jointName>rover_amalia_leg_shaft_b_l</jointName>
+      <updateRate>30</updateRate>
     </plugin>
     <!--additional joints-->
     <joint name="rover_amalia_joint_chassis_leg_f_r" type="revolute">
@@ -791,6 +819,7 @@
     </plugin>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="arm_f_r">
       <jointName>rover_amalia_joint_chassis_leg_f_r</jointName>
+      <updateRate>30</updateRate>
     </plugin>
     <joint name="rover_amalia_joint_chassis_leg_f_l" type="revolute">
       <pose>0 0 0.11 0 0 0</pose>
@@ -821,6 +850,7 @@
     </plugin>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="arm_f_l">
       <jointName>rover_amalia_joint_chassis_leg_f_l</jointName>
+      <updateRate>30</updateRate>
     </plugin>
     <joint name="rover_amalia_joint_chassis_leg_b_r" type="revolute">
       <pose>0 0 0.11 0 0 0</pose>
@@ -851,6 +881,7 @@
     </plugin>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="arm_b_r">
       <jointName>rover_amalia_joint_chassis_leg_b_r</jointName>
+      <updateRate>30</updateRate>
     </plugin>
     <joint name="rover_amalia_joint_chassis_leg_b_l" type="revolute">
       <pose>0 0 0.11 0 0 0</pose>
@@ -881,6 +912,7 @@
     </plugin>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="arm_b_l">
       <jointName>rover_amalia_joint_chassis_leg_b_l</jointName>
+      <updateRate>30</updateRate>
     </plugin>
     <joint name="rover_amalia_joint_turret_base_turret" type="revolute">
       <child>rover_amalia_turret_bar</child>
