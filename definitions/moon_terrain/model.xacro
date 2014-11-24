@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <sdf version="1.5" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <model name="rover_amalia_turret">
+  <model name="moon_terrain">
     <static>true</static>
     <link name="link">
       <collision name="collision">

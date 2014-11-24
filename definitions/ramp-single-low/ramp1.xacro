@@ -2,26 +2,28 @@
 <robot name="ramp1" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:property name="pi" value="3.1415926" />
 
-  <xacro:macro name="ramp1" params="sx sy sz">
-    <link name="ramp1_link">
+  <xacro:macro name="ramp1" params="ox oy oz rx ry rz sx sy sz suffix">
+    <link name="ramp1_link_${suffix}">
+        <pose>${ox} ${oy} ${oz} ${rx} ${ry} ${rz}</pose>
       <inertial>
-        <pose>0 0 0 0 0 0</pose>
-        <mass>100</mass>
+        <!--<pose>${ox} ${oy} ${oz} ${rx} ${ry} ${rz}</pose>-->
+        <pose>${rx/5*rz} 0 0 0 0 0</pose>
+        <mass>1000</mass>
       </inertial>
-      <collision name="ramp1_collision">
+      <collision name="ramp1_collision_${suffix}">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://ramp1/meshes/ramp1.dae</uri>
+            <uri>model://ramp-single-low/meshes/ramp1.dae</uri>
             <scale>${sx} ${sy} ${sz}</scale>
           </mesh>
         </geometry>
       </collision>
-      <visual name="ramp1_visual">
+      <visual name="ramp1_visual_${suffix}">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://ramp1/meshes/ramp1.dae</uri>
+            <uri>model://ramp-single-low/meshes/ramp1.dae</uri>
             <scale>${sx} ${sy} ${sz}</scale>
           </mesh>
         </geometry>
