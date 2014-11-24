@@ -31,10 +31,9 @@
       <visual name="rover_amalia_turret_bar_visual">
         <pose>0 0 0.1 0 0 0</pose>
         <geometry>
-          <cylinder>
-            <length>0.2</length>
-            <radius>0.01</radius>
-          </cylinder>
+          <mesh>
+            <uri>model://rover_amalia_turret/meshes/turret-and-pan-base.dae</uri>
+          </mesh>
         </geometry>
       </visual>
       <self_collide>0</self_collide>
@@ -42,7 +41,7 @@
       <gravity>1</gravity>
     </link>
     <link name="rover_amalia_turret_tilt_base">
-      <pose>0 0 0.21 0 0 0</pose>
+      <pose>0 0.015 0.253 0 0 0</pose>
       <!--correct inertial for pan base, use later-->
       <!--<inertial>-->
       <!--<pose>-0.00699 0.17952 0.02755 0 0 0</pose>-->
@@ -80,7 +79,7 @@
       </visual>
       <collision name="rover_amalia_turret_tilt_base_collision">
         <pose>-0.02 0 0.01 0 0 0</pose>
-        <pose>0 -0.01 0.24 0 0 0</pose>
+        <pose>0 -0.01 0.283 0 0 0</pose>
         <geometry>
           <box>
             <size>0.09 0.03 0.05 </size>
@@ -96,10 +95,10 @@
       <gravity>1</gravity>
     </link>
     <link name="rover_amalia_turret_tilt_hinge">
-      <pose>0 -0.01 0.24 0 0 0</pose>
+      <pose>0 -0.01 0.283 0 0 0</pose>
       <collision name="rover_amalia_turret_tilt_hinge_collision">
         <pose>0 0 0 0 0 0</pose>
-        <pose>0 -0.01 0.24 0 0 0</pose>
+        <pose>0 -0.01 0.283 0 0 0</pose>
         <geometry>
           <box>
             <size>0.03 0.07 0.04</size>

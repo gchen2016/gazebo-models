@@ -8,8 +8,9 @@
   </xacro:property>
 
   <xacro:property name="rover_amalia_turret_tilt_base_height" value="0.02"/>
+  <xacro:property name="pan_base_height" value="0.043"/>
   <xacro:property name="rover_amalia_turret_tilt_base_pose">
-    <pose>${Ox} ${Oy} ${Oz+bar_height+rover_amalia_turret_tilt_base_height/2} 0 0 0</pose>
+    <pose>${Ox} ${Oy+0.015} ${Oz+pan_base_height+bar_height+rover_amalia_turret_tilt_base_height/2} 0 0 0</pose>
   </xacro:property>
   <xacro:property name="rover_amalia_turret_tilt_base_size">
       <size>0.09 0.03 0.05 </size>
@@ -17,7 +18,7 @@
 
   <xacro:property name="rover_amalia_turret_pan_tilt_height" value="0.04"/>
   <xacro:property name="rover_amalia_turret_tilt_hinge_pose">
-    <pose>${Ox} ${Oy-0.01} ${Oz+bar_height+rover_amalia_turret_tilt_base_height+rover_amalia_turret_pan_tilt_height/2} 0 0 0</pose>
+    <pose>${Ox} ${Oy-0.01} ${Oz+pan_base_height+bar_height+rover_amalia_turret_tilt_base_height+rover_amalia_turret_pan_tilt_height/2} 0 0 0</pose>
   </xacro:property>
   <xacro:property name="rover_amalia_turret_tilt_hinge_size">
     <size>0.03 0.07 ${rover_amalia_turret_pan_tilt_height}</size>
@@ -52,10 +53,9 @@
       <visual name="rover_amalia_turret_bar_visual">
         <pose>0 0 ${bar_height/2} 0 0 0</pose>
         <geometry>
-          <cylinder>
-            <length>${bar_height}</length>
-            <radius>${rover_amalia_turret_bar_radius}</radius>
-          </cylinder>
+          <mesh>
+            <uri>model://rover_amalia_turret/meshes/turret-and-pan-base.dae</uri>
+          </mesh>
         </geometry>
       </visual>
       <self_collide>0</self_collide>
