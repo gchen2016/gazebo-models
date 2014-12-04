@@ -82,6 +82,11 @@
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
+    <plugin filename="libgazebo_ros_joint_state_publisher.so" name="turret_base_turret">
+      <jointName>rover_amalia_turret_base_turret</jointName>
+      <updateRate>30</updateRate>
+    </plugin>
+
 
     <!--additional plugins-->
     <plugin filename="libgazebo_ros_skid_steer_drive.so" name="skid_steer_drive">
