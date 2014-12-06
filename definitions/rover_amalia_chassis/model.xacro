@@ -2,7 +2,7 @@
 <sdf version="1.5" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="./rover_amalia_chassis.xacro" />
   <model name="rover_amalia_chassis">
-    <xacro:rover_amalia_chassis Ox="0" Oy="0" Oz="0" body_size_x="0.492" body_size_y="0.334" body_size_z="0.215" turret_base_x="0.195" turret_base_y="0.05"/>
+    <xacro:rover_amalia_chassis Ox="0" Oy="0" Oz="0" body_size_x="0.492" body_size_y="0.334" body_size_z="0.215" turret_base_x="0.195" turret_base_y="0"/>
     <pose>0 0 0 0 0 0</pose>
   </model>
 </sdf>

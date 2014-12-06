@@ -14,7 +14,7 @@
   <xacro:property name="rover_amalia_chassis_rangefinder_size">
     <size>${rover_amalia_chassis_rangefinder_size_y} 0.03 ${rover_amalia_chassis_rangefinder_size_y}</size>
   </xacro:property>
-  <xacro:property name="rover_amalia_chassis_turret_base_z" value="0.073" />
+  <xacro:property name="rover_amalia_chassis_turret_base_z" value="0.12" />
   <xacro:macro name="rover_amalia_chassis" params="Ox Oy Oz body_size_x body_size_y body_size_z turret_base_x turret_base_y">
     <link name="rover_amalia_chassis">
       <pose>${Ox} ${Oy} ${Oz} 0 0 0</pose>

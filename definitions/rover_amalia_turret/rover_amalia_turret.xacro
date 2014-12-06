@@ -21,7 +21,7 @@
 
   <xacro:property name="rover_amalia_turret_pan_tilt_height" value="0.04"/>
   <xacro:property name="rover_amalia_turret_tilt_hinge_pose">
-    <pose>${Ox} ${Oy-0.01} ${Oz+pan_base_height+bar_height+rover_amalia_turret_tilt_base_height+rover_amalia_turret_pan_tilt_height/2} 0 0 0</pose>
+    <pose>${Ox} ${Oy} ${Oz+pan_base_height+bar_height+rover_amalia_turret_tilt_base_height+rover_amalia_turret_pan_tilt_height/2} 0 0 0</pose>
   </xacro:property>
   <xacro:property name="rover_amalia_turret_tilt_hinge_size">
     <size>0.03 0.07 ${rover_amalia_turret_pan_tilt_height}</size>
