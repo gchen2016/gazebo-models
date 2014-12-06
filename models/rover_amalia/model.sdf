@@ -230,6 +230,8 @@
         <limit>
           <lower>-3.1415926</lower>
           <upper>3.1415926</upper>
+          <effort>1000</effort>
+          <velocity>1000</velocity>
         </limit>
       </axis>
       <physics>
@@ -247,6 +249,8 @@
         <limit>
           <lower>-2.35619445</lower>
           <upper>2.35619445</upper>
+          <effort>1000</effort>
+          <velocity>1000</velocity>
         </limit>
       </axis>
       <physics>
@@ -263,10 +267,12 @@
       <jointSet1Joint2>rover_amalia_turret_tilt</jointSet1Joint2>
     </plugin>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="pan">
+      <robotNamespace/>
       <jointName>rover_amalia_turret_pan</jointName>
       <updateRate>30</updateRate>
     </plugin>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="tilt">
+      <robotNamespace/>
       <jointName>rover_amalia_turret_tilt</jointName>
       <updateRate>30</updateRate>
     </plugin>
@@ -498,11 +504,14 @@
         <limit>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
+          <effort>1000</effort>
+          <velocity>1000</velocity>
         </limit>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="wheel_f_r">
+      <robotNamespace/>
       <jointName>rover_amalia_leg_shaft_f_r</jointName>
       <updateRate>30</updateRate>
     </plugin>
@@ -592,11 +601,14 @@
         <limit>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
+          <effort>1000</effort>
+          <velocity>1000</velocity>
         </limit>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="wheel_f_l">
+      <robotNamespace/>
       <jointName>rover_amalia_leg_shaft_f_l</jointName>
       <updateRate>30</updateRate>
     </plugin>
@@ -686,11 +698,14 @@
         <limit>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
+          <effort>1000</effort>
+          <velocity>1000</velocity>
         </limit>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="wheel_b_r">
+      <robotNamespace/>
       <jointName>rover_amalia_leg_shaft_b_r</jointName>
       <updateRate>30</updateRate>
     </plugin>
@@ -780,11 +795,14 @@
         <limit>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
+          <effort>1000</effort>
+          <velocity>1000</velocity>
         </limit>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="wheel_b_l">
+      <robotNamespace/>
       <jointName>rover_amalia_leg_shaft_b_l</jointName>
       <updateRate>30</updateRate>
     </plugin>
@@ -795,6 +813,12 @@
       <parent>rover_amalia_chassis</parent>
       <axis>
         <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3.1415926</lower>
+          <upper>3.1415926</upper>
+          <effort>1000</effort>
+          <velocity>1000</velocity>
+        </limit>
         <!--<dynamics>-->
         <!--<damping>0.0001</damping>-->
         <!--<spring_stiffness>1</spring_stiffness>-->
@@ -817,6 +841,7 @@
       <reduction_value>6.3</reduction_value>
     </plugin>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="arm_f_r">
+      <robotNamespace/>
       <jointName>rover_amalia_joint_chassis_leg_f_r</jointName>
       <updateRate>30</updateRate>
     </plugin>
@@ -826,6 +851,12 @@
       <parent>rover_amalia_chassis</parent>
       <axis>
         <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3.1415926</lower>
+          <upper>3.1415926</upper>
+          <effort>1000</effort>
+          <velocity>1000</velocity>
+        </limit>
         <!--<dynamics>-->
         <!--<damping>0.0001</damping>-->
         <!--<spring_stiffness>1</spring_stiffness>-->
@@ -848,6 +879,7 @@
       <reduction_value>6.3</reduction_value>
     </plugin>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="arm_f_l">
+      <robotNamespace/>
       <jointName>rover_amalia_joint_chassis_leg_f_l</jointName>
       <updateRate>30</updateRate>
     </plugin>
@@ -857,6 +889,12 @@
       <parent>rover_amalia_chassis</parent>
       <axis>
         <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3.1415926</lower>
+          <upper>3.1415926</upper>
+          <effort>1000</effort>
+          <velocity>1000</velocity>
+        </limit>
         <!--<dynamics>-->
         <!--<damping>0.0001</damping>-->
         <!--<spring_stiffness>1</spring_stiffness>-->
@@ -879,6 +917,7 @@
       <reduction_value>6.3</reduction_value>
     </plugin>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="arm_b_r">
+      <robotNamespace/>
       <jointName>rover_amalia_joint_chassis_leg_b_r</jointName>
       <updateRate>30</updateRate>
     </plugin>
@@ -888,6 +927,12 @@
       <parent>rover_amalia_chassis</parent>
       <axis>
         <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3.1415926</lower>
+          <upper>3.1415926</upper>
+          <effort>1000</effort>
+          <velocity>1000</velocity>
+        </limit>
         <!--<dynamics>-->
         <!--<damping>0.0001</damping>-->
         <!--<spring_stiffness>1</spring_stiffness>-->
@@ -910,6 +955,7 @@
       <reduction_value>6.3</reduction_value>
     </plugin>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="arm_b_l">
+      <robotNamespace/>
       <jointName>rover_amalia_joint_chassis_leg_b_l</jointName>
       <updateRate>30</updateRate>
     </plugin>
@@ -921,6 +967,8 @@
         <limit>
           <lower>-1e-16</lower>
           <upper>1e-16</upper>
+          <effort>1000</effort>
+          <velocity>1000</velocity>
         </limit>
         <dynamics/>
         <use_parent_model_frame>1</use_parent_model_frame>

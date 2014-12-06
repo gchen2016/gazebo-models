@@ -226,6 +226,8 @@
         <limit>
           <lower>-3.1415926</lower>
           <upper>3.1415926</upper>
+          <effort>1000</effort>
+          <velocity>1000</velocity>
         </limit>
       </axis>
       <physics>
@@ -243,6 +245,8 @@
         <limit>
           <lower>-2.35619445</lower>
           <upper>2.35619445</upper>
+          <effort>1000</effort>
+          <velocity>1000</velocity>
         </limit>
       </axis>
       <physics>
@@ -259,10 +263,12 @@
       <jointSet1Joint2>rover_amalia_turret_tilt</jointSet1Joint2>
     </plugin>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="pan">
+      <robotNamespace/>
       <jointName>rover_amalia_turret_pan</jointName>
       <updateRate>30</updateRate>
     </plugin>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="tilt">
+      <robotNamespace/>
       <jointName>rover_amalia_turret_tilt</jointName>
       <updateRate>30</updateRate>
     </plugin>
