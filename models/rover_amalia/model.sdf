@@ -9,21 +9,6 @@
     <pose>0 0 0 0 0 0</pose>
     <static>0</static>
     <!--main components-->
-    <link name="rover_amalia_turret_bar_inertial_dummy">
-      <pose>0.195 0 0.464 0 0 0</pose>
-      <inertial>
-        <pose>0 0 0 0 0 0</pose>
-        <mass>0.78</mass>
-        <inertia>
-          <ixx>0.00000027555</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.00000027555</iyy>
-          <iyz>0</iyz>
-          <izz>0.00000027755</izz>
-        </inertia>
-      </inertial>
-    </link>
     <link name="rover_amalia_turret_bar">
       <pose>0.195 0 0.464 0 0 0</pose>
       <collision name="rover_amalia_turret_bar_collision">
@@ -45,36 +30,9 @@
       </visual>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
-      <gravity>1</gravity>
-    </link>
-    <link name="rover_amalia_turret_pan_base_inertial_dummy">
-      <pose>0.195 0.015 0.717-0.01 0 0 0</pose>
+      <gravity>0</gravity>
       <inertial>
-        <pose>-0.00699 0.17952 0.02755 0 0 0</pose>
-        <mass>0.22386</mass>
-        <inertia>
-          <ixx>0.00010575745</ixx>
-          <ixy>0.00002524815</ixy>
-          <ixz>0</ixz>
-          <iyy>0.00100</iyy>
-          <iyz>0</iyz>
-          <izz>0.00021796864</izz>
-        </inertia>
-      </inertial>
-    </link>
-    <link name="rover_amalia_turret_tilt_base_inertial_dummy">
-      <inertial>
-        <pose>0.012 -0.21853 0.02754  0 0 0</pose>
-        <pose>0 0 0 0 0 0</pose>
-        <mass>0.02786</mass>
-        <inertia>
-          <ixx>0.00002247622</ixx>
-          <ixy>0.</ixy>
-          <ixz>0</ixz>
-          <iyy>0.00001850151</iyy>
-          <iyz>0</iyz>
-          <izz>0.00000707185</izz>
-        </inertia>
+        <mass>0.000001</mass>
       </inertial>
     </link>
     <link name="rover_amalia_turret_tilt_base">
@@ -102,7 +60,10 @@
       </velocity_decay>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
-      <gravity>1</gravity>
+      <gravity>0</gravity>
+      <inertial>
+        <mass>0.000001</mass>
+      </inertial>
     </link>
     <link name="rover_amalia_turret_tilt_hinge">
       <pose>0.195 0 0.747 0 0 0</pose>
@@ -226,7 +187,10 @@
       </velocity_decay>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
-      <gravity>1</gravity>
+      <gravity>0</gravity>
+      <inertial>
+        <mass>0.000001</mass>
+      </inertial>
     </link>
     <joint name="rover_amalia_turret_pan" type="revolute">
       <child>rover_amalia_turret_tilt_base</child>
@@ -261,7 +225,7 @@
       </axis>
       <physics>
         <ode>
-          <cfm>0</cfm>
+          <cfm>0.0001</cfm>
           <erp>0.2</erp>
         </ode>
       </physics>
@@ -282,6 +246,48 @@
       <jointName>rover_amalia_turret_tilt</jointName>
       <updateRate>30</updateRate>
     </plugin>
+    <link name="rover_amalia_turret_bar_inertial_dummy">
+      <pose>0.195 0 0.564 0 0 0</pose>
+      <pose>0.195 0 0.464 0 0 0</pose>
+      <inertial>
+        <mass>0.78</mass>
+        <inertia>
+          <ixx>0.00000027555</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00000027555</iyy>
+          <iyz>0</iyz>
+          <izz>0.00000027755</izz>
+        </inertia>
+      </inertial>
+      <collision name="rover_amalia_turret_bar_dummy_collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.2</length>
+            <radius>0.01</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <gravity>1</gravity>
+    </link>
+    <link name="rover_amalia_turret_payload_inertial_dummy">
+      <pose>0.195 0 0.664 0 0 0</pose>
+      <pose>0.195 0 0.464 0 0 0</pose>
+      <inertial>
+        <mass>0.50</mass>
+      </inertial>
+      <collision name="rover_amalia_chassis_turret_payload_inertial_dummy_collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.05</size>
+          </box>
+        </geometry>
+        <max_contacts>5</max_contacts>
+      </collision>
+      <gravity>1</gravity>
+    </link>
     <link name="rover_amalia_chassis">
       <pose>0 0 0.364 0 0 0</pose>
       <inertial>
@@ -472,9 +478,9 @@
         <pose>0 0 0 0 0 0</pose>
         <mass>1.1</mass>
         <inertia>
-          <ixx>0.00353418</ixx>
-          <iyy>0.00222499</iyy>
-          <izz>0.00222713</izz>
+          <ixx>0.00222713</ixx>
+          <iyy>0.00353418</iyy>
+          <izz>0.00222499</izz>
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyz>0</iyz>
@@ -569,9 +575,9 @@
         <pose>0 0 0 0 0 0</pose>
         <mass>1.1</mass>
         <inertia>
-          <ixx>0.00353418</ixx>
-          <iyy>0.00222499</iyy>
-          <izz>0.00222713</izz>
+          <ixx>0.00222713</ixx>
+          <iyy>0.00353418</iyy>
+          <izz>0.00222499</izz>
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyz>0</iyz>
@@ -666,9 +672,9 @@
         <pose>0 0 0 0 0 0</pose>
         <mass>1.1</mass>
         <inertia>
-          <ixx>0.00353418</ixx>
-          <iyy>0.00222499</iyy>
-          <izz>0.00222713</izz>
+          <ixx>0.00222713</ixx>
+          <iyy>0.00353418</iyy>
+          <izz>0.00222499</izz>
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyz>0</iyz>
@@ -763,9 +769,9 @@
         <pose>0 0 0 0 0 0</pose>
         <mass>1.1</mass>
         <inertia>
-          <ixx>0.00353418</ixx>
-          <iyy>0.00222499</iyy>
-          <izz>0.00222713</izz>
+          <ixx>0.00222713</ixx>
+          <iyy>0.00353418</iyy>
+          <izz>0.00222499</izz>
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyz>0</iyz>
@@ -967,6 +973,36 @@
     </plugin>
     <joint name="rover_amalia_joint_turret_base_turret" type="revolute">
       <child>rover_amalia_turret_bar</child>
+      <parent>rover_amalia_chassis</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e-16</lower>
+          <upper>1e-16</upper>
+          <effort>1000</effort>
+          <velocity>1000</velocity>
+        </limit>
+        <dynamics/>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <joint name="rover_amalia_joint_turret_base_turret_dummy" type="revolute">
+      <child>rover_amalia_turret_bar_inertial_dummy</child>
+      <parent>rover_amalia_chassis</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e-16</lower>
+          <upper>1e-16</upper>
+          <effort>1000</effort>
+          <velocity>1000</velocity>
+        </limit>
+        <dynamics/>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <joint name="rover_amalia_joint_turret_base_turret_payload_dummy" type="revolute">
+      <child>rover_amalia_turret_payload_inertial_dummy</child>
       <parent>rover_amalia_chassis</parent>
       <axis>
         <xyz>0 0 1</xyz>

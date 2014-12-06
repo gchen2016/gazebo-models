@@ -3,6 +3,7 @@
   <xacro:include filename="../rover_amalia_leg/rover_amalia_leg.xacro"/>
   <xacro:include filename="../rover_amalia_chassis/rover_amalia_chassis.xacro"/>
   <xacro:include filename="../rover_amalia_turret/rover_amalia_turret.xacro"/>
+  <xacro:include filename="../rover_amalia_turret_inertials/rover_amalia_turret_inertials.xacro" />
 
   <xacro:property name="leg_bar_length" value="0.22"/>
   <xacro:property name="leg_bar_radius" value="0.008"/>
@@ -65,6 +66,7 @@
 
     <!--main components-->
     <xacro:rover_amalia_turret Ox="${turret_base_x}" Oy="0" Oz="${chassis_height+0.1}" bar_height="0.2"/>
+    <xacro:rover_amalia_turret_inertials Ox="${turret_base_x}" Oy="0" Oz="${chassis_height+0.1}" bar_height="0.2"/>
     <xacro:rover_amalia_chassis Ox="0" Oy="0" Oz="${chassis_height}" body_size_x="${chassis_size_x}" body_size_y="${chassis_size_y}" body_size_z="${chassis_size_z}" turret_base_x="${turret_base_x}" turret_base_y="0"/>
     <xacro:rover_amalia_leg Ox="${leg_x}" Oy="${leg_y}" Oz="0" prefix="f_r" reflect_xz="1" reflect_yz="1" bar_length="${leg_bar_length}" bar_radius="${leg_bar_radius}" wheel_radius="${wheel_radius}" wheel_length="${wheel_length}" model_root="rover_amalia_leg"/>
     <xacro:rover_amalia_leg Ox="${leg_x}" Oy="${leg_y}" Oz="0" prefix="f_l" reflect_xz="-1" reflect_yz="1" bar_length="${leg_bar_length}" bar_radius="${leg_bar_radius}" wheel_radius="${wheel_radius}" wheel_length="${wheel_length}" model_root="rover_amalia_leg"/>
@@ -76,8 +78,39 @@
     <xacro:rover_amalia_joint_chassis_leg prefix="f_l" reflect_xz="-1" reflect_yz="1" index="2"/>
     <xacro:rover_amalia_joint_chassis_leg prefix="b_r" reflect_xz="1" reflect_yz="-1" index="3"/>
     <xacro:rover_amalia_joint_chassis_leg prefix="b_l" reflect_xz="-1" reflect_yz="-1" index="4"/>
+
     <joint name="rover_amalia_joint_turret_base_turret" type="revolute">
       <child>rover_amalia_turret_bar</child>
+      <parent>rover_amalia_chassis</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e-16</lower>
+          <upper>1e-16</upper>
+          <effort>1000</effort>
+          <velocity>1000</velocity>
+        </limit>
+        <dynamics/>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <joint name="rover_amalia_joint_turret_base_turret_dummy" type="revolute">
+      <child>rover_amalia_turret_bar_inertial_dummy</child>
+      <parent>rover_amalia_chassis</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e-16</lower>
+          <upper>1e-16</upper>
+          <effort>1000</effort>
+          <velocity>1000</velocity>
+        </limit>
+        <dynamics/>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <joint name="rover_amalia_joint_turret_base_turret_payload_dummy" type="revolute">
+      <child>rover_amalia_turret_payload_inertial_dummy</child>
       <parent>rover_amalia_chassis</parent>
       <axis>
         <xyz>0 0 1</xyz>

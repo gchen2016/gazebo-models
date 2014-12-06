@@ -1,0 +1,134 @@
+<?xml version="1.0" ?>
+<robot name="rover_amalia_turret" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:property name="pi" value="3.1415926" />
+
+  <xacro:property name="rover_amalia_turret_bar_radius" value="0.01"/>
+  <xacro:property name="rover_amalia_turret_bar_pose">
+    <pose>${Ox} ${Oy} ${Oz} 0 0 0</pose>
+  </xacro:property>
+
+  <xacro:property name="rover_amalia_turret_tilt_base_height" value="0.02"/>
+  <xacro:property name="pan_base_height" value="0.043"/>
+  <xacro:property name="rover_amalia_turret_pan_base_pose">
+    <pose>${Ox} ${Oy+0.015} ${Oz+pan_base_height+bar_height+rover_amalia_turret_tilt_base_height/2-0.01} 0 0 0</pose>
+  </xacro:property>
+  <xacro:property name="rover_amalia_turret_tilt_base_pose">
+    <pose>${Ox} ${Oy+0.015} ${Oz+pan_base_height+bar_height+rover_amalia_turret_tilt_base_height/2} 0 0 0</pose>
+  </xacro:property>
+  <xacro:property name="rover_amalia_turret_tilt_base_size">
+      <size>0.09 0.03 0.05 </size>
+  </xacro:property>
+
+  <xacro:property name="rover_amalia_turret_pan_tilt_height" value="0.04"/>
+  <xacro:property name="rover_amalia_turret_tilt_hinge_pose">
+    <pose>${Ox} ${Oy} ${Oz+pan_base_height+bar_height+rover_amalia_turret_tilt_base_height+rover_amalia_turret_pan_tilt_height/2} 0 0 0</pose>
+  </xacro:property>
+  <xacro:property name="rover_amalia_turret_tilt_hinge_size">
+    <size>0.03 0.07 ${rover_amalia_turret_pan_tilt_height}</size>
+  </xacro:property>
+
+  <xacro:property name="rover_amalia_turret_robot_namespace" value="rover_amalia" />
+
+  <xacro:macro name="rover_amalia_turret_inertials" params="Ox Oy Oz bar_height">
+    <link name="rover_amalia_turret_bar_inertial_dummy">
+      <pose>${Ox} ${Oy} ${Oz+bar_height/2} 0 0 0</pose>
+      <xacro:insert_block name="rover_amalia_turret_bar_pose"/>
+      <inertial>
+        <mass>0.78</mass>
+        <inertia>
+          <ixx>0.00000027555</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00000027555</iyy>
+          <iyz>0</iyz>
+          <izz>0.00000027755</izz>
+        </inertia>
+      </inertial>
+      <collision name="rover_amalia_turret_bar_dummy_collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>${bar_height}</length>
+            <radius>${rover_amalia_turret_bar_radius}</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <gravity>1</gravity>
+    </link>
+    <link name="rover_amalia_turret_payload_inertial_dummy">
+      <pose>${Ox} ${Oy} ${Oz+bar_height} 0 0 0</pose>
+      <xacro:insert_block name="rover_amalia_turret_bar_pose"/>
+      <inertial>
+        <mass>0.50</mass>
+      </inertial>
+      <collision name="rover_amalia_chassis_turret_payload_inertial_dummy_collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.05</size>
+          </box>
+        </geometry>
+        <max_contacts>5</max_contacts>
+      </collision>
+      <gravity>1</gravity>
+    </link>
+    <!--<link name="rover_amalia_turret_pan_base_inertial_dummy">-->
+      <!--<xacro:insert_block name="rover_amalia_turret_pan_base_pose"/>-->
+      <!--<inertial>-->
+        <!--<pose>-0.00699 0.17952 0.02755 0 0 0</pose>-->
+        <!--<mass>0.22386</mass>-->
+        <!--<inertia>-->
+          <!--<ixx>0.00010575745</ixx>-->
+          <!--<ixy>0.00002524815</ixy>-->
+          <!--<ixz>0</ixz>-->
+          <!--<iyy>0.00100</iyy>-->
+          <!--<iyz>0</iyz>-->
+          <!--<izz>0.00021796864</izz>-->
+        <!--</inertia>-->
+      <!--</inertial>-->
+      <!--<gravity>1</gravity>-->
+    <!--</link>-->
+    <!--<link name="rover_amalia_turret_tilt_base_inertial_dummy">-->
+      <!--<inertial>-->
+        <!--<pose>0.012 -0.21853 0.02754  0 0 0</pose>-->
+        <!--<pose>0 0 0 0 0 0</pose>-->
+        <!--<mass>0.02786</mass>-->
+        <!--<inertia>-->
+          <!--<ixx>0.00002247622</ixx>-->
+          <!--<ixy>0.</ixy>-->
+          <!--<ixz>0</ixz>-->
+          <!--<iyy>0.00001850151</iyy>-->
+          <!--<iyz>0</iyz>-->
+          <!--<izz>0.00000707185</izz>-->
+        <!--</inertia>-->
+      <!--</inertial>-->
+      <!--<gravity>1</gravity>-->
+    <!--</link>-->
+    <!--<joint name="rover_amalia_turret_pan_dummy" type="revolute">-->
+      <!--<child>rover_amalia_turret_pan_base_inertial_dummy</child>-->
+      <!--<parent>rover_amalia_turret_bar_inertial_dummy</parent>-->
+      <!--<axis>-->
+        <!--<xyz>0 0 1</xyz>-->
+        <!--<limit>-->
+          <!--<lower>-1e-16</lower>-->
+          <!--<upper>1e-16</upper>-->
+          <!--<effort>1000</effort>-->
+          <!--<velocity>1000</velocity>-->
+        <!--</limit>-->
+      <!--</axis>-->
+    <!--</joint>-->
+    <!--<joint name="rover_amalia_turret_tilt_dummy" type="revolute">-->
+      <!--<child>rover_amalia_turret_tilt_base_inertial_dummy</child>-->
+      <!--<parent>rover_amalia_turret_bar_inertial_dummy</parent>-->
+      <!--<axis>-->
+        <!--<xyz>0 0 1</xyz>-->
+        <!--<limit>-->
+          <!--<lower>-1e-16</lower>-->
+          <!--<upper>1e-16</upper>-->
+          <!--<effort>1000</effort>-->
+          <!--<velocity>1000</velocity>-->
+        <!--</limit>-->
+      <!--</axis>-->
+    <!--</joint>-->
+  </xacro:macro>
+</robot> 
