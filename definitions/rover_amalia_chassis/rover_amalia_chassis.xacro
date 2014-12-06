@@ -15,6 +15,7 @@
     <size>${rover_amalia_chassis_rangefinder_size_y} 0.03 ${rover_amalia_chassis_rangefinder_size_y}</size>
   </xacro:property>
   <xacro:property name="rover_amalia_chassis_turret_base_z" value="0.12" />
+  <xacro:property name="rover_amalia_range_finder_z" value="-0.1" />
   <xacro:macro name="rover_amalia_chassis" params="Ox Oy Oz body_size_x body_size_y body_size_z turret_base_x turret_base_y">
     <link name="rover_amalia_chassis">
       <pose>${Ox} ${Oy} ${Oz} 0 0 0</pose>
@@ -65,8 +66,17 @@
         </geometry>
       </visual>
 
+      <visual name="rover_amalia_chassis_cpci">
+        <pose>0 -0.08 0.1 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://rover_amalia_chassis/meshes/cpci.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
       <visual name="rover_amalia_chassis_front_up_rangefinder_visual">
-        <pose>0.246 0 -0.05 0 -0 0</pose>
+        <pose>0.246 0 ${rover_amalia_range_finder_z} 0 -0 0</pose>
         <geometry>
           <box>
             <xacro:insert_block name="rover_amalia_chassis_rangefinder_size" />
@@ -75,7 +85,7 @@
       </visual>
 
       <visual name="rover_amalia_chassis_front_down_rangefinder_visual">
-        <pose>${0.246-rover_amalia_chassis_rangefinder_size_y} 0 ${-0.05-rover_amalia_chassis_rangefinder_size_y} 0 1.57 0</pose>
+        <pose>${0.246-rover_amalia_chassis_rangefinder_size_y} 0 ${rover_amalia_range_finder_z - rover_amalia_chassis_rangefinder_size_y} 0 1.57 0</pose>
         <geometry>
           <box>
             <xacro:insert_block name="rover_amalia_chassis_rangefinder_size" />
@@ -83,7 +93,7 @@
         </geometry>
       </visual>
       <sensor name="range_front_down_ray" type="ray"> 
-          <pose>0.25 0 -0.09 0 ${pi/2} 0</pose>
+          <pose>0.25 0 ${rover_amalia_range_finder_z} 0 ${pi/2} 0</pose>
           <ray>
               <scan>
                   <horizontal>
@@ -99,8 +109,7 @@
                   <max>3</max>
               </range>
           </ray>
-          <!-- test plugin -->
-          <plugin name="plugin_1" filename="libgazebo_ros_range_finder.so">
+          <plugin name="range_finder_plugin_front" filename="libgazebo_ros_range_finder.so">
               <gaussianNoise>0.005</gaussianNoise>
               <alwaysOn>true</alwaysOn>
               <updateRate>20</updateRate>
@@ -113,7 +122,7 @@
       </sensor>
 
       <visual name="rover_amalia_chassis_rear_up_rangefinder_visual">
-        <pose>-0.246 0 -0.05 3.14159 0.00159265 3.14159</pose>
+        <pose>-0.246 0 ${rover_amalia_range_finder_z} 3.14159 0.00159265 3.14159</pose>
         <geometry>
           <box>
             <xacro:insert_block name="rover_amalia_chassis_rangefinder_size" />
@@ -122,7 +131,7 @@
       </visual>
 
       <visual name="rover_amalia_chassis_rear_down_rangefinder_visual">
-        <pose>${-0.246+rover_amalia_chassis_rangefinder_size_y} 0 ${-0.05-rover_amalia_chassis_rangefinder_size_y} 0 1.57 0</pose>
+        <pose>${-0.246+rover_amalia_chassis_rangefinder_size_y} 0 ${rover_amalia_range_finder_z - rover_amalia_chassis_rangefinder_size_y} 0 1.57 0</pose>
         <geometry>
           <box>
             <xacro:insert_block name="rover_amalia_chassis_rangefinder_size" />
@@ -130,7 +139,7 @@
         </geometry>
       </visual>
       <sensor name="range_rear_down_ray" type="ray"> 
-          <pose>${-0.248+rover_amalia_chassis_rangefinder_size_y} 0 ${-0.05-rover_amalia_chassis_rangefinder_size_y} 0 1.57 0</pose>
+          <pose>${-0.248+rover_amalia_chassis_rangefinder_size_y} 0 ${rover_amalia_range_finder_z - rover_amalia_chassis_rangefinder_size_y} 0 1.57 0</pose>
           <ray>
               <scan>
                   <horizontal>
@@ -146,8 +155,7 @@
                   <max>3</max>
               </range>
           </ray>
-          <!-- test plugin -->
-          <plugin name="plugin_1" filename="libgazebo_ros_range_finder.so">
+          <plugin name="range_finder_plugin_rear" filename="libgazebo_ros_range_finder.so">
               <gaussianNoise>0.005</gaussianNoise>
               <alwaysOn>true</alwaysOn>
               <updateRate>20</updateRate>

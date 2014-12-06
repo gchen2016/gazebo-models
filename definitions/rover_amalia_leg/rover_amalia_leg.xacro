@@ -8,76 +8,66 @@
     <link name="rover_amalia_leg_bar_${prefix}">
       <pose>${Ox*reflect_yz} ${Oy*reflect_xz} ${Oz+rover_amalia_leg_bar_z} 0 0 0</pose>
       <inertial>
-	<pose>0 0 0 0 0 0</pose>
-	<mass>0.31</mass>
-	<inertia>
-          <ixx>0.00279048</ixx>
-          <ixy>0</ixy>
-          <ixz>-0.00003956</ixz>
-          <iyy>0.00275062</iyy>
-          <iyz>0</iyz>
-          <izz>0.00008316</izz>
-	</inertia>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.31</mass>
+        <inertia>
+                <ixx>0.00279048</ixx>
+                <ixy>0</ixy>
+                <ixz>-0.00003956</ixz>
+                <iyy>0.00275062</iyy>
+                <iyz>0</iyz>
+                <izz>0.00008316</izz>
+        </inertia>
       </inertial>
       <collision name="leg_bar_${prefix}_bar_collision">
-	<geometry>
+      <geometry>
           <cylinder>
             <length>${bar_length}</length>
             <radius>${bar_radius}</radius>
           </cylinder>
-	</geometry>
-	<max_contacts>10</max_contacts>
-	<surface>
-          <contact>
-            <ode/>
-          </contact>
-          <bounce/>
-          <friction>
-            <ode/>
-          </friction>
-	</surface>
+      </geometry>
+      <max_contacts>10</max_contacts>
       </collision>
       <visual name="rover_amalia_leg_bar_${prefix}_bar_visual">
-	<pose>0 0 0 0 0 0</pose>
-	<geometry>
-          <cylinder>
-            <length>${bar_length}</length>
-            <radius>${bar_radius}</radius>
-          </cylinder>
-	</geometry>
+        <pose>0 ${-0.018*reflect_xz} 0 0 0 ${-pi/2 + pi/2*reflect_xz}</pose>
+      <geometry>
+        <mesh>
+          <uri>model://${model_root}/meshes/leg.dae</uri>
+        </mesh>
+      </geometry>
       </visual>
     </link>
     <link name="rover_amalia_leg_wheel_${prefix}">
-      <pose>${Ox*reflect_yz} ${(Oy+wheel_length/2+bar_radius+0.001)*reflect_xz} ${Oz + wheel_radius} 0 0 0</pose>
+      <pose>${Ox*reflect_yz} ${(Oy+wheel_length/2+bar_radius+0.01)*reflect_xz} ${Oz + wheel_radius} 0 0 0</pose>
       <inertial>
-	<pose>0 0 0 0 0 0</pose>
-	<mass>1.1</mass>
-	<inertia>
-	  <ixx>0.00222713</ixx>
-	  <iyy>0.00353418</iyy>
-	  <izz>0.00222499</izz>
-	  <ixy>0</ixy>
-	  <ixz>0</ixz>
-	  <iyz>0</iyz>
-	</inertia>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1.1</mass>
+        <inertia>
+          <ixx>0.00222713</ixx>
+          <iyy>0.00353418</iyy>
+          <izz>0.00222499</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
       </inertial>
       <collision name="rover_amalia_leg_wheel_${prefix}_collision">
-	<pose>0 0 0 ${pi/2} 0 0</pose>
-	<geometry>
-          <cylinder>
-            <length>${wheel_length}</length>
-            <radius>${wheel_radius}</radius>
-          </cylinder>
-	</geometry>
-	<max_contacts>10</max_contacts>
+      <pose>0 0 0 ${pi/2} 0 0</pose>
+      <geometry>
+              <cylinder>
+                <length>${wheel_length}</length>
+                <radius>${wheel_radius}</radius>
+              </cylinder>
+      </geometry>
+      <max_contacts>10</max_contacts>
       </collision>
       <visual name="rover_amalia_leg_wheel_${prefix}_visual">
-	<pose>0 0 0 0 0 0</pose>
-	<geometry>
+        <pose>0 0 0 0 0 ${-pi/2 + pi/2*reflect_xz}</pose>
+        <geometry>
           <mesh>
             <uri>model://${model_root}/meshes/wheel.dae</uri>
           </mesh>
-	</geometry>
+        </geometry>
       </visual>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>

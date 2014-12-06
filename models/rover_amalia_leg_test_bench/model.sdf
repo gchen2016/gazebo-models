@@ -103,28 +103,18 @@
           </cylinder>
         </geometry>
         <max_contacts>10</max_contacts>
-        <surface>
-          <contact>
-            <ode/>
-          </contact>
-          <bounce/>
-          <friction>
-            <ode/>
-          </friction>
-        </surface>
       </collision>
       <visual name="rover_amalia_leg_bar_f_l_bar_visual">
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0.018 0 0 0 -3.1415926</pose>
         <geometry>
-          <cylinder>
-            <length>0.2</length>
-            <radius>0.008</radius>
-          </cylinder>
+          <mesh>
+            <uri>model://rover_amalia_leg/meshes/leg.dae</uri>
+          </mesh>
         </geometry>
       </visual>
     </link>
     <link name="rover_amalia_leg_wheel_f_l">
-      <pose>-0.0 -0.304 1.08 0 0 0</pose>
+      <pose>-0.0 -0.313 1.08 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>1.1</mass>
@@ -148,7 +138,7 @@
         <max_contacts>10</max_contacts>
       </collision>
       <visual name="rover_amalia_leg_wheel_f_l_visual">
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0 0 0 -3.1415926</pose>
         <geometry>
           <mesh>
             <uri>model://rover_amalia_leg/meshes/wheel.dae</uri>

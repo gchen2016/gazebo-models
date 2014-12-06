@@ -40,7 +40,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.05 0.05 0.05</size>
+            <size>0.05 0.05 0.005</size>
           </box>
         </geometry>
         <max_contacts>5</max_contacts>

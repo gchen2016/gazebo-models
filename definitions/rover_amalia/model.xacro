@@ -17,7 +17,7 @@
   <xacro:property name="leg_bar_angle" value="${pi/4}"/>
   <!--use sin function when available-->
   <xacro:property name="leg_x" value="${chassis_size_x*0.28}"/>
-  <xacro:property name="leg_y" value="${chassis_size_y/2 + leg_bar_radius}"/>
+  <xacro:property name="leg_y" value="${chassis_size_y/2 + leg_bar_radius+0.01}"/>
 
   <xacro:macro name="rover_amalia_joint_chassis_leg" params="prefix reflect_xz reflect_yz index">
     <joint name="rover_amalia_joint_chassis_leg_${prefix}" type="revolute">
