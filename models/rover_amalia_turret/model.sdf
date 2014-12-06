@@ -20,9 +20,26 @@
         <pose>0 0 0.1 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://rover_amalia_turret/meshes/turret-and-pan-base.dae</uri>
+            <uri>model://rover_amalia_turret/meshes/turret.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <diffuse>0.4 0.4 0.4 1</diffuse>
+          <specular>1 1 1 1</specular>
+        </material>
+      </visual>
+      <visual name="rover_amalia_turret_bar_pan_base_visual">
+        <pose>-0.012 -0.007 0.215 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://rover_amalia_turret/meshes/pan_base.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1</ambient>
+          <diffuse>0.1 0.1 0.1 1</diffuse>
+          <specular>1 1 1 1</specular>
+        </material>
       </visual>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
@@ -40,6 +57,11 @@
             <uri>model://rover_amalia_turret/meshes/pantilt_pan.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1</ambient>
+          <diffuse>0.1 0.1 0.1 1</diffuse>
+          <specular>1 1 1 1</specular>
+        </material>
       </visual>
       <collision name="rover_amalia_turret_tilt_base_collision">
         <pose>-0.02 -0.025 0.01 0 0 0</pose>
@@ -80,6 +102,11 @@
             <uri>model://rover_amalia_turret/meshes/pantilt_tilt.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1</ambient>
+          <diffuse>0.1 0.1 0.1 1</diffuse>
+          <specular>1 1 1 1</specular>
+        </material>
       </visual>
       <visual name="rover_amalia_turret_camera_left_visual">
         <pose>0 -0.09 0.0525 0 0 0</pose>
@@ -88,6 +115,11 @@
             <uri>model://rover_amalia_turret/meshes/camera.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1</ambient>
+          <diffuse>0.1 0.1 0.1 1</diffuse>
+          <specular>1 1 1 1</specular>
+        </material>
       </visual>
       <visual name="rover_amalia_turret_tof_visual">
         <pose>0 0 0.080 0 0 0</pose>
@@ -96,6 +128,11 @@
             <uri>model://rover_amalia_turret/meshes/tof.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1</ambient>
+          <diffuse>0.1 0.1 0.1 1</diffuse>
+          <specular>1 1 1 1</specular>
+        </material>
       </visual>
       <visual name="rover_amalia_turret_camera_right_visual">
         <pose>0 0.09 0.0525 0 0 0</pose>
@@ -104,6 +141,11 @@
             <uri>model://rover_amalia_turret/meshes/camera.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1</ambient>
+          <diffuse>0.1 0.1 0.1 1</diffuse>
+          <specular>1 1 1 1</specular>
+        </material>
       </visual>
       <visual name="rover_amalia_turret_camera_base">
         <pose>0 0 0.04 0 0 0</pose>

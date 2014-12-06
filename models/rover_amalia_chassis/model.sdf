@@ -26,6 +26,10 @@
             <uri>model://rover_amalia_chassis/meshes/chassis.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <diffuse>0.4 0.4 0.4 1</diffuse>
+          <specular>1 1 1 1</specular>
+        </material>
       </visual>
       <collision name="rover_amalia_chassis_body_collision">
         <pose>0 0 0 0 0 0</pose>
@@ -52,6 +56,10 @@
             <size>0.089 0.064 0.046</size>
           </box>
         </geometry>
+        <material>
+          <diffuse>0.4 0.4 0.4 1</diffuse>
+          <specular>1 1 1 1</specular>
+        </material>
       </visual>
       <visual name="rover_amalia_chassis_cpci">
         <pose>0 -0.08 0.1 0 0 0</pose>
@@ -60,6 +68,10 @@
             <uri>model://rover_amalia_chassis/meshes/cpci.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <diffuse>0.4 0.4 0.4 1</diffuse>
+          <specular>1 1 1 1</specular>
+        </material>
       </visual>
       <visual name="rover_amalia_chassis_front_up_rangefinder_visual">
         <pose>0.246 0 -0.1 0 -0 0</pose>
@@ -68,6 +80,10 @@
             <size>0.01 0.03 0.01</size>
           </box>
         </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
       </visual>
       <visual name="rover_amalia_chassis_front_down_rangefinder_visual">
         <pose>0.236 0 -0.11 0 1.57 0</pose>
@@ -76,6 +92,10 @@
             <size>0.01 0.03 0.01</size>
           </box>
         </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
       </visual>
       <sensor name="range_front_down_ray" type="ray">
         <pose>0.25 0 -0.1 0 1.5707963 0</pose>
@@ -112,6 +132,10 @@
             <size>0.01 0.03 0.01</size>
           </box>
         </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+          <!--<specular>0.1 0.1 0.1 0.1</specular>-->
+        </material>
       </visual>
       <visual name="rover_amalia_chassis_rear_down_rangefinder_visual">
         <pose>-0.236 0 -0.11 0 1.57 0</pose>
@@ -120,6 +144,10 @@
             <size>0.01 0.03 0.01</size>
           </box>
         </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
       </visual>
       <sensor name="range_rear_down_ray" type="ray">
         <pose>-0.238 0 -0.11 0 1.57 0</pose>

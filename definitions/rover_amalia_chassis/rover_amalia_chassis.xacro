@@ -38,6 +38,10 @@
             <uri>model://rover_amalia_chassis/meshes/chassis.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <diffuse>0.4 0.4 0.4 1</diffuse>
+          <specular>1 1 1 1</specular>
+        </material>
       </visual>
       <collision name="rover_amalia_chassis_body_collision">
         <pose>0 0 0 0 0 0</pose>
@@ -64,6 +68,10 @@
             <xacro:insert_block name="rover_amalia_chassis_turret_base_size" />
           </box>
         </geometry>
+        <material>
+          <diffuse>0.4 0.4 0.4 1</diffuse>
+          <specular>1 1 1 1</specular>
+        </material>
       </visual>
 
       <visual name="rover_amalia_chassis_cpci">
@@ -73,6 +81,10 @@
             <uri>model://rover_amalia_chassis/meshes/cpci.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <diffuse>0.4 0.4 0.4 1</diffuse>
+          <specular>1 1 1 1</specular>
+        </material>
       </visual>
 
       <visual name="rover_amalia_chassis_front_up_rangefinder_visual">
@@ -82,6 +94,10 @@
             <xacro:insert_block name="rover_amalia_chassis_rangefinder_size" />
           </box>
         </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
       </visual>
 
       <visual name="rover_amalia_chassis_front_down_rangefinder_visual">
@@ -91,6 +107,10 @@
             <xacro:insert_block name="rover_amalia_chassis_rangefinder_size" />
           </box>
         </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
       </visual>
       <sensor name="range_front_down_ray" type="ray"> 
           <pose>0.25 0 ${rover_amalia_range_finder_z} 0 ${pi/2} 0</pose>
@@ -128,6 +148,10 @@
             <xacro:insert_block name="rover_amalia_chassis_rangefinder_size" />
           </box>
         </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+          <!--<specular>0.1 0.1 0.1 0.1</specular>-->
+        </material>
       </visual>
 
       <visual name="rover_amalia_chassis_rear_down_rangefinder_visual">
@@ -137,6 +161,10 @@
             <xacro:insert_block name="rover_amalia_chassis_rangefinder_size" />
           </box>
         </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
       </visual>
       <sensor name="range_rear_down_ray" type="ray"> 
           <pose>${-0.248+rover_amalia_chassis_rangefinder_size_y} 0 ${rover_amalia_range_finder_z - rover_amalia_chassis_rangefinder_size_y} 0 1.57 0</pose>

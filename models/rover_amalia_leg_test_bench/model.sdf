@@ -141,9 +141,27 @@
         <pose>0 0 0 0 0 -3.1415926</pose>
         <geometry>
           <mesh>
-            <uri>model://rover_amalia_leg/meshes/wheel.dae</uri>
+            <uri>model://rover_amalia_leg/meshes/motor.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <ambient>1 0.647 0 1</ambient>
+          <diffuse>1 0.647 0 1</diffuse>
+          <specular>1 1 1 0.6</specular>
+        </material>
+      </visual>
+      <visual name="rover_amalia_leg_wheel_f_l_visual">
+        <pose>0 0 0 0 0 -3.1415926</pose>
+        <geometry>
+          <mesh>
+            <uri>model://rover_amalia_leg/meshes/tire.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+          <specular>1 1 1 1</specular>
+        </material>
       </visual>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
