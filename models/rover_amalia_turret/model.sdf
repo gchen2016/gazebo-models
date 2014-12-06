@@ -5,20 +5,23 @@
 <!-- =================================================================================== -->
 <sdf version="1.5">
   <model name="rover_amalia_turret">
+    <link name="rover_amalia_turret_bar_inertial_dummy">
+      <pose>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.78</mass>
+        <inertia>
+          <ixx>0.00000027555</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00000027555</iyy>
+          <iyz>0</iyz>
+          <izz>0.00000027755</izz>
+        </inertia>
+      </inertial>
+    </link>
     <link name="rover_amalia_turret_bar">
       <pose>0 0 0 0 0 0</pose>
-      <!--<inertial>-->
-      <!--<pose>0 0 0 0 0 0</pose>-->
-      <!--<mass>0.78</mass>-->
-      <!--<inertia>-->
-      <!--<ixx>0.00000027555</ixx>-->
-      <!--<ixy>0</ixy>-->
-      <!--<ixz>0</ixz>-->
-      <!--<iyy>0.00000027555</iyy>-->
-      <!--<iyz>0</iyz>-->
-      <!--<izz>0.00000027755</izz>-->
-      <!--</inertia>-->
-      <!--</inertial>-->
       <collision name="rover_amalia_turret_bar_collision">
         <pose>0 0 0.1 0 0 0</pose>
         <geometry>
@@ -40,35 +43,38 @@
       <kinematic>0</kinematic>
       <gravity>1</gravity>
     </link>
+    <link name="rover_amalia_turret_pan_base_inertial_dummy">
+      <pose>0 0.015 0.253-0.01 0 0 0</pose>
+      <inertial>
+        <pose>-0.00699 0.17952 0.02755 0 0 0</pose>
+        <mass>0.22386</mass>
+        <inertia>
+          <ixx>0.00010575745</ixx>
+          <ixy>0.00002524815</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00100</iyy>
+          <iyz>0</iyz>
+          <izz>0.00021796864</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <link name="rover_amalia_turret_tilt_base_inertial_dummy">
+      <inertial>
+        <pose>0.012 -0.21853 0.02754  0 0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.02786</mass>
+        <inertia>
+          <ixx>0.00002247622</ixx>
+          <ixy>0.</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00001850151</iyy>
+          <iyz>0</iyz>
+          <izz>0.00000707185</izz>
+        </inertia>
+      </inertial>
+    </link>
     <link name="rover_amalia_turret_tilt_base">
       <pose>0 0.015 0.253 0 0 0</pose>
-      <!--correct inertial for pan base, use later-->
-      <!--<inertial>-->
-      <!--<pose>-0.00699 0.17952 0.02755 0 0 0</pose>-->
-      <!--<mass>0.22386</mass>-->
-      <!--<inertia>-->
-      <!--<ixx>0.00010575745</ixx>-->
-      <!--<ixy>0.00002524815</ixy>-->
-      <!--<ixz>0</ixz>-->
-      <!--<iyy>0.00100</iyy>-->
-      <!--<iyz>0</iyz>-->
-      <!--<izz>0.00021796864</izz>-->
-      <!--</inertia>-->
-      <!--</inertial>-->
-      <!--this are ok, leave them:-->
-      <!--<inertial>-->
-      <!--<pose>0.012 -0.21853 0.02754  0 0 0</pose>-->
-      <!--<pose>0 0 0 0 0 0</pose>-->
-      <!--<mass>0.02786</mass>-->
-      <!--<inertia>-->
-      <!--<ixx>0.00002247622</ixx>-->
-      <!--<ixy>0.</ixy>-->
-      <!--<ixz>0</ixz>-->
-      <!--<iyy>0.00001850151</iyy>-->
-      <!--<iyz>0</iyz>-->
-      <!--<izz>0.00000707185</izz>-->
-      <!--</inertia>-->
-      <!--</inertial>-->
       <visual name="rover_amalia_turret_tilt_base_visual">
         <pose>-0.016 -0.02 0.015 0 0 0</pose>
         <geometry>
