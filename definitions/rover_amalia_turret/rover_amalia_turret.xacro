@@ -214,7 +214,7 @@
           <pointCloudTopicName>points</pointCloudTopicName>
           <cameraInfoTopicName>camera_info</cameraInfoTopicName>
           <cameraName>depth_cam</cameraName>
-          <frameName>/base_link</frameName>
+          <frameName>/rover_amalia_turret_tilt_hinge</frameName>
           <pointCloudCutoff>0.001</pointCloudCutoff>
           <distortionK1>0.0</distortionK1>
           <distortionK2>0.0</distortionK2>
@@ -260,8 +260,9 @@
           <cameraName>stereo</cameraName>
           <imageTopicName>image_raw</imageTopicName>
           <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-          <frameName>left_camera_optical_frame</frameName>
-          <rightFrameName>right_camera_optical_frame</rightFrameName>
+          <!--TODO: change this, add two frames-->
+          <frameName>/rover_amalia_turret_tilt_hinge</frameName>
+          <rightFrameName>/rover_amalia_turret_tilt_hinge</rightFrameName>
           <hackBaseline>${rover_amalia_turret_cam_baseline}</hackBaseline>
           <distortionK1>0.0</distortionK1>
           <distortionK2>0.0</distortionK2>

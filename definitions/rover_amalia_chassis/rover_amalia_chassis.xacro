@@ -15,7 +15,7 @@
     <size>${rover_amalia_chassis_rangefinder_size_y} 0.03 ${rover_amalia_chassis_rangefinder_size_y}</size>
   </xacro:property>
   <xacro:property name="rover_amalia_chassis_turret_base_z" value="0.12" />
-  <xacro:property name="rover_amalia_range_finder_z" value="-0.1" />
+  <xacro:property name="rover_amalia_range_finder_z" value="${Oz-0.1}" />
   <xacro:macro name="rover_amalia_chassis" params="Ox Oy Oz body_size_x body_size_y body_size_z turret_base_x turret_base_y">
     <link name="rover_amalia_chassis">
       <pose>${Ox} ${Oy} ${Oz} 0 0 0</pose>
@@ -87,6 +87,12 @@
         </material>
       </visual>
 
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+    </link>
+
+    <link name="rover_amalia_rangefinder_front">
       <visual name="rover_amalia_chassis_front_up_rangefinder_visual">
         <pose>0.246 0 ${rover_amalia_range_finder_z} 0 -0 0</pose>
         <geometry>
@@ -134,13 +140,15 @@
               <alwaysOn>true</alwaysOn>
               <updateRate>20</updateRate>
               <topicName>/ADC/range_front_down</topicName>
-              <frameName>base_link</frameName>
+              <frameName>rover_amalia_rangefinder_front</frameName>
           </plugin>
           <always_on>true</always_on>
           <update_rate>2.0</update_rate>
           <visualize>true</visualize>
       </sensor>
+  </link>
 
+  <link name="rover_amalia_rangefinder_rear">
       <visual name="rover_amalia_chassis_rear_up_rangefinder_visual">
         <pose>-0.246 0 ${rover_amalia_range_finder_z} 3.14159 0.00159265 3.14159</pose>
         <geometry>
@@ -149,8 +157,8 @@
           </box>
         </geometry>
         <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
           <diffuse>0 0 0 1</diffuse>
-          <!--<specular>0.1 0.1 0.1 0.1</specular>-->
         </material>
       </visual>
 
@@ -188,16 +196,62 @@
               <alwaysOn>true</alwaysOn>
               <updateRate>20</updateRate>
               <topicName>/ADC/range_rear_down</topicName>
-              <frameName>base_link</frameName>
+              <frameName>rover_amalia_rangefinder_rear</frameName>
           </plugin>
           <always_on>true</always_on>
           <update_rate>2.0</update_rate>
           <visualize>true</visualize>
       </sensor>
+  </link>
 
-      <self_collide>0</self_collide>
-      <kinematic>0</kinematic>
-      <gravity>1</gravity>
-    </link>
+  <joint name="rover_amalia_joint_chassis_rangefinder_front" type="revolute">
+    <child>rover_amalia_rangefinder_front</child>
+    <parent>rover_amalia_chassis</parent>
+    <axis>
+      <xyz>0 0 1</xyz>
+      <limit>
+        <lower>-1e-16</lower>
+        <upper>1e-16</upper>
+        <effort>1000</effort>
+        <velocity>1000</velocity>
+      </limit>
+    </axis>
+  </joint>
+  <joint name="rover_amalia_joint_chassis_rangefinder_rear" type="revolute">
+    <child>rover_amalia_rangefinder_rear</child>
+    <parent>rover_amalia_chassis</parent>
+    <axis>
+      <xyz>0 0 1</xyz>
+      <limit>
+        <lower>-1e-16</lower>
+        <upper>1e-16</upper>
+        <effort>1000</effort>
+        <velocity>1000</velocity>
+      </limit>
+    </axis>
+  </joint>
+
+  <plugin filename="libgazebo_ros_joint_state_publisher.so" name="rangefinder_rear_p">
+    <robotNamespace></robotNamespace>
+    <jointName>rover_amalia_joint_chassis_rangefinder_rear</jointName>
+    <updateRate>10</updateRate>
+  </plugin>
+  <plugin filename="libgazebo_ros_joint_state_publisher.so" name="rangefinder_front_p">
+    <robotNamespace></robotNamespace>
+    <jointName>rover_amalia_joint_chassis_rangefinder_front</jointName>
+    <updateRate>10</updateRate>
+  </plugin>
+
+  <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
+    <alwaysOn>true</alwaysOn>       
+    <bodyName>rover_amalia_chassis</bodyName>
+    <topicName>imu_data</topicName>
+    <serviceName>imu_service</serviceName>
+    <gaussianNoise>0.0</gaussianNoise>
+    <updateRate>10.0</updateRate> 
+    <xyzOffset>0 0 0</xyzOffset>
+    <rpyOffset>0 0 0</rpyOffset>
+  </plugin>
+
   </xacro:macro>
 </robot>
