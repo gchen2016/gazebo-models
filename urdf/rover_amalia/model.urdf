@@ -1,0 +1,482 @@
+<?xml version="1.0"?>
+<robot name="rover_amalia">
+  <link name="rover_amalia_turret_bar">
+    <visual>
+      <origin xyz="0 0 0.11" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://diana_description/meshes/turret.dae"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0.22" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://diana_description/meshes/pan_base.dae"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.195 0.0 0.5640000000000001" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <cylinder length="0.2" radius="0.01"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rover_amalia_turret_tilt_base">
+    <visual>
+      <origin xyz="-0.0175 -0.008 0.05" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://diana_description/meshes/pantilt_pan.dae"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.1" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.09 0.03 0.05 "/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rover_amalia_turret_tilt_hinge">
+    <visual>
+      <origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://diana_description/meshes/pantilt_tilt.dae"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 -0.09 0.0515" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://diana_description/meshes/camera.dae"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0.079" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://diana_description/meshes/tof.dae"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0.09 0.0515" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://diana_description/meshes/camera.dae"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0.0 0.040" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.02 0.205 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin/>
+      <geometry>
+        <box size="0.03 0.07 0.04"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.195 0.0 0.827" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.07 0.205 0.09"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rover_amalia_turret_depth_camera_link">
+  </link>
+
+  <link name="rover_amalia_rangefinder_front">
+    <visual>
+      <origin xyz="0 0 0" rpy="0.0 1.57 0.0"/>
+      <!--<origin xyz="0.236 0.0 -0.11" rpy="0.0 1.57 0.0"/>-->
+      <geometry>
+        <box size="0.01 0.03 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="rover_amalia_rangefinder_rear">
+    <visual>
+      <origin xyz="0 0 0" rpy="0.0 1.57 0.0"/>
+      <!--<origin xyz="-0.236 0.0 -0.11" rpy="0.0 1.57 0.0"/>-->
+      <geometry>
+        <box size="0.01 0.03 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="rover_amalia_chassis">
+    <visual>
+      <origin/>
+      <geometry>
+        <mesh filename="package://diana_description/meshes/chassis.dae"/>
+      </geometry>
+      <material name="grey">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0.195 0.0 0.12" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.089 0.064 0.046"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0.0 -0.08 0.1" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://diana_description/meshes/cpci.dae"/>
+      </geometry>
+      <material name="grey">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0.246 0.0 -0.10" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.01 0.03 0.01"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.246 0.0 -0.1" rpy="3.14159 0.00159265 3.14159"/>
+      <geometry>
+        <box size="0.01 0.03 0.01"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin xyz="0.0216667 0.0 0.3424444" rpy="0.0 0.0 0.0"/>
+      <mass value="15.6"/>
+      <inertia ixx="0.6385976" ixy="0" ixz="0" iyy="0.521" iyz="0" izz="0.318954"/>
+    </inertial>
+    <collision>
+      <origin/>
+      <geometry>
+        <box size="0.492 0.334 0.215"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.195 0.0 0.484" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.089 0.064 0.046"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rover_amalia_leg_bar_f_r">
+    <visual>
+      <origin xyz="0 0 -0.1" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://diana_description/meshes/leg.dae"/>
+      </geometry>
+      <material name="grey">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <inertial>
+      <origin/>
+      <mass value="0.31"/>
+      <inertia ixx="0.00279048" ixy="0" ixz="-0.00003956" iyy="0.00275062" iyz="0" izz="0.00008316"/>
+    </inertial>
+    <collision>
+      <geometry>
+        <cylinder length="0.22" radius="0.008"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rover_amalia_leg_wheel_f_r">
+    <visual>
+      <origin/>
+      <geometry>
+        <mesh filename="package://diana_description/meshes/motor.dae"/>
+      </geometry>
+      <material name="gold">
+        <color rgba="1 0.647 0 1"/>
+      </material>
+    </visual>
+    <visual>
+      <origin/>
+      <geometry>
+        <mesh filename="package://diana_description/meshes/tire.dae"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <inertial>
+      <origin/>
+      <mass value="1.1"/>
+      <inertia ixx="0.00222713" iyy="0.00353418" izz="0.00222499" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <collision>
+      <origin xyz="0.13776 0.238 0.09" rpy="1.5707963 0.0 0.0"/>
+      <geometry>
+        <cylinder length="0.07" radius="0.09"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rover_amalia_leg_bar_f_l">
+    <visual>
+      <origin xyz="0 0 -0.1" rpy="0.0 0.0 3.1415"/>
+      <geometry>
+        <mesh filename="package://diana_description/meshes/leg.dae"/>
+      </geometry>
+      <material name="grey">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <inertial>
+      <origin/>
+      <mass value="0.31"/>
+      <inertia ixx="0.00279048" ixy="0" ixz="-0.00003956" iyy="0.00275062" iyz="0" izz="0.00008316"/>
+    </inertial>
+    <collision>
+      <geometry>
+        <cylinder length="0.22" radius="0.008"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rover_amalia_leg_wheel_f_l">
+    <visual>
+      <origin xyz="0 0 0" rpy="0.0 0.0 -3.1415926"/>
+      <geometry>
+        <mesh filename="package://diana_description/meshes/motor.dae"/>
+      </geometry>
+      <material name="gold">
+        <color rgba="1 0.647 0 1"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0.0 0.0 -3.1415926"/>
+      <geometry>
+        <mesh filename="package://diana_description/meshes/tire.dae"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin/>
+      <mass value="1.1"/>
+      <inertia ixx="0.00222713" iyy="0.00353418" izz="0.00222499" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <collision>
+      <origin xyz="0.13776 -0.238 0.09" rpy="1.5707963 0.0 0.0"/>
+      <geometry>
+        <cylinder length="0.07" radius="0.09"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rover_amalia_leg_bar_b_r">
+    <visual>
+      <origin xyz="0 0 -0.1" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://diana_description/meshes/leg.dae"/>
+      </geometry>
+      <material name="grey">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <inertial>
+      <origin/>
+      <mass value="0.31"/>
+      <inertia ixx="0.00279048" ixy="0" ixz="-0.00003956" iyy="0.00275062" iyz="0" izz="0.00008316"/>
+    </inertial>
+    <collision>
+      <geometry>
+        <cylinder length="0.22" radius="0.008"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rover_amalia_leg_wheel_b_r">
+    <visual>
+      <origin/>
+      <geometry>
+        <mesh filename="package://diana_description/meshes/motor.dae"/>
+      </geometry>
+      <material name="gold">
+        <color rgba="1 0.647 0 1"/>
+      </material>
+    </visual>
+    <visual>
+      <origin/>
+      <geometry>
+        <mesh filename="package://diana_description/meshes/tire.dae"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <inertial>
+      <origin/>
+      <mass value="1.1"/>
+      <inertia ixx="0.00222713" iyy="0.00353418" izz="0.00222499" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <collision>
+      <origin xyz="-0.13776 0.238 0.09" rpy="1.5707963 0.0 0.0"/>
+      <geometry>
+        <cylinder length="0.07" radius="0.09"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rover_amalia_leg_bar_b_l">
+    <visual>
+      <origin xyz="0 0 -0.1" rpy="0.0 0.0 3.1415"/>
+      <geometry>
+        <mesh filename="package://diana_description/meshes/leg.dae"/>
+      </geometry>
+      <material name="grey">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <inertial>
+      <origin/>
+      <mass value="0.31"/>
+      <inertia ixx="0.00279048" ixy="0" ixz="-0.00003956" iyy="0.00275062" iyz="0" izz="0.00008316"/>
+    </inertial>
+    <collision>
+      <geometry>
+        <cylinder length="0.22" radius="0.008"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rover_amalia_leg_wheel_b_l">
+    <visual>
+      <origin xyz="0 0 0" rpy="0.0 0.0 -3.1415926"/>
+      <geometry>
+        <mesh filename="package://diana_description/meshes/motor.dae"/>
+      </geometry>
+      <material name="gold">
+        <color rgba="1 0.647 0 1"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0.0 0.0 -3.1415926"/>
+      <geometry>
+        <mesh filename="package://diana_description/meshes/tire.dae"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <inertial>
+      <origin/>
+      <mass value="1.1"/>
+      <inertia ixx="0.00222713" iyy="0.00353418" izz="0.00222499" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <collision>
+      <origin xyz="-0.13776 -0.238 0.09" rpy="1.5707963 0.0 0.0"/>
+      <geometry>
+        <cylinder length="0.07" radius="0.09"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rover_amalia_turret_pan" type="revolute">
+    <origin xyz="0.01 0 0.224" rpy="0.0 0.0 0.0"/>
+    <child link="rover_amalia_turret_tilt_base"/>
+    <parent link="rover_amalia_turret_bar"/>
+    <axis xyz="0 0 -1"/>
+    <limit lower="-3.1415926" upper="3.1415926" effort="1000" velocity="1000"/>
+  </joint>
+  <joint name="rover_amalia_turret_tilt" type="revolute">
+    <origin xyz="0 0 0.065" rpy="0.0 0.0 0.0"/>
+    <child link="rover_amalia_turret_tilt_hinge"/>
+    <parent link="rover_amalia_turret_tilt_base"/>
+    <axis xyz="0 -1 0"/>
+    <limit lower="-2.35619445" upper="2.35619445" effort="1000" velocity="1000"/>
+  </joint>
+  <joint name="rover_amalia_leg_shaft_f_r" type="revolute">
+    <origin xyz="0 0.075 -0.2" rpy="0.0 0.0 0.0"/>
+    <child link="rover_amalia_leg_wheel_f_r"/>
+    <parent link="rover_amalia_leg_bar_f_r"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1e+16" upper="1e+16" effort="1000" velocity="1000"/>
+  </joint>
+  <joint name="rover_amalia_leg_shaft_f_l" type="revolute">
+    <origin xyz="0 -0.075 -0.2" rpy="0.0 0.0 0.0"/>
+    <child link="rover_amalia_leg_wheel_f_l"/>
+    <parent link="rover_amalia_leg_bar_f_l"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1e+16" upper="1e+16" effort="1000" velocity="1000"/>
+  </joint>
+  <joint name="rover_amalia_leg_shaft_b_r" type="revolute">
+    <origin xyz="0 0.075 -0.2" rpy="0.0 0.0 0.0"/>
+    <child link="rover_amalia_leg_wheel_b_r"/>
+    <parent link="rover_amalia_leg_bar_b_r"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1e+16" upper="1e+16" effort="1000" velocity="1000"/>
+  </joint>
+  <joint name="rover_amalia_leg_shaft_b_l" type="revolute">
+    <origin xyz="0 -0.075 -0.2" rpy="0.0 0.0 0.0"/>
+    <child link="rover_amalia_leg_wheel_b_l"/>
+    <parent link="rover_amalia_leg_bar_b_l"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1e+16" upper="1e+16" effort="1000" velocity="1000"/>
+  </joint>
+  <joint name="rover_amalia_joint_chassis_leg_f_r" type="revolute">
+    <origin xyz="0.13776 0.170 -0.06" rpy="0.0 0.0 0.0"/>
+    <child link="rover_amalia_leg_bar_f_r"/>
+    <parent link="rover_amalia_chassis"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.1415926" upper="3.1415926" effort="1000" velocity="1000"/>
+  </joint>
+  <joint name="rover_amalia_joint_chassis_leg_f_l" type="revolute">
+    <origin xyz="0.13776 -0.170 -0.06" rpy="0.0 0.0 0.0"/>
+    <child link="rover_amalia_leg_bar_f_l"/>
+    <parent link="rover_amalia_chassis"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.1415926" upper="3.1415926" effort="1000" velocity="1000"/>
+  </joint>
+  <joint name="rover_amalia_joint_chassis_leg_b_r" type="revolute">
+    <origin xyz="-0.13776 0.170 -0.06" rpy="0.0 0.0 0.0"/>
+    <child link="rover_amalia_leg_bar_b_r"/>
+    <parent link="rover_amalia_chassis"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.1415926" upper="3.1415926" effort="1000" velocity="1000"/>
+  </joint>
+  <joint name="rover_amalia_joint_chassis_leg_b_l" type="revolute">
+    <origin xyz="-0.13776 -0.170 -0.06" rpy="0.0 0.0 0.0"/>
+    <child link="rover_amalia_leg_bar_b_l"/>
+    <parent link="rover_amalia_chassis"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.1415926" upper="3.1415926" effort="1000" velocity="1000"/>
+  </joint>
+  <joint name="rover_amalia_joint_turret_base_turret" type="revolute">
+    <origin xyz="0.195 0.0 0.11" rpy="0.0 0.0 0.0"/>
+    <child link="rover_amalia_turret_bar"/>
+    <parent link="rover_amalia_chassis"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1e-16" upper="1e-16" effort="1000" velocity="1000"/>
+  </joint>
+  <joint name="rover_amalia_joint_chassis_rangefinder_front" type="revolute">
+    <!--<origin xyz="0.236 0.0 -0.11" rpy="0.0 1.57 0.0"/>-->
+    <origin xyz="0.236 0.0 -0.11" rpy="0 0 0"/>
+    <child link="rover_amalia_rangefinder_front"/>
+    <parent link="rover_amalia_chassis"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1e-16" upper="1e-16" effort="1000" velocity="1000"/>
+  </joint>
+  <joint name="rover_amalia_joint_chassis_rangefinder_rear" type="revolute">
+    <!--<origin xyz="0.236 0.0 -0.11" rpy="0.0 1.57 0.0"/>-->
+    <origin xyz="-0.236 0.0 -0.11" rpy="0 0 0"/>
+    <child link="rover_amalia_rangefinder_rear"/>
+    <parent link="rover_amalia_chassis"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1e-16" upper="1e-16" effort="1000" velocity="1000"/>
+  </joint>
+  <joint name="rover_amalia_hinge_depth_camera_link" type="revolute">
+    <origin xyz="0 0 0" rpy="1.57 3.1415  1.57"/>
+    <child link="rover_amalia_turret_depth_camera_link"/>
+    <parent link="rover_amalia_turret_tilt_hinge"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1e-16" upper="1e-16" effort="1000" velocity="1000"/>
+  </joint>
+</robot>

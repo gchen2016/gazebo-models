@@ -1,0 +1,6 @@
+<launch>
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" args="/joint_states:=/rover_amalia/joint_states
+"/>
+  <!--<remap from="/joint_states" to="/rover_amalia/joint_states" />-->
+  <param name="robot_description" command="cat model.urdf" />
+</launch>

@@ -1,0 +1,4 @@
+<launch>
+    <node name="rviz" pkg="rviz" type="rviz"  args="--ogre-log"/>
+    <param name="robot_description" command="cat model.urdf" />
+</launch>
