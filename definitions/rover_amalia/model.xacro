@@ -144,7 +144,7 @@
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
-      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <robotBaseFrame>real_pose</robotBaseFrame>
       <updateRate>100.0</updateRate>
     </plugin>
   </model>
