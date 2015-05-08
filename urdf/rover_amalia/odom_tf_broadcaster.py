@@ -15,8 +15,8 @@ class OdomPublisher():
         pose = msg.pose.pose.position
         self.tf_broadcaster.sendTransform( (pose.x, pose.y, 0),
                         (0, 0, 0, 1), 
-                        #rospy.Time(secs=msg.stamp.secs, nsecs=msg.stamp.nsecs)
                         msg.header.stamp,
+                        #rospy.Time(),
                         to_tf_name,
                         from_tf_name)
         

@@ -4,6 +4,7 @@ import rospy
 import sys
 
 import tf
+import time
 from sensor_msgs.msg import Imu
 
 class ImuPublisher():
@@ -15,7 +16,8 @@ class ImuPublisher():
         q = msg.orientation
         self.tf_broadcaster.sendTransform( (0, 0, 0),
                         (q.x, q.y, q.z, q.w),
-                        msg.header.stamp,
+                        #rospy.Time.now(),
+                        rospy.Time.from_sec(time.time()),
                         to_tf_name,
                         from_tf_name)
         
