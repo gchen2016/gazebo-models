@@ -183,22 +183,22 @@
             <far>100</far>
           </clip>
         </camera>
-        <plugin filename="libgazebo_ros_multicamera.so" name="stereo_camera_controller">
-          <alwaysOn>true</alwaysOn>
-          <updateRate>60.0</updateRate>
-          <cameraName>stereo</cameraName>
-          <imageTopicName>image_raw</imageTopicName>
-          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-          <!--TODO: change this, add two frames-->
-          <frameName>/rover_amalia_turret_tilt_hinge</frameName>
-          <rightFrameName>/rover_amalia_turret_tilt_hinge</rightFrameName>
-          <hackBaseline>0.18</hackBaseline>
-          <distortionK1>0.0</distortionK1>
-          <distortionK2>0.0</distortionK2>
-          <distortionK3>0.0</distortionK3>
-          <distortionT1>0.0</distortionT1>
-          <distortionT2>0.0</distortionT2>
-        </plugin>
+        <!--<plugin filename="libgazebo_ros_multicamera.so" name="stereo_camera_controller">-->
+          <!--<alwaysOn>true</alwaysOn>-->
+          <!--<updateRate>60.0</updateRate>-->
+          <!--<cameraName>stereo</cameraName>-->
+          <!--<imageTopicName>image_raw</imageTopicName>-->
+          <!--<cameraInfoTopicName>camera_info</cameraInfoTopicName>-->
+          <!--[>TODO: change this, add two frames<]-->
+          <!--<frameName>/rover_amalia_turret_tilt_hinge</frameName>-->
+          <!--<rightFrameName>/rover_amalia_turret_tilt_hinge</rightFrameName>-->
+          <!--<hackBaseline>0.18</hackBaseline>-->
+          <!--<distortionK1>0.0</distortionK1>-->
+          <!--<distortionK2>0.0</distortionK2>-->
+          <!--<distortionK3>0.0</distortionK3>-->
+          <!--<distortionT1>0.0</distortionT1>-->
+          <!--<distortionT2>0.0</distortionT2>-->
+        <!--</plugin>-->
       </sensor>
       <velocity_decay>
         <linear>0</linear>
@@ -238,24 +238,24 @@
             <far>5</far>
           </clip>
         </camera>
-        <plugin filename="libgazebo_ros_depth_camera.so" name="depth_camera_plugin">
-          <alwaysOn>1</alwaysOn>
-          <robotNamespace>rover_amalia</robotNamespace>
-          <updateRate>25.0</updateRate>
-          <imageTopicName>image_raw</imageTopicName>
-          <depthImageTopicName>depth_raw</depthImageTopicName>
-          <depthImageCameraInfoTopicName>camera_info</depthImageCameraInfoTopicName>
-          <pointCloudTopicName>points</pointCloudTopicName>
-          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-          <cameraName>depth_cam</cameraName>
-          <frameName>/rover_amalia_turret_depth_camera_link</frameName>
-          <pointCloudCutoff>0.001</pointCloudCutoff>
-          <distortionK1>0.0</distortionK1>
-          <distortionK2>0.0</distortionK2>
-          <distortionK3>0.0</distortionK3>
-          <distortionT1>0.0</distortionT1>
-          <distortionT2>0.0</distortionT2>
-        </plugin>
+        <!--<plugin filename="libgazebo_ros_depth_camera.so" name="depth_camera_plugin">-->
+          <!--<alwaysOn>1</alwaysOn>-->
+          <!--<robotNamespace>rover_amalia</robotNamespace>-->
+          <!--<updateRate>25.0</updateRate>-->
+          <!--<imageTopicName>image_raw</imageTopicName>-->
+          <!--<depthImageTopicName>depth_raw</depthImageTopicName>-->
+          <!--<depthImageCameraInfoTopicName>camera_info</depthImageCameraInfoTopicName>-->
+          <!--<pointCloudTopicName>points</pointCloudTopicName>-->
+          <!--<cameraInfoTopicName>camera_info</cameraInfoTopicName>-->
+          <!--<cameraName>depth_cam</cameraName>-->
+          <!--<frameName>/rover_amalia_turret_depth_camera_link</frameName>-->
+          <!--<pointCloudCutoff>0.001</pointCloudCutoff>-->
+          <!--<distortionK1>0.0</distortionK1>-->
+          <!--<distortionK2>0.0</distortionK2>-->
+          <!--<distortionK3>0.0</distortionK3>-->
+          <!--<distortionT1>0.0</distortionT1>-->
+          <!--<distortionT2>0.0</distortionT2>-->
+        <!--</plugin>-->
         <always_on>true</always_on>
         <update_rate>25.0</update_rate>
       </sensor>
@@ -329,13 +329,13 @@
       <jointSet1Joint2>rover_amalia_turret_tilt</jointSet1Joint2>
     </plugin>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="pan">
-      <!--keep update rate lower than camera rate-->
+      <!--[>keep update rate lower than camera rate<]-->
       <robotNamespace/>
       <jointName>rover_amalia_turret_pan</jointName>
       <updateRate>20</updateRate>
     </plugin>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="tilt">
-      <!--keep update rate lower than camera rate-->
+      <!--[>keep update rate lower than camera rate<]-->
       <robotNamespace/>
       <jointName>rover_amalia_turret_tilt</jointName>
       <updateRate>20</updateRate>
@@ -496,13 +496,13 @@
             <max>3</max>
           </range>
         </ray>
-        <plugin filename="libgazebo_ros_range_finder.so" name="range_finder_plugin_front">
-          <gaussianNoise>0.005</gaussianNoise>
-          <alwaysOn>true</alwaysOn>
-          <updateRate>20</updateRate>
-          <topicName>/ADC/range_front_down</topicName>
-          <frameName>rover_amalia_rangefinder_front</frameName>
-        </plugin>
+        <!--<plugin filename="libgazebo_ros_range_finder.so" name="range_finder_plugin_front">-->
+          <!--<gaussianNoise>0.005</gaussianNoise>-->
+          <!--<alwaysOn>true</alwaysOn>-->
+          <!--<updateRate>20</updateRate>-->
+          <!--<topicName>/ADC/range_front_down</topicName>-->
+          <!--<frameName>rover_amalia_rangefinder_front</frameName>-->
+        <!--</plugin>-->
         <always_on>true</always_on>
         <update_rate>2.0</update_rate>
         <visualize>true</visualize>
@@ -550,13 +550,13 @@
             <max>3</max>
           </range>
         </ray>
-        <plugin filename="libgazebo_ros_range_finder.so" name="range_finder_plugin_rear">
-          <gaussianNoise>0.005</gaussianNoise>
-          <alwaysOn>true</alwaysOn>
-          <updateRate>20</updateRate>
-          <topicName>/ADC/range_rear_down</topicName>
-          <frameName>rover_amalia_rangefinder_rear</frameName>
-        </plugin>
+        <!--<plugin filename="libgazebo_ros_range_finder.so" name="range_finder_plugin_rear">-->
+          <!--<gaussianNoise>0.005</gaussianNoise>-->
+          <!--<alwaysOn>true</alwaysOn>-->
+          <!--<updateRate>20</updateRate>-->
+          <!--<topicName>/ADC/range_rear_down</topicName>-->
+          <!--<frameName>rover_amalia_rangefinder_rear</frameName>-->
+        <!--</plugin>-->
         <always_on>true</always_on>
         <update_rate>2.0</update_rate>
         <visualize>true</visualize>

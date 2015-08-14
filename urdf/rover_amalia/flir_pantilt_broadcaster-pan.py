@@ -14,14 +14,19 @@ class FlirPublisher():
     def on_ptu_state_msg(self, msg):
         pan1 = -msg.position[0]
         pan_q = quaternion_from_euler(0, 0, -pan1)
-        tilt_q = quaternion_from_euler(0, -msg.position[1], 0)
         b1 = tf.TransformBroadcaster()
-        #self.publish_tf('rover_amalia_turret_bar', 'rover_amalia_turret_tilt_base', (0.01, 0, 0.224), self.to_q((1.57, 3.1415, 1.57)))
         b1.sendTransform( (0.01, 0, 0.224),
                         pan_q, 
                         rospy.Time.from_sec(time.time()),
                         'rover_amalia_turret_tilt_base',
                         'rover_amalia_turret_bar')
+        tilt_q = quaternion_from_euler(0, -msg.position[1], 0)
+        b2 = tf.TransformBroadcaster()
+        b2.sendTransform( (0.0, 0, 0.065),
+                        tilt_q, 
+                        rospy.Time.from_sec(time.time()),
+                        'rover_amalia_turret_tilt_hinge',
+                        'rover_amalia_turret_tilt_base')
         
 
 if __name__ == "__main__":

@@ -3,5 +3,5 @@
 "/>
   <!--<remap from="/joint_states" to="/rover_amalia/joint_states" />-->
   <param name="robot_description" command="cat model.urdf" />
-  <param name="use_sim_time" value="1" />
+  <!--<param name="use_sim_time" value="1" />-->
 </launch>
