@@ -23,7 +23,7 @@ except ImportError, err:
     print("Some of the needed modules were missing (at least `%s')." % module_name)
     print("Please check that all dependencies are correctly installed.")
     print("To do so, it is suggested to use the command:")
-    print("     $ sudo pip install docopt plumbum logging colored logs")
+    print("     $ sudo pip install docopt plumbum logging coloredlogs")
     exit()
 
 
