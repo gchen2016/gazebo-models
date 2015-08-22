@@ -183,22 +183,22 @@
             <far>100</far>
           </clip>
         </camera>
-        <!--<plugin filename="libgazebo_ros_multicamera.so" name="stereo_camera_controller">-->
-          <!--<alwaysOn>true</alwaysOn>-->
-          <!--<updateRate>60.0</updateRate>-->
-          <!--<cameraName>stereo</cameraName>-->
-          <!--<imageTopicName>image_raw</imageTopicName>-->
-          <!--<cameraInfoTopicName>camera_info</cameraInfoTopicName>-->
-          <!--[>TODO: change this, add two frames<]-->
-          <!--<frameName>/rover_amalia_turret_tilt_hinge</frameName>-->
-          <!--<rightFrameName>/rover_amalia_turret_tilt_hinge</rightFrameName>-->
-          <!--<hackBaseline>0.18</hackBaseline>-->
-          <!--<distortionK1>0.0</distortionK1>-->
-          <!--<distortionK2>0.0</distortionK2>-->
-          <!--<distortionK3>0.0</distortionK3>-->
-          <!--<distortionT1>0.0</distortionT1>-->
-          <!--<distortionT2>0.0</distortionT2>-->
-        <!--</plugin>-->
+        <plugin filename="libgazebo_ros_multicamera.so" name="stereo_camera_controller">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>60.0</updateRate>
+          <cameraName>stereo</cameraName>
+          <imageTopicName>image_raw</imageTopicName>
+          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <!--TODO: change this, add two frames-->
+          <frameName>/rover_amalia_turret_tilt_hinge</frameName>
+          <rightFrameName>/rover_amalia_turret_tilt_hinge</rightFrameName>
+          <hackBaseline>0.18</hackBaseline>
+          <distortionK1>0.0</distortionK1>
+          <distortionK2>0.0</distortionK2>
+          <distortionK3>0.0</distortionK3>
+          <distortionT1>0.0</distortionT1>
+          <distortionT2>0.0</distortionT2>
+        </plugin>
       </sensor>
       <velocity_decay>
         <linear>0</linear>
@@ -238,24 +238,24 @@
             <far>5</far>
           </clip>
         </camera>
-        <!--<plugin filename="libgazebo_ros_depth_camera.so" name="depth_camera_plugin">-->
-          <!--<alwaysOn>1</alwaysOn>-->
-          <!--<robotNamespace>rover_amalia</robotNamespace>-->
-          <!--<updateRate>25.0</updateRate>-->
-          <!--<imageTopicName>image_raw</imageTopicName>-->
-          <!--<depthImageTopicName>depth_raw</depthImageTopicName>-->
-          <!--<depthImageCameraInfoTopicName>camera_info</depthImageCameraInfoTopicName>-->
-          <!--<pointCloudTopicName>points</pointCloudTopicName>-->
-          <!--<cameraInfoTopicName>camera_info</cameraInfoTopicName>-->
-          <!--<cameraName>depth_cam</cameraName>-->
-          <!--<frameName>/rover_amalia_turret_depth_camera_link</frameName>-->
-          <!--<pointCloudCutoff>0.001</pointCloudCutoff>-->
-          <!--<distortionK1>0.0</distortionK1>-->
-          <!--<distortionK2>0.0</distortionK2>-->
-          <!--<distortionK3>0.0</distortionK3>-->
-          <!--<distortionT1>0.0</distortionT1>-->
-          <!--<distortionT2>0.0</distortionT2>-->
-        <!--</plugin>-->
+        <plugin filename="libgazebo_ros_depth_camera.so" name="depth_camera_plugin">
+          <alwaysOn>1</alwaysOn>
+          <robotNamespace>rover_amalia</robotNamespace>
+          <updateRate>25.0</updateRate>
+          <imageTopicName>image_raw</imageTopicName>
+          <depthImageTopicName>depth_raw</depthImageTopicName>
+          <depthImageCameraInfoTopicName>camera_info</depthImageCameraInfoTopicName>
+          <pointCloudTopicName>points</pointCloudTopicName>
+          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <cameraName>depth_cam</cameraName>
+          <frameName>/rover_amalia_turret_depth_camera_link</frameName>
+          <pointCloudCutoff>0.001</pointCloudCutoff>
+          <distortionK1>0.0</distortionK1>
+          <distortionK2>0.0</distortionK2>
+          <distortionK3>0.0</distortionK3>
+          <distortionT1>0.0</distortionT1>
+          <distortionT2>0.0</distortionT2>
+        </plugin>
         <always_on>true</always_on>
         <update_rate>25.0</update_rate>
       </sensor>
@@ -329,13 +329,13 @@
       <jointSet1Joint2>rover_amalia_turret_tilt</jointSet1Joint2>
     </plugin>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="pan">
-      <!--[>keep update rate lower than camera rate<]-->
+      <!--keep update rate lower than camera rate-->
       <robotNamespace/>
       <jointName>rover_amalia_turret_pan</jointName>
       <updateRate>20</updateRate>
     </plugin>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="tilt">
-      <!--[>keep update rate lower than camera rate<]-->
+      <!--keep update rate lower than camera rate-->
       <robotNamespace/>
       <jointName>rover_amalia_turret_tilt</jointName>
       <updateRate>20</updateRate>
@@ -382,6 +382,64 @@
       </collision>
       <gravity>1</gravity>
     </link>
+    <!--<link name="rover_amalia_turret_pan_base_inertial_dummy">-->
+    <!--<xacro:insert_block name="rover_amalia_turret_pan_base_pose"/>-->
+    <!--<inertial>-->
+    <!--<pose>-0.00699 0.17952 0.02755 0 0 0</pose>-->
+    <!--<mass>0.22386</mass>-->
+    <!--<inertia>-->
+    <!--<ixx>0.00010575745</ixx>-->
+    <!--<ixy>0.00002524815</ixy>-->
+    <!--<ixz>0</ixz>-->
+    <!--<iyy>0.00100</iyy>-->
+    <!--<iyz>0</iyz>-->
+    <!--<izz>0.00021796864</izz>-->
+    <!--</inertia>-->
+    <!--</inertial>-->
+    <!--<gravity>1</gravity>-->
+    <!--</link>-->
+    <!--<link name="rover_amalia_turret_tilt_base_inertial_dummy">-->
+    <!--<inertial>-->
+    <!--<pose>0.012 -0.21853 0.02754  0 0 0</pose>-->
+    <!--<pose>0 0 0 0 0 0</pose>-->
+    <!--<mass>0.02786</mass>-->
+    <!--<inertia>-->
+    <!--<ixx>0.00002247622</ixx>-->
+    <!--<ixy>0.</ixy>-->
+    <!--<ixz>0</ixz>-->
+    <!--<iyy>0.00001850151</iyy>-->
+    <!--<iyz>0</iyz>-->
+    <!--<izz>0.00000707185</izz>-->
+    <!--</inertia>-->
+    <!--</inertial>-->
+    <!--<gravity>1</gravity>-->
+    <!--</link>-->
+    <!--<joint name="rover_amalia_turret_pan_dummy" type="revolute">-->
+    <!--<child>rover_amalia_turret_pan_base_inertial_dummy</child>-->
+    <!--<parent>rover_amalia_turret_bar_inertial_dummy</parent>-->
+    <!--<axis>-->
+    <!--<xyz>0 0 1</xyz>-->
+    <!--<limit>-->
+    <!--<lower>-1e-16</lower>-->
+    <!--<upper>1e-16</upper>-->
+    <!--<effort>1000</effort>-->
+    <!--<velocity>1000</velocity>-->
+    <!--</limit>-->
+    <!--</axis>-->
+    <!--</joint>-->
+    <!--<joint name="rover_amalia_turret_tilt_dummy" type="revolute">-->
+    <!--<child>rover_amalia_turret_tilt_base_inertial_dummy</child>-->
+    <!--<parent>rover_amalia_turret_bar_inertial_dummy</parent>-->
+    <!--<axis>-->
+    <!--<xyz>0 0 1</xyz>-->
+    <!--<limit>-->
+    <!--<lower>-1e-16</lower>-->
+    <!--<upper>1e-16</upper>-->
+    <!--<effort>1000</effort>-->
+    <!--<velocity>1000</velocity>-->
+    <!--</limit>-->
+    <!--</axis>-->
+    <!--</joint>-->
     <link name="rover_amalia_chassis">
       <pose>0 0 0.364 0 0 0</pose>
       <inertial>
@@ -412,6 +470,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
+            <!--<size>0.492 0.334 0.1</size>-->
             <size>0.492 0.334 0.215</size>
           </box>
         </geometry>
@@ -496,13 +555,13 @@
             <max>3</max>
           </range>
         </ray>
-        <!--<plugin filename="libgazebo_ros_range_finder.so" name="range_finder_plugin_front">-->
-          <!--<gaussianNoise>0.005</gaussianNoise>-->
-          <!--<alwaysOn>true</alwaysOn>-->
-          <!--<updateRate>20</updateRate>-->
-          <!--<topicName>/ADC/range_front_down</topicName>-->
-          <!--<frameName>rover_amalia_rangefinder_front</frameName>-->
-        <!--</plugin>-->
+        <plugin filename="libgazebo_ros_range_finder.so" name="range_finder_plugin_front">
+          <gaussianNoise>0.005</gaussianNoise>
+          <alwaysOn>true</alwaysOn>
+          <updateRate>20</updateRate>
+          <topicName>/ADC/range_front_down</topicName>
+          <frameName>rover_amalia_rangefinder_front</frameName>
+        </plugin>
         <always_on>true</always_on>
         <update_rate>2.0</update_rate>
         <visualize>true</visualize>
@@ -550,13 +609,13 @@
             <max>3</max>
           </range>
         </ray>
-        <!--<plugin filename="libgazebo_ros_range_finder.so" name="range_finder_plugin_rear">-->
-          <!--<gaussianNoise>0.005</gaussianNoise>-->
-          <!--<alwaysOn>true</alwaysOn>-->
-          <!--<updateRate>20</updateRate>-->
-          <!--<topicName>/ADC/range_rear_down</topicName>-->
-          <!--<frameName>rover_amalia_rangefinder_rear</frameName>-->
-        <!--</plugin>-->
+        <plugin filename="libgazebo_ros_range_finder.so" name="range_finder_plugin_rear">
+          <gaussianNoise>0.005</gaussianNoise>
+          <alwaysOn>true</alwaysOn>
+          <updateRate>20</updateRate>
+          <topicName>/ADC/range_rear_down</topicName>
+          <frameName>rover_amalia_rangefinder_rear</frameName>
+        </plugin>
         <always_on>true</always_on>
         <update_rate>2.0</update_rate>
         <visualize>true</visualize>
@@ -664,7 +723,7 @@
         </geometry>
         <max_contacts>10</max_contacts>
       </collision>
-      <visual name="rover_amalia_leg_wheel_f_r_visual">
+      <visual name="rover_amalia_leg_wheel_f_r_motor_visual">
         <pose>0 0 0 0 0 0.0</pose>
         <geometry>
           <mesh>
@@ -677,7 +736,7 @@
           <specular>1 1 1 0.6</specular>
         </material>
       </visual>
-      <visual name="rover_amalia_leg_wheel_f_r_visual">
+      <visual name="rover_amalia_leg_wheel_f_r_tire_visual">
         <pose>0 0 0 0 0 0.0</pose>
         <geometry>
           <mesh>
@@ -769,7 +828,7 @@
         </geometry>
         <max_contacts>10</max_contacts>
       </collision>
-      <visual name="rover_amalia_leg_wheel_f_l_visual">
+      <visual name="rover_amalia_leg_wheel_f_l_motor_visual">
         <pose>0 0 0 0 0 -3.1415926</pose>
         <geometry>
           <mesh>
@@ -782,7 +841,7 @@
           <specular>1 1 1 0.6</specular>
         </material>
       </visual>
-      <visual name="rover_amalia_leg_wheel_f_l_visual">
+      <visual name="rover_amalia_leg_wheel_f_l_tire_visual">
         <pose>0 0 0 0 0 -3.1415926</pose>
         <geometry>
           <mesh>
@@ -874,7 +933,7 @@
         </geometry>
         <max_contacts>10</max_contacts>
       </collision>
-      <visual name="rover_amalia_leg_wheel_b_r_visual">
+      <visual name="rover_amalia_leg_wheel_b_r_motor_visual">
         <pose>0 0 0 0 0 0.0</pose>
         <geometry>
           <mesh>
@@ -887,7 +946,7 @@
           <specular>1 1 1 0.6</specular>
         </material>
       </visual>
-      <visual name="rover_amalia_leg_wheel_b_r_visual">
+      <visual name="rover_amalia_leg_wheel_b_r_tire_visual">
         <pose>0 0 0 0 0 0.0</pose>
         <geometry>
           <mesh>
@@ -979,7 +1038,7 @@
         </geometry>
         <max_contacts>10</max_contacts>
       </collision>
-      <visual name="rover_amalia_leg_wheel_b_l_visual">
+      <visual name="rover_amalia_leg_wheel_b_l_motor_visual">
         <pose>0 0 0 0 0 -3.1415926</pose>
         <geometry>
           <mesh>
@@ -992,7 +1051,7 @@
           <specular>1 1 1 0.6</specular>
         </material>
       </visual>
-      <visual name="rover_amalia_leg_wheel_b_l_visual">
+      <visual name="rover_amalia_leg_wheel_b_l_tire_visual">
         <pose>0 0 0 0 0 -3.1415926</pose>
         <geometry>
           <mesh>

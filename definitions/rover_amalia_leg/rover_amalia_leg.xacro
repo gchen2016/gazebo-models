@@ -61,7 +61,7 @@
       </geometry>
       <max_contacts>10</max_contacts>
       </collision>
-      <visual name="rover_amalia_leg_wheel_${prefix}_visual">
+      <visual name="rover_amalia_leg_wheel_${prefix}_motor_visual">
         <pose>0 0 0 0 0 ${-pi/2 + pi/2*reflect_xz}</pose>
         <geometry>
           <mesh>
@@ -74,7 +74,7 @@
           <specular>1 1 1 0.6</specular>
         </material>
       </visual>
-      <visual name="rover_amalia_leg_wheel_${prefix}_visual">
+      <visual name="rover_amalia_leg_wheel_${prefix}_tire_visual">
         <pose>0 0 0 0 0 ${-pi/2 + pi/2*reflect_xz}</pose>
         <geometry>
           <mesh>

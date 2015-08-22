@@ -47,6 +47,64 @@
       </collision>
       <gravity>1</gravity>
     </link>
+    <!--<link name="rover_amalia_turret_pan_base_inertial_dummy">-->
+    <!--<xacro:insert_block name="rover_amalia_turret_pan_base_pose"/>-->
+    <!--<inertial>-->
+    <!--<pose>-0.00699 0.17952 0.02755 0 0 0</pose>-->
+    <!--<mass>0.22386</mass>-->
+    <!--<inertia>-->
+    <!--<ixx>0.00010575745</ixx>-->
+    <!--<ixy>0.00002524815</ixy>-->
+    <!--<ixz>0</ixz>-->
+    <!--<iyy>0.00100</iyy>-->
+    <!--<iyz>0</iyz>-->
+    <!--<izz>0.00021796864</izz>-->
+    <!--</inertia>-->
+    <!--</inertial>-->
+    <!--<gravity>1</gravity>-->
+    <!--</link>-->
+    <!--<link name="rover_amalia_turret_tilt_base_inertial_dummy">-->
+    <!--<inertial>-->
+    <!--<pose>0.012 -0.21853 0.02754  0 0 0</pose>-->
+    <!--<pose>0 0 0 0 0 0</pose>-->
+    <!--<mass>0.02786</mass>-->
+    <!--<inertia>-->
+    <!--<ixx>0.00002247622</ixx>-->
+    <!--<ixy>0.</ixy>-->
+    <!--<ixz>0</ixz>-->
+    <!--<iyy>0.00001850151</iyy>-->
+    <!--<iyz>0</iyz>-->
+    <!--<izz>0.00000707185</izz>-->
+    <!--</inertia>-->
+    <!--</inertial>-->
+    <!--<gravity>1</gravity>-->
+    <!--</link>-->
+    <!--<joint name="rover_amalia_turret_pan_dummy" type="revolute">-->
+    <!--<child>rover_amalia_turret_pan_base_inertial_dummy</child>-->
+    <!--<parent>rover_amalia_turret_bar_inertial_dummy</parent>-->
+    <!--<axis>-->
+    <!--<xyz>0 0 1</xyz>-->
+    <!--<limit>-->
+    <!--<lower>-1e-16</lower>-->
+    <!--<upper>1e-16</upper>-->
+    <!--<effort>1000</effort>-->
+    <!--<velocity>1000</velocity>-->
+    <!--</limit>-->
+    <!--</axis>-->
+    <!--</joint>-->
+    <!--<joint name="rover_amalia_turret_tilt_dummy" type="revolute">-->
+    <!--<child>rover_amalia_turret_tilt_base_inertial_dummy</child>-->
+    <!--<parent>rover_amalia_turret_bar_inertial_dummy</parent>-->
+    <!--<axis>-->
+    <!--<xyz>0 0 1</xyz>-->
+    <!--<limit>-->
+    <!--<lower>-1e-16</lower>-->
+    <!--<upper>1e-16</upper>-->
+    <!--<effort>1000</effort>-->
+    <!--<velocity>1000</velocity>-->
+    <!--</limit>-->
+    <!--</axis>-->
+    <!--</joint>-->
     <pose>0 0 0 0 0 0</pose>
   </model>
 </sdf>

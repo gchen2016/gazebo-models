@@ -35,6 +35,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
+            <!--<size>0.492 0.334 0.1</size>-->
             <size>0.492 0.334 0.215</size>
           </box>
         </geometry>
