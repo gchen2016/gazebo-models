@@ -48,10 +48,10 @@
     </joint>
     <plugin filename="libgazebo_ros_dynamixel_motor.so" name="dynamixel_motor">
       <joint>rover_amalia_joint_chassis_leg_${prefix}</joint>
-      <base_topic_name>motore_${index}_controller</base_topic_name>
-      <default_pos>${-2*reflect_yz}</default_pos>
+      <base_topic_name>suspension_motor${index}</base_topic_name>
+      <default_pos>${2*reflect_yz*reflect_xz}</default_pos>
       <default_torque_limit>100000</default_torque_limit>
-      <reduction_value>6.3</reduction_value>
+      <reduction_value>${-6.3*reflect_xz}</reduction_value>
     </plugin>
     <plugin filename="libgazebo_ros_joint_state_publisher.so" name="arm_${prefix}">
       <robotNamespace></robotNamespace>
@@ -68,16 +68,16 @@
     <xacro:rover_amalia_turret Ox="${turret_base_x}" Oy="0" Oz="${chassis_height+0.1}" bar_height="0.2"/>
     <xacro:rover_amalia_turret_inertials Ox="${turret_base_x}" Oy="0" Oz="${chassis_height+0.1}" bar_height="0.2"/>
     <xacro:rover_amalia_chassis Ox="0" Oy="0" Oz="${chassis_height}" body_size_x="${chassis_size_x}" body_size_y="${chassis_size_y}" body_size_z="${chassis_size_z}" turret_base_x="${turret_base_x}" turret_base_y="0"/>
-    <xacro:rover_amalia_leg Ox="${leg_x}" Oy="${leg_y}" Oz="0" prefix="f_r" reflect_xz="1" reflect_yz="1" bar_length="${leg_bar_length}" bar_radius="${leg_bar_radius}" wheel_radius="${wheel_radius}" wheel_length="${wheel_length}" model_root="rover_amalia_leg"/>
-    <xacro:rover_amalia_leg Ox="${leg_x}" Oy="${leg_y}" Oz="0" prefix="f_l" reflect_xz="-1" reflect_yz="1" bar_length="${leg_bar_length}" bar_radius="${leg_bar_radius}" wheel_radius="${wheel_radius}" wheel_length="${wheel_length}" model_root="rover_amalia_leg"/>
-    <xacro:rover_amalia_leg Ox="${leg_x}" Oy="${leg_y}" Oz="0" prefix="b_r" reflect_xz="1" reflect_yz="-1" bar_length="${leg_bar_length}" bar_radius="${leg_bar_radius}" wheel_radius="${wheel_radius}" wheel_length="${wheel_length}" model_root="rover_amalia_leg"/>
-    <xacro:rover_amalia_leg Ox="${leg_x}" Oy="${leg_y}" Oz="0" prefix="b_l" reflect_xz="-1" reflect_yz="-1" bar_length="${leg_bar_length}" bar_radius="${leg_bar_radius}" wheel_radius="${wheel_radius}" wheel_length="${wheel_length}" model_root="rover_amalia_leg"/>
+    <xacro:rover_amalia_leg Ox="${leg_x}" Oy="${leg_y}" Oz="0" prefix="f_l" reflect_xz="1" reflect_yz="1" bar_length="${leg_bar_length}" bar_radius="${leg_bar_radius}" wheel_radius="${wheel_radius}" wheel_length="${wheel_length}" model_root="rover_amalia_leg"/>
+    <xacro:rover_amalia_leg Ox="${leg_x}" Oy="${leg_y}" Oz="0" prefix="f_r" reflect_xz="-1" reflect_yz="1" bar_length="${leg_bar_length}" bar_radius="${leg_bar_radius}" wheel_radius="${wheel_radius}" wheel_length="${wheel_length}" model_root="rover_amalia_leg"/>
+    <xacro:rover_amalia_leg Ox="${leg_x}" Oy="${leg_y}" Oz="0" prefix="b_l" reflect_xz="1" reflect_yz="-1" bar_length="${leg_bar_length}" bar_radius="${leg_bar_radius}" wheel_radius="${wheel_radius}" wheel_length="${wheel_length}" model_root="rover_amalia_leg"/>
+    <xacro:rover_amalia_leg Ox="${leg_x}" Oy="${leg_y}" Oz="0" prefix="b_r" reflect_xz="-1" reflect_yz="-1" bar_length="${leg_bar_length}" bar_radius="${leg_bar_radius}" wheel_radius="${wheel_radius}" wheel_length="${wheel_length}" model_root="rover_amalia_leg"/>
     
     <!--additional joints-->
-    <xacro:rover_amalia_joint_chassis_leg prefix="f_r" reflect_xz="1" reflect_yz="1" index="1"/>
-    <xacro:rover_amalia_joint_chassis_leg prefix="f_l" reflect_xz="-1" reflect_yz="1" index="2"/>
-    <xacro:rover_amalia_joint_chassis_leg prefix="b_r" reflect_xz="1" reflect_yz="-1" index="3"/>
-    <xacro:rover_amalia_joint_chassis_leg prefix="b_l" reflect_xz="-1" reflect_yz="-1" index="4"/>
+    <xacro:rover_amalia_joint_chassis_leg prefix="b_r" reflect_xz="-1" reflect_yz="-1" index="1"/>
+    <xacro:rover_amalia_joint_chassis_leg prefix="f_l" reflect_xz="1" reflect_yz="1" index="3"/>
+    <xacro:rover_amalia_joint_chassis_leg prefix="f_r" reflect_xz="-1" reflect_yz="1" index="2"/>
+    <xacro:rover_amalia_joint_chassis_leg prefix="b_l" reflect_xz="1" reflect_yz="-1" index="4"/>
 
     <joint name="rover_amalia_joint_turret_base_turret" type="revolute">
       <child>rover_amalia_turret_bar</child>
@@ -141,7 +141,7 @@
       <wheelSeparation>${chassis_size_x}</wheelSeparation>
       <wheelDiameter>${wheel_radius*2}</wheelDiameter>
       <torque>50.0</torque>
-      <commandTopic>cmd_vel</commandTopic>
+      <commandTopic>/set_velocity</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <robotBaseFrame>real_pose</robotBaseFrame>
