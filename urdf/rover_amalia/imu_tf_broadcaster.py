@@ -14,13 +14,15 @@ class ImuPublisher():
 
     def on_imu_msg(self, msg):
         q = msg.orientation
-        self.tf_broadcaster.sendTransform( (0, 0, 0),
-                        (q.x, q.y, q.z, q.w),
-                        #rospy.Time.now(),
-                        rospy.Time.from_sec(time.time()),
-                        to_tf_name,
-                        from_tf_name)
-        
+        self.tf_broadcaster.sendTransform(
+            (0, 0, 0),
+            (q.x, q.y, q.z, q.w),
+            #rospy.Time.now(),
+            # .from_sec(time.time()),
+            msg.header.stamp,
+            to_tf_name,
+            from_tf_name)
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
